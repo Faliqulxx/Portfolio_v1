@@ -10,9 +10,9 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
-const baseUrlMeta = `${new URL("")}`;
+const baseUrlMeta = `${new URL("https://bayumaulanaikhsan.my.id/")}`;
 export const metadata = {
-  metadataBase: new URL(""),
+  metadataBase: new URL("https://bayumaulanaikhsan.my.id/"),
   title: "Faliqul Ishbah | Portfolio",
   description:
     "Faliqul Ishbah is a web developer with 2 years of experience.",
