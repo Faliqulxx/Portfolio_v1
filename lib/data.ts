@@ -35,8 +35,8 @@ export const links = [
 ] as const;
 export const experiencesData = [
   {
-    title: "AI Automation Intern",
-    location: "Universitas Muhammadiyah Malang",
+    title: "AI Automation  (Freelance)",
+    location: "Gresik",
     description:
       "Worked as an AI Automation Intern focusing on the development of an AI-based chatbot for the Informatics Study Program. Designed and implemented automated workflows, integrated APIs, and supported chatbot functionality to provide academic information and improve user interaction efficiency.",
     icon: React.createElement(CgWorkAlt),
@@ -304,6 +304,26 @@ export const skilss = [
   {
     id: 11,
     imgUrl: "/images/icon/python-svgrepo-com.svg",
+  },
+  {
+    id: 12,
+    imgUrl: "/images/icon/vscode.svg",
+  },
+  {
+    id: 13,
+    imgUrl: "/images/icon/n8n.svg",
+  },
+  {
+    id: 14,
+    imgUrl: "/images/icon/postgresql.svg",
+  },
+    {
+    id: 15,
+    imgUrl: "/images/icon/windows.svg",
+  },
+    {
+    id: 16,
+    imgUrl: "/images/icon/supabase.svg",
   },
   // {
   //   id: 10,

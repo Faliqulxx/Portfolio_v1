@@ -23,7 +23,7 @@ export default function Skills() {
       <div className="bg-emerald-400 absolute -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] dark:bg-[#183D3D]"></div>
 
       <div className="flex justify-center items-center mb-10 gap-2">
-        <SectionHeading>My Skills</SectionHeading>
+        <SectionHeading>Tools & Technologies</SectionHeading>
         <BurstBload2 />
       </div>
 
