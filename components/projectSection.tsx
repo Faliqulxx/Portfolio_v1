@@ -70,7 +70,7 @@ const ProjectSection: React.FC = () => {
     >
       <div ref={sectionRef} className="container mx-auto">
         <div className="flex justify-center mb-2">
-          <SectionHeading>🚀 Projects</SectionHeading>
+          <SectionHeading> Projects</SectionHeading>
           <BurstBload2 />
         </div>
 

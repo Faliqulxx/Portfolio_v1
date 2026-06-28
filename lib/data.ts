@@ -3,7 +3,7 @@ import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
 import wartafenoImg from "@/public/images/project/wartefeno/1.png";
-import siakadImg from "@/public/images/project/siakad/1.png";
+import autogateImg from "@/public/images/project/autogate/1.png";
 import amikomImg from "@/public/images/project/amikom/1.png";
 import hrtoolsImg from "@/public/images/project/hr-tools/1.png";
 
@@ -153,61 +153,71 @@ export const projectsData = [
     languages: ["Next JS 13", "Tailwind CSS 3", "Framer Motion", "Typescript"],
   },
   {
-    title: "SIAKAD SDN Tegalrandu",
+    title: "Autogate RFID",
     description:
-      "This is a web-based application about creating report students, crud kelas, crud mata pelajaran, crud siswa, crud nilai students to report with kurikulum 2013",
+      "A smart autogate and parking access system based on IoT using ESP32, RFID, ultrasonic sensors, servo motor, LCD display, and web monitoring integration. This system is designed to automate vehicle entry and exit access in residential areas or parking environments using RFID card authentication.",
     screenshots: [
-      "images/project/siakad/2.png",
-      "images/project/siakad/3.png",
-      "images/project/siakad/4.png",
-      "images/project/siakad/5.png",
-      "images/project/siakad/7.png",
+      "images/project/autogate/1.png",
+      "images/project/autogate/2.png",
+      "images/project/autogate/3.png",
+      "images/project/autogate/ur.png",
+      "images/project/autogate/5.png",
+      "images/project/autogate/7.png",
     ],
-    image: "images/project/siakad/1.png",
+    image: "images/project/autogate/1.png",
     tech: [
-      "/images/icon/bootstrap.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg",
+      "/images/icon/next-js.svg",
+      "/images/icon/typescript.svg",
       "/images/icon/jquery-vertical.svg",
-      "/images/icon/mysql.svg",
+      "/images/icon/supabase.svg",
     ],
     demoUrl: null,
     githubUrl: null,
-    features: [
-      "Create, Read, Update and Delete Data Kelas, Siswa, and Mata Pelajaran.",
-      "Create, Read, Update and Delete Data Nilai Siswa.",
-      "Create, Read, Update and Delete Data User to Access App.",
-      "If you add teacher data, it will Automatically Send an Email.",
-      "You can add data with Multiple Row or Import from File Excel.",
-      "Students can print their own report cards so parents can see student learning progress.",
-      "Show Data Development of Student Grades With Charts.",
-    ],
-    languages: ["Laravel 8", "Bootstrap 4", "MYSQL 5.3", "Jquery"],
+  features: [
+    "RFID-based vehicle access authentication system.",
+    "Automatic gate control using servo motor.",
+    "Vehicle detection using ultrasonic sensors.",
+    "LCD display for access status and user instructions.",
+    "Buzzer and LED indicators for valid and invalid access notifications.",
+    "Automatic gate closing after vehicle passes the sensor.",
+    "Real-time monitoring system for vehicle entry and exit.",
+    "Designed for smart parking and residential security simulation.",
+    "ESP32-based IoT communication and automation.",
+    "Simple prototype miniaturized using cardboard and custom road simulation.",
+  ],
+  languages: [
+    "ESP32",
+    "Arduino IDE",
+    "C++",
+    "React",
+    "Supabase",
+  ],
   },
-  {
-    title: "Wartafeno",
+{
+    title: "Multi-Service AI Assistant Bot",
     description:
-      "Wartafeno is a website that is used to convey news from the LPMT Fenomena of UNY, this website was made using wordpress and elementor and mysql database.",
+      "An intelligent, multi-purpose AI Assistant integrated with n8n workflow automation. It leverages Large Language Models (LLMs) and Vector Databases to provide contextual responses and execute actions across four core modules: Academic Information, Personal Finance Tracking, Appointment Booking, and Car Rental Management.",
     screenshots: [
-      "images/project/wartefeno/2.png",
-      "images/project/wartefeno/3.png",
-      "images/project/wartefeno/4.png",
-      "images/project/wartefeno/5.png",
+      "images/project/automation-ai/1.png",
+      "images/project/automation-ai/2.png",
+      "images/project/automation-ai/3.png",
     ],
-    image: "images/project/wartefeno/1.png",
+    image: "images/project/automation-ai/1.png",
     tech: [
-      "https://upload.wikimedia.org/wikipedia/commons/9/98/WordPress_blue_logo.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/8/8a/Elementor_icon.svg",
-      "/images/icon/mysql.svg",
+      "/images/icon/n8n.svg",
+      "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
+      "/images/icon/supabase.svg",
+      "/images/icon/postgresql.svg",
     ],
-    demoUrl: "https://wartafeno.com/",
-    githubUrl: null,
+    demoUrl: null,
+    githubUrl: "https://github.com/faliq/multi-service-ai-chatbot",
     features: [
-      "Redesign with new theme and design.",
-      "Fixed some bug searching.",
-      "Add Dark Mode.",
-      "Added an author page to see which authors have written any articles.",
+      "Academic Information System: Retrieval-Augmented Generation (RAG) for answering campus regulations and schedules accurately using vector embeddings.",
+      "Finance Tracker: Automatically logs income or expenses into the database through simple chat commands, equipped with budget alerts.",
+      "Instant Booking & Car Rental: Seamless end-to-end scheduling and fleet availability check via dynamic API and database lookups.",
+      "Advanced Router: n8n conditional routing logic to seamlessly direct user intents to the correct service module without overlapping."
     ],
-    languages: ["Wordpress", "MYSQL", "Elementor"],
+    languages: ["n8n", "OpenAI API", "Supabase (Vector)", "PostgreSQL"],
   },
   {
     title: "HR-TOOLS",
@@ -254,6 +264,7 @@ export const skillsData = [
   "MYSQL",
   "Git",
   "python",
+  "cisco",
   // "Framer Motion",
 ] as const;
 
@@ -324,6 +335,10 @@ export const skilss = [
     {
     id: 16,
     imgUrl: "/images/icon/supabase.svg",
+  },
+    {
+    id: 16,
+    imgUrl: "/images/icon/cisco.svg",
   },
   // {
   //   id: 10,

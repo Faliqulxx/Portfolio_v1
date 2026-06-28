@@ -17,7 +17,7 @@ export default function Intro() {
     <section
       id="home"
       ref={ref}
-      className="mb-28 max-w-[70rem] mx-auto scroll-mt-[50rem]"
+      className="mb-28 max-w-[70rem] mx-auto scroll-mt-[28rem]"
     >
       <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 text-center lg:text-left">
         {/* TEKS (KIRI) */}
@@ -35,14 +35,15 @@ export default function Intro() {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <span className="font-bold">I'm</span> experience in{" "}
+            <span className="font-bold">Saya</span> memiliki pengalaman dalam{" "}
             <span className="font-bold">
-              Data Science, Data Analysis, and AI Automation
+              Data Science, Data Analysis, AI Automation, IoT Development, dan
+              Frontend Development
             </span>
-            , with hands-on experience using{" "}
-            <span className="font-bold">Laravel</span> and{" "}
-            <span className="font-bold">n8n</span>, as well as{" "}
-            <span className="font-bold">Python</span> and{" "}
+            , dengan kemampuan menggunakan{" "}
+            <span className="font-bold">React</span>,{" "}
+            <span className="font-bold">n8n</span>,{" "}
+            <span className="font-bold">Python</span>, dan{" "}
             <span className="font-bold">SQL</span>.
           </motion.h4>
 
@@ -52,7 +53,7 @@ export default function Intro() {
               href="#contact"
               className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full hover:scale-110 transition"
             >
-              Contact me here
+              Hubungi Saya
               <BsArrowRight className="group-hover:translate-x-1 transition" />
             </Link>
 
@@ -75,7 +76,7 @@ export default function Intro() {
           className="flex flex-col items-center gap-4 flex-shrink-0"
         >
           <Image
-            src="/images/profile.jpg"
+            src="/images/profile.png"
             alt="Faliqul Ishbah"
             width={192}
             height={192}
@@ -86,42 +87,97 @@ export default function Intro() {
           <div className="flex flex-row items-center justify-center gap-2 text-lg font-medium mt-5">
             {/* LinkedIn */}
             <a
-              className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60
-               hover:bg-[#0077B5] hover:text-white"
+              className="
+      group
+      bg-white
+      p-4
+      text-gray-700
+      rounded-full
+      transition-all
+      duration-300
+      cursor-pointer
+      borderBlack
+      dark:bg-white/10
+      dark:text-white/60
+      hover:bg-[#0077B5]
+      hover:scale-110
+    "
               href="https://www.linkedin.com/in/faliqulishbah/"
               target="_blank"
             >
-              <BsLinkedin />
+              <BsLinkedin className="transition group-hover:text-white" />
             </a>
 
             {/* Email */}
             <a
-              className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60
-               hover:bg-[#D44638] hover:text-white"
+              className="
+      group
+      bg-white
+      p-4
+      text-gray-700
+      rounded-full
+      transition-all
+      duration-300
+      cursor-pointer
+      borderBlack
+      dark:bg-white/10
+      dark:text-white/60
+      hover:bg-[#D44638]
+      hover:scale-110
+    "
               href="mailto:faliqul.isback@gmail.com"
               target="_blank"
             >
-              <RiMailSendLine />
+              <RiMailSendLine className="transition group-hover:text-white" />
             </a>
 
             {/* GitHub */}
             <a
-              className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60
-               hover:bg-black hover:text-white"
+              className="
+      group
+      bg-white
+      p-4
+      text-gray-700
+      rounded-full
+      transition-all
+      duration-300
+      cursor-pointer
+      borderBlack
+      dark:bg-white/10
+      dark:text-white/60
+      hover:bg-black
+      hover:scale-110
+    "
               href="https://github.com/Faliqulxx"
               target="_blank"
             >
-              <FaGithubSquare />
+              <FaGithubSquare className="transition group-hover:text-white" />
             </a>
 
             {/* Instagram */}
             <a
-              className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60
-               hover:bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] hover:text-white"
+              className="
+      group
+      bg-white
+      p-4
+      text-gray-700
+      rounded-full
+      transition-all
+      duration-300
+      cursor-pointer
+      borderBlack
+      dark:bg-white/10
+      dark:text-white/60
+      hover:bg-gradient-to-tr
+      from-[#F58529]
+      via-[#DD2A7B]
+      to-[#8134AF]
+      hover:scale-110
+    "
               href="https://www.instagram.com/Faliqulx/"
               target="_blank"
             >
-              <BsInstagram />
+              <BsInstagram className="transition group-hover:text-white" />
             </a>
           </div>
         </motion.div>

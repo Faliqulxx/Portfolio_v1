@@ -1,16 +1,37 @@
 "use client";
 
-import { useTheme } from "@/context/theme-context";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BsMoon, BsSun } from "react-icons/bs";
+import { useTheme } from "@/context/theme-context";
 
 export default function ThemeSwitch() {
   const { theme, toggleTheme } = useTheme();
 
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Mencegah hydration mismatch
+  if (!mounted) return null;
+
   return (
     <button
-      className="fixed bottom-5 right-5 bg-white w-[3rem] h-[3rem] bg-opacity-80 backdrop-blur-[0.5rem] border border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center hover:scale-[1.15] active:scale-105 transition-all dark:bg-gray-950"
       onClick={toggleTheme}
+      className="
+        fixed bottom-5 right-5 z-[9999]
+        w-[3rem] h-[3rem]
+        rounded-full
+        bg-white/80 dark:bg-gray-950
+        border border-white/40
+        backdrop-blur-md
+        shadow-2xl
+        flex items-center justify-center
+        transition-all
+        hover:scale-110
+        active:scale-95
+      "
     >
       {theme === "light" ? <BsSun /> : <BsMoon />}
     </button>

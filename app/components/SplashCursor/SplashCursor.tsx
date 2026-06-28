@@ -56,8 +56,8 @@ export default function SplashCursor({
   SIM_RESOLUTION = 128,
   DYE_RESOLUTION = 1440,
   CAPTURE_RESOLUTION = 512,
-  DENSITY_DISSIPATION = 4,   // lebih besar = cepat hilang
-  VELOCITY_DISSIPATION = 3,  // lebih besar = gerakan cepat memudar
+  DENSITY_DISSIPATION = 7,   // lebih besar = cepat hilang
+  VELOCITY_DISSIPATION = 5,  // lebih besar = gerakan cepat memudar
   PRESSURE = 0.1,
   PRESSURE_ITERATIONS = 20,
   CURL = 3,
