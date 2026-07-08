@@ -219,13 +219,13 @@ export const projectsData = [
     description:
       "An intelligent, multi-purpose WhatsApp AI Assistant integrated with n8n workflow automation. It leverages Large Language Models (LLMs) and Vector Databases to provide contextual responses and execute actions across four core modules: Academic Information, Personal Finance Tracking, Appointment Booking, and Car Rental Management.",
     screenshots: [
-      "images/project/chatbot-ai/1.png",
-      "images/project/chatbot-ai/2.png",
-      "images/project/chatbot-ai/3.png",
-      "images/project/chatbot-ai/4.png",
-      "images/project/chatbot-ai/5.png",
+      "images/project/chatbot_ai/1.png",
+      "images/project/chatbot_ai/2.png",
+      "images/project/chatbot_ai/3.png",
+      "images/project/chatbot_ai/4.png",
+      "images/project/chatbot_ai/5.png",
     ],
-    image: "images/project/chatbot-ai/1.png",
+    image: "images/project/chatbot_ai/1.png",
     tech: [
       "/images/icon/n8n.svg",
       "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
