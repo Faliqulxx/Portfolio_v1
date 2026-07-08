@@ -173,27 +173,21 @@ export const projectsData = [
     ],
     demoUrl: null,
     githubUrl: null,
-  features: [
-    "RFID-based vehicle access authentication system.",
-    "Automatic gate control using servo motor.",
-    "Vehicle detection using ultrasonic sensors.",
-    "LCD display for access status and user instructions.",
-    "Buzzer and LED indicators for valid and invalid access notifications.",
-    "Automatic gate closing after vehicle passes the sensor.",
-    "Real-time monitoring system for vehicle entry and exit.",
-    "Designed for smart parking and residential security simulation.",
-    "ESP32-based IoT communication and automation.",
-    "Simple prototype miniaturized using cardboard and custom road simulation.",
-  ],
-  languages: [
-    "ESP32",
-    "Arduino IDE",
-    "C++",
-    "React",
-    "Supabase",
-  ],
+    features: [
+      "RFID-based vehicle access authentication system.",
+      "Automatic gate control using servo motor.",
+      "Vehicle detection using ultrasonic sensors.",
+      "LCD display for access status and user instructions.",
+      "Buzzer and LED indicators for valid and invalid access notifications.",
+      "Automatic gate closing after vehicle passes the sensor.",
+      "Real-time monitoring system for vehicle entry and exit.",
+      "Designed for smart parking and residential security simulation.",
+      "ESP32-based IoT communication and automation.",
+      "Simple prototype miniaturized using cardboard and custom road simulation.",
+    ],
+    languages: ["ESP32", "Arduino IDE", "C++", "React", "Supabase"],
   },
-{
+  {
     title: "Multi-Service AI Assistant Bot",
     description:
       "An intelligent, multi-purpose AI Assistant integrated with n8n workflow automation. It leverages Large Language Models (LLMs) and Vector Databases to provide contextual responses and execute actions across four core modules: Academic Information, Personal Finance Tracking, Appointment Booking, and Car Rental Management.",
@@ -215,7 +209,7 @@ export const projectsData = [
       "Academic Information System: Retrieval-Augmented Generation (RAG) for answering campus regulations and schedules accurately using vector embeddings.",
       "Finance Tracker: Automatically logs income or expenses into the database through simple chat commands, equipped with budget alerts.",
       "Instant Booking & Car Rental: Seamless end-to-end scheduling and fleet availability check via dynamic API and database lookups.",
-      "Advanced Router: n8n conditional routing logic to seamlessly direct user intents to the correct service module without overlapping."
+      "Advanced Router: n8n conditional routing logic to seamlessly direct user intents to the correct service module without overlapping.",
     ],
     languages: ["n8n", "OpenAI API", "Supabase (Vector)", "PostgreSQL"],
   },
@@ -328,15 +322,15 @@ export const skilss = [
     id: 14,
     imgUrl: "/images/icon/postgresql.svg",
   },
-    {
+  {
     id: 15,
     imgUrl: "/images/icon/windows.svg",
   },
-    {
+  {
     id: 16,
     imgUrl: "/images/icon/supabase.svg",
   },
-    {
+  {
     id: 16,
     imgUrl: "/images/icon/cisco.svg",
   },

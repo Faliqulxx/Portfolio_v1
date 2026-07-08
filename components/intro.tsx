@@ -35,15 +35,14 @@ export default function Intro() {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <span className="font-bold">Saya</span> memiliki pengalaman dalam{" "}
+            I have hands-on experience in{" "}
             <span className="font-bold">
-              Data Science, Data Analysis, AI Automation, IoT Development, dan
+              Data Science, Data Analysis, AI Automation, IoT Development, and
               Frontend Development
             </span>
-            , dengan kemampuan menggunakan{" "}
-            <span className="font-bold">React</span>,{" "}
+            , with expertise in <span className="font-bold">React</span>,{" "}
             <span className="font-bold">n8n</span>,{" "}
-            <span className="font-bold">Python</span>, dan{" "}
+            <span className="font-bold">Python</span>, and{" "}
             <span className="font-bold">SQL</span>.
           </motion.h4>
 
@@ -53,7 +52,7 @@ export default function Intro() {
               href="#contact"
               className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full hover:scale-110 transition"
             >
-              Hubungi Saya
+              Contact Me
               <BsArrowRight className="group-hover:translate-x-1 transition" />
             </Link>
 

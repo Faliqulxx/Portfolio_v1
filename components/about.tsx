@@ -42,7 +42,7 @@ export default function About() {
       >
         {/* JUDUL */}
         <div className="flex justify-center mb-12 relative">
-          <SectionHeading> Tentang Saya</SectionHeading>
+          <SectionHeading> About Me</SectionHeading>
           <BurstBload />
         </div>
 
@@ -52,11 +52,11 @@ export default function About() {
           {/* ================= TEXT ================= */}
           <div className="flex-1 text-left">
             <p className="leading-9 text-lg text-gray-700 dark:text-white/80">
-              Halo, saya Faliq! Saya memiliki minat dan fokus utama pada{" "}
+              Hello, I'm Faliq! My primary interests and expertise are in{" "}
               <span className="font-semibold text-gray-900 dark:text-white">
                 Data Science
               </span>
-              , didukung dengan kemampuan dalam{" "}
+              , supported by skills in{" "}
               <span className="font-semibold text-gray-900 dark:text-white">
                 Data Analysis
               </span>
@@ -64,77 +64,75 @@ export default function About() {
               <span className="font-semibold text-gray-900 dark:text-white">
                 AI Automation
               </span>
-              , dan{" "}
+              , and{" "}
               <span className="font-semibold text-gray-900 dark:text-white">
                 Internet of Things (IoT)
               </span>
               .
               <br />
-              <br />
-              Saya memiliki pengalaman dalam{" "}
+              <br />I have experience in{" "}
               <span className="font-semibold text-gray-900 dark:text-white">
-                pengolahan data
+                data processing
               </span>
               ,{" "}
               <span className="font-semibold text-gray-900 dark:text-white">
-                analisis
+                data analysis
               </span>
               ,{" "}
               <span className="font-semibold text-gray-900 dark:text-white">
-                visualisasi data
+                data visualization
               </span>
-              , serta{" "}
+              , and{" "}
               <span className="font-semibold text-gray-900 dark:text-white">
                 machine learning
               </span>
-              , untuk mengubah data mentah menjadi{" "}
+              , transforming raw data into{" "}
               <span className="font-semibold text-gray-900 dark:text-white">
-                insight yang bermanfaat
+                valuable insights
               </span>{" "}
-              menggunakan{" "}
+              using{" "}
               <span className="font-semibold text-gray-900 dark:text-white">
-                Python, Pandas, Scikit-learn, dan SQL
+                Python, Pandas, Scikit-learn, and SQL
               </span>
               .
               <br />
               <br />
-              Dalam bidang AI Automation, saya membangun{" "}
+              In the field of AI Automation, I design and develop{" "}
               <span className="font-semibold text-gray-900 dark:text-white">
-                workflow otomatis
+                automated workflows
               </span>{" "}
-              menggunakan{" "}
+              using{" "}
               <span className="font-semibold text-gray-900 dark:text-white">
                 n8n
               </span>
-              , mengintegrasikan{" "}
+              , integrate{" "}
               <span className="font-semibold text-gray-900 dark:text-white">
-                RESTful API
+                RESTful APIs
               </span>
-              , serta mengotomatisasi pipeline data untuk meningkatkan efisiensi
-              operasional.
+              , and automate data pipelines to improve operational efficiency.
               <br />
-              <br />
-              Saya juga memiliki ketertarikan dan pengalaman dalam pengembangan{" "}
+              <br />I also have a strong interest and hands-on experience in
+              developing{" "}
               <span className="font-semibold text-gray-900 dark:text-white">
-                sistem IoT
+                IoT systems
               </span>
-              , monitoring perangkat berbasis sensor, serta implementasi teknologi
-              untuk{" "}
+              , sensor-based device monitoring, and implementing smart
+              technologies for{" "}
               <span className="font-semibold text-gray-900 dark:text-white">
-                peternakan
+                livestock farming
               </span>{" "}
-              dan{" "}
+              and{" "}
               <span className="font-semibold text-gray-900 dark:text-white">
-                perkebunan pintar
+                smart agriculture
               </span>{" "}
-              guna meningkatkan efisiensi monitoring dan otomatisasi.
+              to enhance monitoring, automation, and overall efficiency.
               <br />
               <br />
-              Tujuan saya adalah menciptakan{" "}
+              My goal is to create{" "}
               <span className="font-semibold text-gray-900 dark:text-white">
-                solusi berbasis data, AI, dan IoT yang berdampak
+                impactful data-driven, AI-powered, and IoT-based solutions
               </span>{" "}
-              melalui automasi yang inovatif dan bermanfaat.
+              through innovative automation that delivers real-world value.
             </p>
           </div>
 
@@ -145,7 +143,6 @@ export default function About() {
             transition={{ duration: 0.4 }}
             className="w-full lg:w-[420px]"
           >
-
             {/* SCROLL AREA */}
             <div
               className="
