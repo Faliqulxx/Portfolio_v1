@@ -195,6 +195,7 @@ export const projectsData = [
       "images/project/automation-ai/1.png",
       "images/project/automation-ai/2.png",
       "images/project/automation-ai/3.png",
+      "images/project/automation-ai/4.png",
     ],
     image: "images/project/automation-ai/1.png",
     tech: [
@@ -204,7 +205,7 @@ export const projectsData = [
       "/images/icon/postgresql.svg",
     ],
     demoUrl: null,
-    githubUrl: "https://github.com/faliq/multi-service-ai-chatbot",
+    githubUrl: "https://github.com/faliqulxx",
     features: [
       "Academic Information System: Retrieval-Augmented Generation (RAG) for answering campus regulations and schedules accurately using vector embeddings.",
       "Finance Tracker: Automatically logs income or expenses into the database through simple chat commands, equipped with budget alerts.",
@@ -212,6 +213,34 @@ export const projectsData = [
       "Advanced Router: n8n conditional routing logic to seamlessly direct user intents to the correct service module without overlapping.",
     ],
     languages: ["n8n", "OpenAI API", "Supabase (Vector)", "PostgreSQL"],
+  },
+  {
+    title: "WhatsApp RAG AI Assistant Chatbot",
+    description:
+      "An intelligent, multi-purpose WhatsApp AI Assistant integrated with n8n workflow automation. It leverages Large Language Models (LLMs) and Vector Databases to provide contextual responses and execute actions across four core modules: Academic Information, Personal Finance Tracking, Appointment Booking, and Car Rental Management.",
+    screenshots: [
+      "images/project/chatbot-ai/1.png",
+      "images/project/chatbot-ai/2.png",
+      "images/project/chatbot-ai/3.png",
+      "images/project/chatbot-ai/4.png",
+      "images/project/chatbot-ai/5.png",
+    ],
+    image: "images/project/chatbot-ai/1.png",
+    tech: [
+      "/images/icon/n8n.svg",
+      "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
+      "/images/icon/supabase.svg",
+      "/images/icon/postgresql.svg",
+    ],
+    demoUrl: null,
+    githubUrl: "https://github.com/faliqulxx",
+    features: [
+      "Retrieval-Augmented Generation (RAG) Implementation: Integrates academic reference documents into the LLM pipeline to provide validated, factual responses regarding campus regulations while minimizing AI hallucinations.",
+      "text-embedding-3-small Vector Optimization: Leverages OpenAI's high-performance embedding model to perform precise cosine similarity searches within the vector store against user queries.",
+      "WhatsApp Gateway Integration: Connects the automated AI workflow directly with a WhatsApp interface, offering students and users 24/7 responsive access to academic inquiries.",
+      "n8n Workflow Orchestration: Utilizes n8n as the core backend orchestrator to seamlessly manage data routing, from handling incoming payloads to querying vector databases and dispatching final responses.",
+    ],
+    languages: ["n8n", "Whatsapp", "OpenAI API", "Supabase (Vector)", "PostgreSQL"],
   },
   {
     title: "HR-TOOLS",
