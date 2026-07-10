@@ -271,6 +271,44 @@ export const projectsData = [
     ],
     languages: ["Codeigniter 3", "Bootstrap 3", "MYSQL 5.3", "Jquery"],
   },
+  {
+  title: "Cat Breed Classification",
+  description:
+    "A deep learning-based web application for classifying 12 cat breeds using image recognition. This project compares CNN Scratch, MobileNetV2, and ResNet50 models, with MobileNetV2 achieving the best classification performance through transfer learning.",
+  image: "images/project/cat-breed/1.png",
+  screenshots: [
+    "images/project/cat-breed/2.png",
+    "images/project/cat-breed/3.png",
+    "images/project/cat-breed/4.png",
+    "images/project/cat-breed/5.png",
+    "images/project/cat-breed/6.png",
+    "images/project/cat-breed/7.png",
+  ],
+  tech: [
+    "/images/icon/python.svg",
+    "/images/icon/tensorflow.svg",
+    "/images/icon/keras.svg",
+    "/images/icon/streamlit.svg",
+    "/images/icon/opencv.svg",
+  ],
+  demoUrl: null,
+  githubUrl: null,
+  features: [
+    "Classifies images into 12 different cat breeds using Deep Learning.",
+    "Compares CNN Scratch, MobileNetV2, and ResNet50 classification models.",
+    "Performs image preprocessing and data augmentation for better model generalization.",
+    "Displays prediction confidence scores and probability distribution for each class.",
+    "Provides interactive image upload and prediction through a Streamlit dashboard.",
+    "Visualizes model performance with accuracy-loss curves and confusion matrices.",
+  ],
+  languages: [
+    "Python",
+    "TensorFlow",
+    "Keras",
+    "Streamlit",
+    "OpenCV",
+  ],
+},
 ] as const;
 
 export const skillsData = [
