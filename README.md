@@ -163,21 +163,6 @@ Portfolio ini dibuat sebagai media untuk:
 
 ---
 
-# 🚀 Pengembangan Selanjutnya
-
-Beberapa fitur yang sedang dan akan dikembangkan pada portfolio ini antara lain:
-
-- 🤖 AI Portfolio Assistant
-- 🧠 Chatbot berbasis OpenAI
-- 📄 Integrasi CV
-- 🎓 Integrasi Skripsi
-- 📜 Halaman Sertifikat
-- 📝 Blog
-- 🌍 Multi Bahasa (Indonesia & Inggris)
-- 🔍 Retrieval-Augmented Generation (RAG) sebagai knowledge base AI
-
----
-
 # 👨‍💻 Tentang Saya
 
 Saya adalah lulusan Informatika yang memiliki ketertarikan dalam bidang:
