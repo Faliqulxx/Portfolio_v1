@@ -21,46 +21,21 @@ Portfolio ini dibangun dengan fokus pada **User Experience (UX)**, **performa**,
 
 # ✨ Fitur Utama
 
-### 👋 Hero Section
-- Perkenalan singkat mengenai diri.
-- Informasi posisi dan bidang yang ditekuni.
-- Tombol untuk menghubungi dan mengunduh CV.
+| 👋 Hero Section | 👨 Tentang Saya |
+|----------------|-----------------|
+| - Perkenalan singkat mengenai diri.<br>- Informasi posisi dan bidang yang ditekuni.<br>- Tombol untuk menghubungi dan mengunduh CV. | - Profil singkat.<br>- Latar belakang.<br>- Minat dan fokus pengembangan. |
 
-### 👨 Tentang Saya
-- Profil singkat.
-- Latar belakang.
-- Minat dan fokus pengembangan.
+| 💼 Pengalaman | 🚀 Project Showcase |
+|--------------|---------------------|
+| - Pengalaman organisasi.<br>- Pengalaman magang atau pekerjaan.<br>- Timeline perjalanan profesional. | - Menampilkan proyek yang pernah dikerjakan.<br>- Informasi teknologi yang digunakan.<br>- Deskripsi singkat setiap proyek.<br>- Tautan menuju GitHub maupun Demo. |
 
-### 💼 Pengalaman
-- Pengalaman organisasi.
-- Pengalaman magang atau pekerjaan.
-- Timeline perjalanan profesional.
+| 🧠 Skills | 📬 Contact |
+|-----------|------------|
+| - Bahasa pemrograman.<br>- Framework.<br>- Database.<br>- Artificial Intelligence.<br>- Data Science.<br>- Tools & Platform. | - Form kontak.<br>- Integrasi email.<br>- Informasi media sosial. |
 
-### 🚀 Project Showcase
-- Menampilkan proyek yang pernah dikerjakan.
-- Informasi teknologi yang digunakan.
-- Deskripsi singkat setiap proyek.
-- Tautan menuju GitHub maupun Demo (jika tersedia).
-
-### 🧠 Skills
-- Bahasa pemrograman.
-- Framework.
-- Database.
-- Artificial Intelligence.
-- Data Science.
-- Tools & Platform.
-
-### 📬 Contact
-- Form kontak.
-- Integrasi email.
-- Informasi media sosial.
-
-### 🌙 Modern User Experience
-- Responsive Design.
-- Smooth Scrolling.
-- Framer Motion Animation.
-- Dark Theme.
-- Mobile Friendly.
+| 🌙 Modern User Experience | 🚀 AI Portfolio Assistant *(Coming Soon)* |
+|---------------------------|-------------------------------------------|
+| - Responsive Design.<br>- Smooth Scrolling.<br>- Framer Motion Animation.<br>- Dark Theme.<br>- Mobile Friendly. | - Chatbot OpenAI.<br>- Integrasi RAG.<br>- CV & Skripsi AI Search.<br>- Multi Bahasa. |
 
 ---
 
