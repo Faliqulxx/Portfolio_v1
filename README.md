@@ -2,7 +2,7 @@
 
 # 🚀 Web Portfolio - Faliqul Ishbah
 
-Portfolio digital yang dirancang untuk menampilkan pengalaman, proyek, keahlian, dan perjalanan saya sebagai seorang **AI Engineer**, **Data Scientist**, **AI Automation Developer**, serta **Web Developer**.
+Portfolio digital yang dirancang untuk menampilkan pengalaman, proyek, keahlian, dan perjalanan saya sebagai seorang **AI Engineer**, **Data Scientist**, **AI Automation Developer**, serta **Front-End Developer**.
 
 🌐 **Live Website**  
 https://faliq-portfolio.vercel.app/
