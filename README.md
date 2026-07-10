@@ -2,7 +2,7 @@
 
 # 🚀 Web Portfolio - Faliqul Ishbah
 
-Portfolio digital yang dirancang untuk menampilkan pengalaman, proyek, keahlian, dan perjalanan saya sebagai seorang **AI Engineer**, **Data Scientist**, **AI Automation Developer**, serta **Web Developer**.
+Portfolio digital yang dirancang untuk menampilkan pengalaman, proyek, keahlian, dan perjalanan saya sebagai seorang **AI Engineer**, **Data Scientist**, **AI Automation Developer**, serta **Front-End Developer**.
 
 🌐 **Live Website**  
 https://faliq-portfolio.vercel.app/
@@ -70,7 +70,7 @@ Portfolio ini dibangun dengan fokus pada **User Experience (UX)**, **performa**,
 
 - AI
 - Data Science
-- Web Development
+- Front-End Development
 
 <br>
 
@@ -93,6 +93,13 @@ Portfolio ini dibangun dengan fokus pada **User Experience (UX)**, **performa**,
 <img
     src="public/images/portfolio-preview.png"
     alt="Portfolio Preview"
+    width="100%" />
+
+<br><br>
+
+<img
+    src="public/images/portfolio-preview1.png"
+    alt="About Section"
     width="100%" />
 
 </td>
@@ -156,21 +163,6 @@ Portfolio ini dibuat sebagai media untuk:
 
 ---
 
-# 🚀 Pengembangan Selanjutnya
-
-Beberapa fitur yang sedang dan akan dikembangkan pada portfolio ini antara lain:
-
-- 🤖 AI Portfolio Assistant
-- 🧠 Chatbot berbasis OpenAI
-- 📄 Integrasi CV
-- 🎓 Integrasi Skripsi
-- 📜 Halaman Sertifikat
-- 📝 Blog
-- 🌍 Multi Bahasa (Indonesia & Inggris)
-- 🔍 Retrieval-Augmented Generation (RAG) sebagai knowledge base AI
-
----
-
 # 👨‍💻 Tentang Saya
 
 Saya adalah lulusan Informatika yang memiliki ketertarikan dalam bidang:
@@ -178,8 +170,8 @@ Saya adalah lulusan Informatika yang memiliki ketertarikan dalam bidang:
 - 🤖 Artificial Intelligence
 - 📊 Data Science
 - ⚙️ AI Automation
-- 🌐 Web Development
-- 📱 Mobile Development
+- 🌐 Front-End Web Development
+- 📱 Front-End Mobile Development
 - 🌱 Internet of Things (IoT)
 
 Saya senang membangun solusi berbasis teknologi yang dapat membantu meningkatkan efisiensi serta memberikan pengalaman pengguna yang lebih baik.
