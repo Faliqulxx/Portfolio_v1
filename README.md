@@ -19,67 +19,128 @@ Portfolio ini dibangun dengan fokus pada **User Experience (UX)**, **performa**,
 
 ---
 
-## ✨ Fitur Utama
+# ✨ Fitur Utama
 
 <table>
 <tr>
-<td width="50%">
+
+<!-- Kolom Kiri -->
+<td width="38%" valign="top">
+
+<table>
+<tr>
+
+<td valign="top">
 
 ### 👋 Hero
+
 - Perkenalan
 - Download CV
 - Contact
 
+<br>
+
 ### 👨 About
+
 - Profil
 - Background
 - Interest
 
+<br>
+
 ### 💼 Experience
+
 - Internship
 - Organization
 - Timeline
 
 </td>
 
-<td width="50%">
+<td valign="top">
 
 ### 🚀 Projects
+
 - Showcase
 - GitHub
 - Live Demo
 
+<br>
+
 ### 🧠 Skills
+
 - AI
 - Data Science
 - Web Development
 
+<br>
+
 ### 📬 Contact
+
 - Email
 - Social Media
 - Contact Form
 
 </td>
+
+</tr>
+</table>
+
+</td>
+
+<!-- Kolom Kanan -->
+<td width="62%" valign="top" align="center">
+
+<img
+    src="public/images/portfolio-preview.png"
+    alt="Portfolio Preview"
+    width="100%" />
+
+</td>
+
 </tr>
 </table>
 
 ---
 
-# 🛠️ Teknologi yang Digunakan
+# 🛠️ Tech Stack
 
-### Frontend
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
-- Framer Motion
+<table>
+<tr>
 
-### Backend
-- Next.js Server Actions
-- Resend API
+<td align="center" width="33%">
 
-### Deployment
-- Vercel
+### 🎨 Frontend
+
+<img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind"/>
+
+Next.js • React • TypeScript • Tailwind CSS • Framer Motion
+
+</td>
+
+<td align="center" width="33%">
+
+### ⚙️ Backend
+
+<img src="https://skillicons.dev/icons?i=nextjs"/><br>
+<img src="https://cdn.simpleicons.org/resend" width="48"/>
+
+Next.js Server Actions<br>
+Resend API
+
+</td>
+
+<td align="center" width="33%">
+
+### ☁️ Deployment
+
+<img src="https://skillicons.dev/icons?i=vercel"/>
+
+Vercel
+
+</td>
+
+</tr>
+</table>
 
 ---
 
