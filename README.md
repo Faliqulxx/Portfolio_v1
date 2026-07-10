@@ -91,8 +91,15 @@ Portfolio ini dibangun dengan fokus pada **User Experience (UX)**, **performa**,
 <td width="62%" valign="top" align="center">
 
 <img
-    src="public/images/portfolio-preview.png"
+    src="public/image/portfolio-preview.png"
     alt="Portfolio Preview"
+    width="100%" />
+
+<br><br>
+
+<img
+    src="public/image/portfolio-preview1.png"
+    alt="About Section"
     width="100%" />
 
 </td>
