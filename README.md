@@ -70,7 +70,7 @@ Portfolio ini dibangun dengan fokus pada **User Experience (UX)**, **performa**,
 
 - AI
 - Data Science
-- Web Development
+- Front-End Development
 
 <br>
 
@@ -170,8 +170,8 @@ Saya adalah lulusan Informatika yang memiliki ketertarikan dalam bidang:
 - 🤖 Artificial Intelligence
 - 📊 Data Science
 - ⚙️ AI Automation
-- 🌐 Web Development
-- 📱 Mobile Development
+- 🌐 Front-End Web Development
+- 📱 Front-End Mobile Development
 - 🌱 Internet of Things (IoT)
 
 Saya senang membangun solusi berbasis teknologi yang dapat membantu meningkatkan efisiensi serta memberikan pengalaman pengguna yang lebih baik.
