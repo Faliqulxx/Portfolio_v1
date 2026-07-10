@@ -19,45 +19,54 @@ Portfolio ini dibangun dengan fokus pada **User Experience (UX)**, **performa**,
 
 ---
 
-## ✨ Fitur Utama
+# ✨ Fitur Utama
 
 <table>
 <tr>
-<td width="50%">
+<td width="55%" valign="top">
 
-### 👋 Hero
-- Perkenalan
-- Download CV
-- Contact
+## 🚀 Fitur
 
-### 👨 About
-- Profil
-- Background
-- Interest
+### 👋 Hero Section
+- Perkenalan singkat mengenai diri.
+- Informasi posisi dan bidang yang ditekuni.
+- Tombol Contact Me dan Download CV.
 
-### 💼 Experience
-- Internship
-- Organization
-- Timeline
+### 👨 Tentang Saya
+- Profil singkat.
+- Latar belakang.
+- Minat dan fokus pengembangan.
+
+### 💼 Pengalaman
+- Timeline pengalaman organisasi, magang, dan profesional.
+
+### 🚀 Project Showcase
+- Daftar project.
+- Teknologi yang digunakan.
+- Link GitHub & Demo.
+
+### 🧠 Skills
+- Programming Language
+- Framework
+- AI & Data Science
+- Tools & Platform
+
+### 📬 Contact
+- Contact Form
+- Email
+- Social Media
+
+### 🌙 Modern UX
+- Responsive
+- Framer Motion
+- Dark Mode
+- Mobile Friendly
 
 </td>
 
-<td width="50%">
+<td width="45%" align="center">
 
-### 🚀 Projects
-- Showcase
-- GitHub
-- Live Demo
-
-### 🧠 Skills
-- AI
-- Data Science
-- Web Development
-
-### 📬 Contact
-- Email
-- Social Media
-- Contact Form
+<img src="images/portfolio-preview.png" width="100%" alt="Portfolio Preview"/>
 
 </td>
 </tr>
