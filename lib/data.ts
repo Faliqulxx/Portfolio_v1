@@ -292,7 +292,7 @@ export const projectsData = [
     "/images/icon/opencv.svg",
   ],
   demoUrl: null,
-  githubUrl: null,
+  githubUrl: "https://github.com/Faliqulxx/UAP_Machine_Learning",
   features: [
     "Classifies images into 12 different cat breeds using Deep Learning.",
     "Compares CNN Scratch, MobileNetV2, and ResNet50 classification models.",
