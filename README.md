@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 Portfolio Pribadi - Faliqul Ishbah
+# 🚀 Web Portfolio - Faliqul Ishbah
 
 Portfolio digital yang dirancang untuk menampilkan pengalaman, proyek, keahlian, dan perjalanan saya sebagai seorang **AI Engineer**, **Data Scientist**, **AI Automation Developer**, serta **Web Developer**.
 
@@ -136,9 +136,3 @@ https://www.linkedin.com/in/faliqul-ishbah/
 https://github.com/Faliqulxx
 
 ---
-
-<div align="center">
-
-⭐ Terima kasih telah mengunjungi repository ini.
-
-</div>
