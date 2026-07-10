@@ -19,11 +19,16 @@ Portfolio ini dibangun dengan fokus pada **User Experience (UX)**, **performa**,
 
 ---
 
-## ✨ Fitur Utama
+<table>
+<tr>
+
+<td width="40%" valign="top">
+
+<!-- Tabel Fitur -->
 
 <table>
 <tr>
-<td width="50%">
+<td>
 
 ### 👋 Hero
 - Perkenalan
@@ -42,7 +47,7 @@ Portfolio ini dibangun dengan fokus pada **User Experience (UX)**, **performa**,
 
 </td>
 
-<td width="50%">
+<td>
 
 ### 🚀 Projects
 - Showcase
@@ -60,6 +65,21 @@ Portfolio ini dibangun dengan fokus pada **User Experience (UX)**, **performa**,
 - Contact Form
 
 </td>
+</tr>
+</table>
+
+</td>
+
+<td width="60%" align="center" valign="top">
+
+<img src="public/images/portfolio-preview.png" width="100%">
+
+<br>
+
+**Portfolio Landing Page**
+
+</td>
+
 </tr>
 </table>
 
