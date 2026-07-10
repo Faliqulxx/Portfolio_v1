@@ -19,54 +19,45 @@ Portfolio ini dibangun dengan fokus pada **User Experience (UX)**, **performa**,
 
 ---
 
-# ✨ Fitur Utama
+## ✨ Fitur Utama
 
 <table>
 <tr>
-<td width="55%" valign="top">
+<td width="50%">
 
-## 🚀 Fitur
+### 👋 Hero
+- Perkenalan
+- Download CV
+- Contact
 
-### 👋 Hero Section
-- Perkenalan singkat mengenai diri.
-- Informasi posisi dan bidang yang ditekuni.
-- Tombol Contact Me dan Download CV.
+### 👨 About
+- Profil
+- Background
+- Interest
 
-### 👨 Tentang Saya
-- Profil singkat.
-- Latar belakang.
-- Minat dan fokus pengembangan.
-
-### 💼 Pengalaman
-- Timeline pengalaman organisasi, magang, dan profesional.
-
-### 🚀 Project Showcase
-- Daftar project.
-- Teknologi yang digunakan.
-- Link GitHub & Demo.
-
-### 🧠 Skills
-- Programming Language
-- Framework
-- AI & Data Science
-- Tools & Platform
-
-### 📬 Contact
-- Contact Form
-- Email
-- Social Media
-
-### 🌙 Modern UX
-- Responsive
-- Framer Motion
-- Dark Mode
-- Mobile Friendly
+### 💼 Experience
+- Internship
+- Organization
+- Timeline
 
 </td>
 
-<td width="45%" align="center">
+<td width="50%">
 
-<img src="public/images/portfolio-preview.png" width="100%" alt="Portfolio Preview"/>
+### 🚀 Projects
+- Showcase
+- GitHub
+- Live Demo
+
+### 🧠 Skills
+- AI
+- Data Science
+- Web Development
+
+### 📬 Contact
+- Email
+- Social Media
+- Contact Form
 
 </td>
 </tr>
@@ -74,21 +65,45 @@ Portfolio ini dibangun dengan fokus pada **User Experience (UX)**, **performa**,
 
 ---
 
-# 🛠️ Teknologi yang Digunakan
+# 🛠️ Tech Stack
 
-### Frontend
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
-- Framer Motion
+<table>
+<tr>
 
-### Backend
-- Next.js Server Actions
-- Resend API
+<td align="center" width="33%">
 
-### Deployment
-- Vercel
+### 🎨 Frontend
+
+<img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind"/>
+
+Next.js • React • TypeScript • Tailwind CSS • Framer Motion
+
+</td>
+
+<td align="center" width="33%">
+
+### ⚙️ Backend
+
+<img src="https://skillicons.dev/icons?i=nextjs"/><br>
+<img src="https://cdn.simpleicons.org/resend" width="48"/>
+
+Next.js Server Actions<br>
+Resend API
+
+</td>
+
+<td align="center" width="33%">
+
+### ☁️ Deployment
+
+<img src="https://skillicons.dev/icons?i=vercel"/>
+
+Vercel
+
+</td>
+
+</tr>
+</table>
 
 ---
 
