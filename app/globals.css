@@ -46,6 +46,8 @@ html.dark {
   border-radius: inherit;
   -webkit-mask: linear-gradient(black, black) content-box content-box,
     linear-gradient(black, black);
+  mask: linear-gradient(black, black) content-box content-box,
+    linear-gradient(black, black);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 }
@@ -111,4 +113,78 @@ html.dark {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.25)
     rgba(255, 255, 255, 0.05);
+}
+
+/* ================= HORIZONTAL PROJECT SCROLLER ================= */
+/* Hides the native scrollbar while keeping native scroll/swipe behavior */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* ================= PROJECT MARQUEE (TWO ROWS) ================= */
+/* Track is duplicated content (2x the project list) sized to its content
+   via w-max. Animating exactly -50% moves it by precisely one full copy
+   of the list, so the loop restarts on an identical frame -> no visible jump. */
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.marquee-row {
+  width: 100%;
+  touch-action: pan-y; /* keep vertical page scroll usable on touch */
+}
+
+.marquee-track {
+  animation: marquee-left var(--marquee-duration, 60s) linear infinite;
+  will-change: transform;
+}
+
+.marquee-track-reverse {
+  animation-name: marquee-right;
+}
+
+/* Pause only the row being hovered; the other row keeps moving */
+.marquee-row:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Subtle left/right fade so cards appear to enter and leave naturally */
+.marquee-fade {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 6%,
+    black 94%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 6%,
+    black 94%,
+    transparent
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
 }

@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { projectsData } from "@/lib/data";
 import BurstBload2 from "./burst-bload-2";
 import { useSectionInView } from "@/lib/hooks";
 import { useInView } from "react-intersection-observer";
-import { FaGithub, FaLink, FaArrowDown } from "react-icons/fa";
+import { FaGithub, FaLink } from "react-icons/fa";
 import { BiLinkExternal } from "react-icons/bi";
 import SectionHeading from "./section-heading";
 
@@ -26,19 +26,59 @@ const ProjectSection: React.FC = () => {
   const [sectionRef, inView] = useInView({
     triggerOnce: true,
   });
-  const [showAllProjects, setShowAllProjects] = useState(false);
-
-  const toggleShowAllProjects = () => {
-    setShowAllProjects(!showAllProjects);
-  };
-
-  const displayedProjects = showAllProjects
-    ? projectsData
-    : projectsData.slice(0, 4);
-
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
+  // --- Horizontal scroll / drag-to-scroll refs ---
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const isDraggingRef = useRef(false);
+  const hasMovedRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollLeftRef = useRef(0);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    isDraggingRef.current = true;
+    hasMovedRef.current = false;
+    setIsDragging(true);
+    startXRef.current = e.pageX - container.offsetLeft;
+    scrollLeftRef.current = container.scrollLeft;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const container = scrollContainerRef.current;
+    if (!isDraggingRef.current || !container) return;
+    e.preventDefault();
+    const x = e.pageX - container.offsetLeft;
+    const walk = x - startXRef.current;
+    if (Math.abs(walk) > 5) hasMovedRef.current = true;
+    container.scrollLeft = scrollLeftRef.current - walk;
+  };
+
+  const handleMouseUp = () => {
+    isDraggingRef.current = false;
+    setIsDragging(false);
+  };
+
+  const handleMouseLeave = () => {
+    isDraggingRef.current = false;
+    setIsDragging(false);
+  };
+
+  // Allows a normal vertical mouse wheel to scroll the row horizontally
+  const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+      e.preventDefault();
+      container.scrollLeft += e.deltaY;
+    }
+  };
+
   const handleProjectClick = (project: any) => {
+    // Ignore the click that fires right after a drag gesture
+    if (hasMovedRef.current) return;
     setSelectedProject(project);
     document.body.style.overflow = "hidden";
   };
@@ -74,8 +114,18 @@ const ProjectSection: React.FC = () => {
           <BurstBload2 />
         </div>
 
-        <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {displayedProjects.map((project, index) => (
+        <div
+          ref={scrollContainerRef}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+          onWheel={handleWheel}
+          className={`mt-5 flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide pb-4 -mx-1 px-1 select-none ${
+            isDragging ? "cursor-grabbing" : "cursor-grab"
+          }`}
+        >
+          {projectsData.map((project, index) => (
             <motion.div
               key={index}
               onClick={() => handleProjectClick(project)}
@@ -83,9 +133,9 @@ const ProjectSection: React.FC = () => {
               animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.9 }}
               transition={{ duration: 0.6, delay: 0.1 * index }}
               exit={{ opacity: 0, scale: 0.9 }}
-              whileHover={{ scale: 1.05 }}
-              style={{ cursor: "pointer" }}
-              className="bg-white dark:bg-[#232D3F] text-black  border-white dark:border-[#232D3F] border-solid border-8 rounded-xl shadow-lg hover:shadow-xl overflow-hidden"
+              whileHover={{ scale: isDragging ? 1 : 1.05 }}
+              style={{ cursor: isDragging ? "grabbing" : "pointer" }}
+              className="flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] bg-white dark:bg-[#232D3F] text-black border-white dark:border-[#232D3F] border-solid border-8 rounded-xl shadow-lg hover:shadow-xl overflow-hidden"
             >
               <img
                 src={project.image}
@@ -137,17 +187,6 @@ const ProjectSection: React.FC = () => {
             </motion.div>
           ))}
         </div>
-        {!showAllProjects && (
-          <div className="flex justify-center mt-10">
-            <button
-              onClick={toggleShowAllProjects}
-              className="group flex items-center justify-center gap-2 h-[3rem] w-[8rem] bg-gray-900 text-white rounded-md outline-none transition-all focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 dark:bg-white dark:bg-opacity-10 disabled:scale-100 disabled:bg-opacity-65"
-            >
-              Load More
-              <FaArrowDown className="text-xs opacity-70 transition-all" />{" "}
-            </button>
-          </div>
-        )}
       </div>
       {/* Modal for detailed description */}
       {selectedProject && (

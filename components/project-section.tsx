@@ -5,7 +5,7 @@ import { projectsData } from "@/lib/data";
 import BurstBload2 from "./burst-bload-2";
 import { useSectionInView } from "@/lib/hooks";
 import { useInView } from "react-intersection-observer";
-import { FaGithub, FaLink, FaArrowDown } from "react-icons/fa";
+import { FaGithub, FaLink } from "react-icons/fa";
 import { BiLinkExternal } from "react-icons/bi";
 import SectionHeading from "./section-heading";
 
@@ -26,16 +26,6 @@ const ProjectSection: React.FC = () => {
   const [sectionRef, inView] = useInView({
     triggerOnce: true,
   });
-  const [showAllProjects, setShowAllProjects] = useState(false);
-
-  const toggleShowAllProjects = () => {
-    setShowAllProjects(!showAllProjects);
-  };
-
-  const displayedProjects = showAllProjects
-    ? projectsData
-    : projectsData.slice(0, 4);
-
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const handleProjectClick = (project: any) => {
@@ -58,6 +48,79 @@ const ProjectSection: React.FC = () => {
     setZoomedImage(null);
   };
 
+  // Split all projects into two roughly-even rows for the marquee
+  const midPoint = Math.ceil(projectsData.length / 2);
+  const rowOneProjects = projectsData.slice(0, midPoint);
+  const rowTwoProjects = projectsData.slice(midPoint);
+
+  // Speed scales with row length so both rows move at the same px/sec pace
+  const rowOneDuration = `${rowOneProjects.length * 8}s`;
+  const rowTwoDuration = `${rowTwoProjects.length * 8}s`;
+
+  // Shared card renderer — identical markup/behavior to the original card,
+  // reused for both rows (and both halves of each row's loop) so nothing
+  // is duplicated in source.
+  const renderProjectCard = (project: any, keyPrefix: string, index: number) => (
+    <motion.div
+      key={`${keyPrefix}-${index}`}
+      onClick={() => handleProjectClick(project)}
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.9 }}
+      transition={{ duration: 0.6, delay: 0.05 * (index % 10) }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      whileHover={{ scale: 1.05 }}
+      className="flex-shrink-0 cursor-pointer w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] bg-white dark:bg-[#232D3F] text-black border-white dark:border-[#232D3F] border-solid border-8 rounded-xl shadow-lg hover:shadow-xl overflow-hidden"
+    >
+      <img
+        src={project.image}
+        alt={project.title}
+        className="w-full h-49 object-cover"
+      />
+      <div className="p-4">
+        <h3 className="text-xl font-semibold mb-2 dark:text-white">
+          {project.title}
+        </h3>
+        <p className="text-gray-600 dark:text-gray-200 mb-4 text-justify">
+          {project.description}
+        </p>
+        <div className="flex justify-between items-end">
+          <div className="flex space-x-2">
+            {project.tech.map((tech: string, techIndex: number) => (
+              <img
+                key={techIndex}
+                src={tech}
+                alt={`Tech ${techIndex}`}
+                className="h-6 "
+              />
+            ))}
+          </div>
+          <div className="flex space-x-2">
+            {project.demoUrl && (
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`text-gray-600 dark:text-gray-200 hover:underline text-xl`}
+              >
+                <BiLinkExternal />
+              </a>
+            )}
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`text-gray-600 dark:text-gray-200 dark:hover:text-gray-100 hover:text-gray-700 text-xl`}
+              >
+                <FaGithub />
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+
   return (
     <motion.section
       id="projects"
@@ -74,84 +137,31 @@ const ProjectSection: React.FC = () => {
           <BurstBload2 />
         </div>
 
-        <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {displayedProjects.map((project, index) => (
-            <motion.div
-              key={index}
-              onClick={() => handleProjectClick(project)}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.9 }}
-              transition={{ duration: 0.6, delay: 0.1 * index }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              whileHover={{ scale: 1.05 }}
-              style={{ cursor: "pointer" }}
-              className="bg-white dark:bg-[#232D3F] text-black  border-white dark:border-[#232D3F] border-solid border-8 rounded-xl shadow-lg hover:shadow-xl overflow-hidden"
+        <div className="mt-5 flex flex-col gap-6">
+          {/* Row 1 — scrolls right to left */}
+          <div className="marquee-row marquee-fade overflow-hidden">
+            <div
+              className="marquee-track flex gap-6 w-max"
+              style={{ ["--marquee-duration" as any]: rowOneDuration }}
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-49 object-cover"
-                width="100%" // Atur lebar sesuai kebutuhan atau gunakan persentase
-                height="196" // Atur tinggi sesuai kebutuhan
-              />
-              <div className="p-4">
-                <h3 className="text-xl font-semibold mb-2 dark:text-white">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-200 mb-4 text-justify">
-                  {project.description}
-                </p>
-                <div className="flex justify-between items-end">
-                  <div className="flex space-x-2">
-                    {project.tech.map((tech, techIndex) => (
-                      <img
-                        key={techIndex}
-                        src={tech}
-                        alt={`Tech ${techIndex}`}
-                        className="h-6"
-                        width="24"
-                        height="24"
-                      />
-                    ))}
-                  </div>
-                  <div className="flex space-x-2">
-                    {project.demoUrl && (
-                      <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`text-gray-600 dark:text-gray-200 hover:underline text-xl`}
-                      >
-                        <BiLinkExternal />
-                      </a>
-                    )}
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`text-gray-600 dark:text-gray-200 dark:hover:text-gray-100 hover:text-gray-700 text-xl`}
-                      >
-                        <FaGithub />
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-        {!showAllProjects && (
-          <div className="flex justify-center mt-10">
-            <button
-              onClick={toggleShowAllProjects}
-              className="group flex items-center justify-center gap-2 h-[3rem] w-[8rem] bg-gray-900 text-white rounded-md outline-none transition-all focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 dark:bg-white dark:bg-opacity-10 disabled:scale-100 disabled:bg-opacity-65"
-            >
-              Load More
-              <FaArrowDown className="text-xs opacity-70 transition-all" />{" "}
-            </button>
+              {[...rowOneProjects, ...rowOneProjects].map((project, index) =>
+                renderProjectCard(project, "row1", index)
+              )}
+            </div>
           </div>
-        )}
+
+          {/* Row 2 — scrolls left to right */}
+          <div className="marquee-row marquee-fade overflow-hidden">
+            <div
+              className="marquee-track marquee-track-reverse flex gap-6 w-max"
+              style={{ ["--marquee-duration" as any]: rowTwoDuration }}
+            >
+              {[...rowTwoProjects, ...rowTwoProjects].map((project, index) =>
+                renderProjectCard(project, "row2", index)
+              )}
+            </div>
+          </div>
+        </div>
       </div>
       {/* Modal for detailed description */}
       {selectedProject && (
