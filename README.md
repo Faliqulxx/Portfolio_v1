@@ -19,23 +19,49 @@ Portfolio ini dibangun dengan fokus pada **User Experience (UX)**, **performa**,
 
 ---
 
-# ✨ Fitur Utama
+## ✨ Fitur Utama
 
-| 👋 Hero Section | 👨 Tentang Saya |
-|----------------|-----------------|
-| - Perkenalan singkat mengenai diri.<br>- Informasi posisi dan bidang yang ditekuni.<br>- Tombol untuk menghubungi dan mengunduh CV. | - Profil singkat.<br>- Latar belakang.<br>- Minat dan fokus pengembangan. |
+<table>
+<tr>
+<td width="50%">
 
-| 💼 Pengalaman | 🚀 Project Showcase |
-|--------------|---------------------|
-| - Pengalaman organisasi.<br>- Pengalaman magang atau pekerjaan.<br>- Timeline perjalanan profesional. | - Menampilkan proyek yang pernah dikerjakan.<br>- Informasi teknologi yang digunakan.<br>- Deskripsi singkat setiap proyek.<br>- Tautan menuju GitHub maupun Demo. |
+### 👋 Hero
+- Perkenalan
+- Download CV
+- Contact
 
-| 🧠 Skills | 📬 Contact |
-|-----------|------------|
-| - Bahasa pemrograman.<br>- Framework.<br>- Database.<br>- Artificial Intelligence.<br>- Data Science.<br>- Tools & Platform. | - Form kontak.<br>- Integrasi email.<br>- Informasi media sosial. |
+### 👨 About
+- Profil
+- Background
+- Interest
 
-| 🌙 Modern User Experience | 🚀 AI Portfolio Assistant *(Coming Soon)* |
-|---------------------------|-------------------------------------------|
-| - Responsive Design.<br>- Smooth Scrolling.<br>- Framer Motion Animation.<br>- Dark Theme.<br>- Mobile Friendly. | - Chatbot OpenAI.<br>- Integrasi RAG.<br>- CV & Skripsi AI Search.<br>- Multi Bahasa. |
+### 💼 Experience
+- Internship
+- Organization
+- Timeline
+
+</td>
+
+<td width="50%">
+
+### 🚀 Projects
+- Showcase
+- GitHub
+- Live Demo
+
+### 🧠 Skills
+- AI
+- Data Science
+- Web Development
+
+### 📬 Contact
+- Email
+- Social Media
+- Contact Form
+
+</td>
+</tr>
+</table>
 
 ---
 
