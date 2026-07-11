@@ -68,7 +68,7 @@ export default function ChatWindow({
           <div>
             <p className="text-sm font-semibold dark:text-white">AI Assistant</p>
             <p className="text-xs text-gray-500 dark:text-gray-400">
-              Tanya soal Faliqul
+              Ask about Faliqul
             </p>
           </div>
         </div>
