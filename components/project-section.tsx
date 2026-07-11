@@ -11,6 +11,7 @@ import SectionHeading from "./section-heading";
 
 interface Project {
   title: string;
+  category: "web" | "data";
   description: string;
   tech: string[];
   image: string;
@@ -20,6 +21,14 @@ interface Project {
   demoUrl?: string;
   githubUrl?: string;
 }
+
+type CategoryFilter = "all" | "data" | "web";
+
+const CATEGORY_OPTIONS: { key: CategoryFilter; label: string }[] = [
+  { key: "all", label: "General Dev" },
+  { key: "data", label: "Data Scient" },
+  { key: "web", label: "Website" },
+];
 
 type MarqueeRowProps = {
   projects: any[];
@@ -230,6 +239,7 @@ const ProjectSection: React.FC = () => {
   });
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<CategoryFilter>("all");
 
   const handleProjectClick = (project: any) => {
     setSelectedProject(project);
@@ -249,10 +259,15 @@ const ProjectSection: React.FC = () => {
     setZoomedImage(null);
   };
 
-  // Split all projects into two roughly-even rows
-  const midPoint = Math.ceil(projectsData.length / 2);
-  const rowOneProjects = projectsData.slice(0, midPoint);
-  const rowTwoProjects = projectsData.slice(midPoint);
+  // Filter by the selected category, then split into two roughly-even rows
+  const filteredProjects =
+    activeCategory === "all"
+      ? projectsData
+      : projectsData.filter((project) => project.category === activeCategory);
+
+  const midPoint = Math.ceil(filteredProjects.length / 2);
+  const rowOneProjects = filteredProjects.slice(0, midPoint);
+  const rowTwoProjects = filteredProjects.slice(midPoint);
 
   return (
     <motion.section
@@ -270,9 +285,27 @@ const ProjectSection: React.FC = () => {
           <BurstBload2 />
         </div>
 
+        <div className="flex flex-wrap justify-center gap-3 mb-6">
+          {CATEGORY_OPTIONS.map((option) => (
+            <button
+              key={option.key}
+              type="button"
+              onClick={() => setActiveCategory(option.key)}
+              className={`px-5 py-2 rounded-full text-sm font-medium border-2 border-black dark:border-white/70 transition-colors ${
+                activeCategory === option.key
+                  ? "bg-black text-white dark:bg-white dark:text-black"
+                  : "bg-transparent text-black dark:text-white hover:bg-black/10 dark:hover:bg-white/10"
+              }`}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+
         <div className="mt-5 flex flex-col gap-6">
           {/* Row 1 — auto-scrolls right to left, draggable */}
           <MarqueeRow
+            key={`row1-${activeCategory}`}
             projects={rowOneProjects}
             keyPrefix="row1"
             direction={-1}
@@ -282,6 +315,7 @@ const ProjectSection: React.FC = () => {
 
           {/* Row 2 — auto-scrolls left to right, draggable */}
           <MarqueeRow
+            key={`row2-${activeCategory}`}
             projects={rowTwoProjects}
             keyPrefix="row2"
             direction={1}

@@ -138,6 +138,7 @@ export const experiencesData = [
 export const projectsData = [
   {
     title: "Sistem Informasi Logistik CGN",
+    category: "web",
     description:
       "The CGN Logistics Information System is a digital platform that integrates inventory management, inventory control, delivery monitoring, and logistics performance analysis to maximize the efficiency of CGN's logistics operations. The system also provides high security and an intuitive user interface.",
     screenshots: [
@@ -166,6 +167,7 @@ export const projectsData = [
   },
   {
     title: "E-Commerce Ikan Me",
+    category: "web",
     description:
       "This website is an innovative platform designed to assist freshwater fishermen and fish farmers in the village of Berasan Mulya in marketing their products online. We are dedicated to supporting the local economy and the conservation of natural resources.",
     screenshots: [
@@ -194,6 +196,7 @@ export const projectsData = [
   },
   {
     title: "Match Schedule MPL Indonesia",
+    category: "web",
     description:
       "This website is a demonstration of a clone that imitates the appearance and features of the official MPL Indonesia website. It provides information similar to the actual MPL Indonesia website, including match schedules, team listings, and standings.",
     screenshots: [
@@ -221,6 +224,7 @@ export const projectsData = [
   },
   {
     title: "Autogate RFID",
+    category: "data",
     description:
       "A smart autogate and parking access system based on IoT using ESP32, RFID, ultrasonic sensors, servo motor, LCD display, and web monitoring integration. This system is designed to automate vehicle entry and exit access in residential areas or parking environments using RFID card authentication.",
     screenshots: [
@@ -256,6 +260,7 @@ export const projectsData = [
   },
   {
     title: "Multi-Service AI Assistant Bot",
+    category: "data",
     description:
       "An intelligent, multi-purpose AI Assistant integrated with n8n workflow automation. It leverages Large Language Models (LLMs) and Vector Databases to provide contextual responses and execute actions across four core modules: Academic Information, Personal Finance Tracking, Appointment Booking, and Car Rental Management.",
     screenshots: [
@@ -283,6 +288,7 @@ export const projectsData = [
   },
   {
     title: "WhatsApp RAG AI Assistant Chatbot",
+    category: "data",
     description:
       "An intelligent, multi-purpose WhatsApp AI Assistant integrated with n8n workflow automation. It leverages Large Language Models (LLMs) and Vector Databases to provide contextual responses and execute actions across four core modules: Academic Information, Personal Finance Tracking, Appointment Booking, and Car Rental Management.",
     screenshots: [
@@ -311,6 +317,7 @@ export const projectsData = [
   },
   {
   title: "Cat Breed Classification",
+  category: "data",
   description:
     "A deep learning-based web application for classifying 12 cat breeds using image recognition. This project compares CNN Scratch, MobileNetV2, and ResNet50 models, with MobileNetV2 achieving the best classification performance through transfer learning.",
   image: "images/project/cat-breed/1.png",
@@ -349,6 +356,7 @@ export const projectsData = [
   },
   {
     title: "HR-TOOLS",
+    category: "web",
     description:
       "This is HR TOOLS which is used to manage employee data, starting from personal data, employee performance appraisal work to the attendance system.",
     image: "images/project/hr-tools/1.png",
