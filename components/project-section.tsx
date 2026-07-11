@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { projectsData } from "@/lib/data";
 import BurstBload2 from "./burst-bload-2";
 import { useSectionInView } from "@/lib/hooks";
 import { useInView } from "react-intersection-observer";
-import { FaGithub, FaLink } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { BiLinkExternal } from "react-icons/bi";
 import SectionHeading from "./section-heading";
 
@@ -21,12 +21,215 @@ interface Project {
   githubUrl?: string;
 }
 
+type MarqueeRowProps = {
+  projects: any[];
+  keyPrefix: string;
+  /** 1 = auto-scrolls left-to-right, -1 = auto-scrolls right-to-left */
+  direction: 1 | -1;
+  speed?: number;
+  inView: boolean;
+  onProjectClick: (project: any) => void;
+};
+
+/**
+ * A single infinite-loop row. The project list is duplicated so the track is
+ * exactly 2x wide; auto-scroll runs on requestAnimationFrame and wraps by
+ * exactly half the scrollWidth, so the loop never visibly jumps. Dragging
+ * (mouse or touch) simply pauses the auto-scroll and lets the user move the
+ * native scrollLeft directly — releasing resumes the auto-scroll from
+ * wherever it was left.
+ */
+function MarqueeRow({
+  projects,
+  keyPrefix,
+  direction,
+  speed = 0.6,
+  inView,
+  onProjectClick,
+}: MarqueeRowProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isPointerDownRef = useRef(false);
+  const hasMovedRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollLeftRef = useRef(0);
+  const pausedRef = useRef(false);
+  const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const rafRef = useRef<number>();
+  const [isDragging, setIsDragging] = useState(false);
+
+  const items = [...projects, ...projects];
+
+  // Auto-scroll loop
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    // Rows that scroll "backwards" start halfway through the track so they
+    // have room to decrement before wrapping.
+    if (direction === -1 && container.scrollLeft === 0) {
+      container.scrollLeft = container.scrollWidth / 2;
+    }
+
+    const step = () => {
+      if (!pausedRef.current && container) {
+        const halfWidth = container.scrollWidth / 2;
+        container.scrollLeft += direction * speed;
+
+        if (direction === 1 && container.scrollLeft >= halfWidth) {
+          container.scrollLeft -= halfWidth;
+        } else if (direction === -1 && container.scrollLeft <= 0) {
+          container.scrollLeft += halfWidth;
+        }
+      }
+      rafRef.current = requestAnimationFrame(step);
+    };
+
+    rafRef.current = requestAnimationFrame(step);
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [direction, speed]);
+
+  const getPageX = (e: React.MouseEvent | React.TouchEvent) =>
+    "touches" in e ? e.touches[0].pageX : (e as React.MouseEvent).pageX;
+
+  const handlePointerDown = (e: React.MouseEvent | React.TouchEvent) => {
+    const container = containerRef.current;
+    if (!container) return;
+    isPointerDownRef.current = true;
+    hasMovedRef.current = false;
+    pausedRef.current = true;
+    setIsDragging(true);
+    if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+    startXRef.current = getPageX(e) - container.offsetLeft;
+    scrollLeftRef.current = container.scrollLeft;
+  };
+
+  const handlePointerMove = (e: React.MouseEvent | React.TouchEvent) => {
+    const container = containerRef.current;
+    if (!isPointerDownRef.current || !container) return;
+    const x = getPageX(e) - container.offsetLeft;
+    const walk = x - startXRef.current;
+    if (Math.abs(walk) > 5) hasMovedRef.current = true;
+    container.scrollLeft = scrollLeftRef.current - walk;
+  };
+
+  const endDrag = () => {
+    isPointerDownRef.current = false;
+    setIsDragging(false);
+    // Resume auto-scroll shortly after the user lets go
+    resumeTimeoutRef.current = setTimeout(() => {
+      pausedRef.current = false;
+    }, 700);
+  };
+
+  const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    const container = containerRef.current;
+    if (!container) return;
+    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+      e.preventDefault();
+      pausedRef.current = true;
+      container.scrollLeft += e.deltaY;
+      if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+      resumeTimeoutRef.current = setTimeout(() => {
+        pausedRef.current = false;
+      }, 800);
+    }
+  };
+
+  return (
+    <div
+      ref={containerRef}
+      onMouseDown={handlePointerDown}
+      onMouseMove={handlePointerMove}
+      onMouseUp={endDrag}
+      onMouseLeave={endDrag}
+      onTouchStart={handlePointerDown}
+      onTouchMove={handlePointerMove}
+      onTouchEnd={endDrag}
+      onWheel={handleWheel}
+      className={`flex gap-6 overflow-x-auto scrollbar-hide select-none ${
+        isDragging ? "cursor-grabbing" : "cursor-grab"
+      }`}
+    >
+      {items.map((project, index) => (
+        <motion.div
+          key={`${keyPrefix}-${index}`}
+          onClick={() => {
+            if (!hasMovedRef.current) onProjectClick(project);
+          }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.9 }}
+          transition={{ duration: 0.6, delay: 0.03 * (index % 10) }}
+          whileHover={{ scale: isDragging ? 1 : 1.05 }}
+          style={{ cursor: isDragging ? "grabbing" : "pointer" }}
+          className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] bg-white dark:bg-[#232D3F] text-black border-white dark:border-[#232D3F] border-solid border-8 rounded-xl shadow-lg hover:shadow-xl overflow-hidden"
+        >
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-49 object-cover"
+            draggable={false}
+          />
+          <div className="p-4">
+            <h3 className="text-xl font-semibold mb-2 dark:text-white">
+              {project.title}
+            </h3>
+            <p className="text-gray-600 dark:text-gray-200 mb-4 text-justify">
+              {project.description}
+            </p>
+            <div className="flex justify-between items-end">
+              <div className="flex space-x-2">
+                {project.tech.map((tech: string, techIndex: number) => (
+                  <img
+                    key={techIndex}
+                    src={tech}
+                    alt={`Tech ${techIndex}`}
+                    className="h-6"
+                    draggable={false}
+                  />
+                ))}
+              </div>
+              <div className="flex space-x-2">
+                {project.demoUrl && (
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="text-gray-600 dark:text-gray-200 hover:underline text-xl"
+                  >
+                    <BiLinkExternal />
+                  </a>
+                )}
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="text-gray-600 dark:text-gray-200 dark:hover:text-gray-100 hover:text-gray-700 text-xl"
+                  >
+                    <FaGithub />
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
 const ProjectSection: React.FC = () => {
   const { ref } = useSectionInView("Projects", 0.5);
   const [sectionRef, inView] = useInView({
     triggerOnce: true,
   });
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [zoomedImage, setZoomedImage] = useState<string | null>(null);
 
   const handleProjectClick = (project: any) => {
     setSelectedProject(project);
@@ -38,8 +241,6 @@ const ProjectSection: React.FC = () => {
     document.body.style.overflow = "auto";
   };
 
-  const [zoomedImage, setZoomedImage] = useState<string | null>(null);
-
   const handleScreenshotClick = (screenshot: string) => {
     setZoomedImage(screenshot);
   };
@@ -48,78 +249,10 @@ const ProjectSection: React.FC = () => {
     setZoomedImage(null);
   };
 
-  // Split all projects into two roughly-even rows for the marquee
+  // Split all projects into two roughly-even rows
   const midPoint = Math.ceil(projectsData.length / 2);
   const rowOneProjects = projectsData.slice(0, midPoint);
   const rowTwoProjects = projectsData.slice(midPoint);
-
-  // Speed scales with row length so both rows move at the same px/sec pace
-  const rowOneDuration = `${rowOneProjects.length * 8}s`;
-  const rowTwoDuration = `${rowTwoProjects.length * 8}s`;
-
-  // Shared card renderer — identical markup/behavior to the original card,
-  // reused for both rows (and both halves of each row's loop) so nothing
-  // is duplicated in source.
-  const renderProjectCard = (project: any, keyPrefix: string, index: number) => (
-    <motion.div
-      key={`${keyPrefix}-${index}`}
-      onClick={() => handleProjectClick(project)}
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.9 }}
-      transition={{ duration: 0.6, delay: 0.05 * (index % 10) }}
-      exit={{ opacity: 0, scale: 0.9 }}
-      whileHover={{ scale: 1.05 }}
-      className="flex-shrink-0 cursor-pointer w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] bg-white dark:bg-[#232D3F] text-black border-white dark:border-[#232D3F] border-solid border-8 rounded-xl shadow-lg hover:shadow-xl overflow-hidden"
-    >
-      <img
-        src={project.image}
-        alt={project.title}
-        className="w-full h-49 object-cover"
-      />
-      <div className="p-4">
-        <h3 className="text-xl font-semibold mb-2 dark:text-white">
-          {project.title}
-        </h3>
-        <p className="text-gray-600 dark:text-gray-200 mb-4 text-justify">
-          {project.description}
-        </p>
-        <div className="flex justify-between items-end">
-          <div className="flex space-x-2">
-            {project.tech.map((tech: string, techIndex: number) => (
-              <img
-                key={techIndex}
-                src={tech}
-                alt={`Tech ${techIndex}`}
-                className="h-6 "
-              />
-            ))}
-          </div>
-          <div className="flex space-x-2">
-            {project.demoUrl && (
-              <a
-                href={project.demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`text-gray-600 dark:text-gray-200 hover:underline text-xl`}
-              >
-                <BiLinkExternal />
-              </a>
-            )}
-            {project.githubUrl && (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`text-gray-600 dark:text-gray-200 dark:hover:text-gray-100 hover:text-gray-700 text-xl`}
-              >
-                <FaGithub />
-              </a>
-            )}
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
 
   return (
     <motion.section
@@ -138,31 +271,26 @@ const ProjectSection: React.FC = () => {
         </div>
 
         <div className="mt-5 flex flex-col gap-6">
-          {/* Row 1 — scrolls right to left */}
-          <div className="marquee-row marquee-fade overflow-hidden">
-            <div
-              className="marquee-track flex gap-6 w-max"
-              style={{ ["--marquee-duration" as any]: rowOneDuration }}
-            >
-              {[...rowOneProjects, ...rowOneProjects].map((project, index) =>
-                renderProjectCard(project, "row1", index)
-              )}
-            </div>
-          </div>
+          {/* Row 1 — auto-scrolls right to left, draggable */}
+          <MarqueeRow
+            projects={rowOneProjects}
+            keyPrefix="row1"
+            direction={-1}
+            inView={inView}
+            onProjectClick={handleProjectClick}
+          />
 
-          {/* Row 2 — scrolls left to right */}
-          <div className="marquee-row marquee-fade overflow-hidden">
-            <div
-              className="marquee-track marquee-track-reverse flex gap-6 w-max"
-              style={{ ["--marquee-duration" as any]: rowTwoDuration }}
-            >
-              {[...rowTwoProjects, ...rowTwoProjects].map((project, index) =>
-                renderProjectCard(project, "row2", index)
-              )}
-            </div>
-          </div>
+          {/* Row 2 — auto-scrolls left to right, draggable */}
+          <MarqueeRow
+            projects={rowTwoProjects}
+            keyPrefix="row2"
+            direction={1}
+            inView={inView}
+            onProjectClick={handleProjectClick}
+          />
         </div>
       </div>
+
       {/* Modal for detailed description */}
       {selectedProject && (
         <div className="modal-overlay flex items-center justify-center">
