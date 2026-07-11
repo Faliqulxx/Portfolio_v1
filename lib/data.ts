@@ -7,6 +7,73 @@ import autogateImg from "@/public/images/project/autogate/1.png";
 import amikomImg from "@/public/images/project/amikom/1.png";
 import hrtoolsImg from "@/public/images/project/hr-tools/1.png";
 
+// ─── PERSONAL / PROFILE ──────────────────────────────────────────────────────
+export const personalData = {
+  name: "Faliqul Ishbah",
+  nickname: "Faliq",
+  title: "Data Scientist & AI Automation Engineer",
+  location: "Gresik, Indonesia",
+  email: "faliqul.isback@gmail.com",
+  profileImage: "/images/profile2.png",
+  cvUrl: "/cv/resumev3.pdf",
+  bio: "Hello, I'm Faliq! My primary interests and expertise are in Data Science, supported by skills in Data Analysis, AI Automation, and Internet of Things (IoT). I have experience in data processing, data analysis, data visualization, and machine learning, transforming raw data into valuable insights using Python, Pandas, Scikit-learn, and SQL. In the field of AI Automation, I design and develop automated workflows using n8n, integrate RESTful APIs, and automate data pipelines to improve operational efficiency. I also have a strong interest and hands-on experience in developing IoT systems, sensor-based device monitoring, and implementing smart technologies for livestock farming and smart agriculture. My goal is to create impactful data-driven, AI-powered, and IoT-based solutions through innovative automation that delivers real-world value.",
+  expertise: [
+    "Data Science",
+    "Data Analysis",
+    "AI Automation",
+    "Internet of Things (IoT)",
+    "Frontend Development",
+  ],
+  tools: ["React", "n8n", "Python", "SQL"],
+} as const;
+
+// ─── SOCIAL / CONTACT ────────────────────────────────────────────────────────
+export const contactData = {
+  email: "faliqul.isback@gmail.com",
+  linkedin: "https://www.linkedin.com/in/faliqulishbah/",
+  github: "https://github.com/Faliqulxx",
+  instagram: "https://www.instagram.com/Faliqulx/",
+} as const;
+
+// ─── CERTIFICATES ────────────────────────────────────────────────────────────
+export const certificatesData = [
+  {
+    name: "Cisco Packet Tracer / Networking",
+    image: "/images/certificate/ciscop.jpg",
+    issuer: "Cisco",
+  },
+  {
+    name: "Udemy Course Certificate #1",
+    image: "/images/certificate/udemy.jpg",
+    issuer: "Udemy",
+  },
+  {
+    name: "Udemy Course Certificate #2",
+    image: "/images/certificate/udemy1.jpg",
+    issuer: "Udemy",
+  },
+  {
+    name: "Dicoding Certificate #1",
+    image: "/images/certificate/dicoding.jpg",
+    issuer: "Dicoding",
+  },
+  {
+    name: "Dicoding Certificate #2",
+    image: "/images/certificate/dicoding1.jpg",
+    issuer: "Dicoding",
+  },
+  {
+    name: "ITS Certificate",
+    image: "/images/certificate/its.png",
+    issuer: "Institut Teknologi Sepuluh Nopember (ITS)",
+  },
+  {
+    name: "Meta Certificate",
+    image: "/images/certificate/meta.png",
+    issuer: "Meta",
+  },
+] as const;
+
 export const links = [
   {
     name: "Home",
@@ -243,35 +310,6 @@ export const projectsData = [
     languages: ["n8n", "Whatsapp", "OpenAI API", "Supabase (Vector)", "PostgreSQL"],
   },
   {
-    title: "HR-TOOLS",
-    description:
-      "This is HR TOOLS which is used to manage employee data, starting from personal data, employee performance appraisal work to the attendance system.",
-    image: "images/project/hr-tools/1.png",
-    screenshots: [
-      "images/project/hr-tools/2.png",
-      "images/project/hr-tools/3.png",
-      "images/project/hr-tools/4.png",
-      "images/project/hr-tools/5.png",
-      "images/project/hr-tools/6.png",
-    ],
-    tech: [
-      "/images/icon/bootstrap.svg",
-      "/images/icon/leaflet.svg",
-      "/images/icon/codeigniter.svg",
-      "/images/icon/jquery-vertical.svg",
-      "/images/icon/mysql.svg",
-    ],
-    demoUrl: null,
-    githubUrl: null,
-    features: [
-      "Fixed Bug Create, Read, Update and Delete Data Employee, Siswa, and Mata Pelajaran.",
-      "Create, Read, Update and Delete Employee Recruitment.",
-      "Create, Read, Update and Delete Data Employee Performance appraisal.",
-      "Create, Read, Update and Delete Data Employee attendance using a location with a leaflet.",
-    ],
-    languages: ["Codeigniter 3", "Bootstrap 3", "MYSQL 5.3", "Jquery"],
-  },
-  {
   title: "Cat Breed Classification",
   description:
     "A deep learning-based web application for classifying 12 cat breeds using image recognition. This project compares CNN Scratch, MobileNetV2, and ResNet50 models, with MobileNetV2 achieving the best classification performance through transfer learning.",
@@ -308,7 +346,36 @@ export const projectsData = [
     "Streamlit",
     "OpenCV",
   ],
-},
+  },
+  {
+    title: "HR-TOOLS",
+    description:
+      "This is HR TOOLS which is used to manage employee data, starting from personal data, employee performance appraisal work to the attendance system.",
+    image: "images/project/hr-tools/1.png",
+    screenshots: [
+      "images/project/hr-tools/2.png",
+      "images/project/hr-tools/3.png",
+      "images/project/hr-tools/4.png",
+      "images/project/hr-tools/5.png",
+      "images/project/hr-tools/6.png",
+    ],
+    tech: [
+      "/images/icon/bootstrap.svg",
+      "/images/icon/leaflet.svg",
+      "/images/icon/codeigniter.svg",
+      "/images/icon/jquery-vertical.svg",
+      "/images/icon/mysql.svg",
+    ],
+    demoUrl: null,
+    githubUrl: null,
+    features: [
+      "Fixed Bug Create, Read, Update and Delete Data Employee, Siswa, and Mata Pelajaran.",
+      "Create, Read, Update and Delete Employee Recruitment.",
+      "Create, Read, Update and Delete Data Employee Performance appraisal.",
+      "Create, Read, Update and Delete Data Employee attendance using a location with a leaflet.",
+    ],
+    languages: ["Codeigniter 3", "Bootstrap 3", "MYSQL 5.3", "Jquery"],
+  },
 ] as const;
 
 export const skillsData = [
@@ -406,4 +473,104 @@ export const skilss = [
   //   imgUrl:
   //     "https://upload.wikimedia.org/wikipedia/commons/9/98/WordPress_blue_logo.svg",
   // },
+] as const;
+
+// ─── EDUCATION ───────────────────────────────────────────────────────────────
+// Field keterangan:
+//   level       : jenjang pendidikan (SD / SMP / SMA / S1 / dll.)
+//   degree      : nama gelar / program (tampil sebagai judul besar & bold)
+//   institution : nama sekolah / universitas
+//   field       : jurusan / bidang studi (opsional, kosongkan "" jika tidak ada)
+//   location    : kota, provinsi, negara
+//   year        : periode tahun (misal "2021 – Sekarang")
+//   gpa         : nilai IPK / rata-rata (opsional, kosongkan "" jika tidak ingin ditampilkan)
+//   gpaMax      : skala maksimal GPA (default "4.00")
+//   logo        : path ke logo sekolah di folder /public
+//   description : deskripsi singkat (dipakai oleh AI assistant)
+//   details     : list poin tambahan yang muncul saat "Show Details" diklik (opsional)
+export const educationData = [
+  {
+    level: "SD",
+    degree: "Primary school",
+    institution: "SDN Sidorukun 1",
+    field: "Natural Sciences",
+    location: "Gresik, Jawa Timur, Indonesia",
+    year: "2009 – 2014",
+    gpa: "90.5",
+    gpaMax: "100",
+    logo: "/images/education/islamiyah.png",
+    description: "Pendidikan dasar di SDN Sidorukun 1 Gresik.",
+    details: [],
+  },
+  {
+    level: "SMP",
+    degree: "Junior High School",
+    institution: "SMPN 4 Gresik",
+    field: "Natural Sciences",
+    location: "Gresik, Jawa Timur, Indonesia",
+    year: "2014 – 2017",
+    gpa: "80",
+    gpaMax: "100",
+    logo: "/images/education/islamiyah.png",
+    description: "Pendidikan menengah pertama di SMPN 4 Gresik.",
+    details: [],
+  },
+  {
+    level: "SMA",
+    degree: "High School",
+    institution: "Modern Islamic Boarding School Darussalam Gontor",
+    field: "Natural Sciences",
+    location: "Ponorogo, Jawa Timur, Indonesia",
+    year: "2017 – 2021",
+    gpa: "8.80",
+    gpaMax: "10",
+    logo: "/images/education/virtuous.png",
+    description: "Pendidikan menengah atas jurusan IPA di SMAN 1 Gresik.",
+    details: ["Focused on foundational science and basic statistics at PMDG (Pondok Moderen Darussalam Gontor), I balanced my studies with comprehensive Islamic religious education. This combination helped me develop analytical, disciplined, and structured problem-solving skills, alongside a strong ethical foundation ready to be applied in a professional environment."],
+  },
+  {
+    level: "S1",
+    degree: "Bachelor of Computer Science",
+    institution: "University of Muhammadiyah Malang",
+    field: "Informatics Engineering",
+    location: "Malang, Jawa Timur, Indonesia",
+    year: "2021 – 2026",
+    gpa: "3.85",
+    gpaMax: "4.00",
+    logo: "/images/education/logoumm.png",
+    description:
+      "Menempuh pendidikan S1 Teknik Informatika di Universitas Muhammadiyah Gresik dengan IPK 3.65/4.00. Fokus pada Kecerdasan Buatan, Data Science, dan Pengembangan Perangkat Lunak.",
+    details: [
+      "Focused on business intelligence, statistics, and machine learning, I specialized in Data Science within the Informatics Engineering program at the University of Muhammadiyah Malang. This rigorous academic path enabled me to develop strong competencies in end-to-end data handling, advanced analytics, and predictive modeling, culminating in graduating with a perfect 3.65/4.00 GPA"
+    ],
+  },
+  
+] as const;
+
+// ─── GALLERY ─────────────────────────────────────────────────────────────────
+export const galleryData = [
+  {
+    src: "/images/gallery/1.png",
+    caption: "Gallery Photo 1",
+  },
+  {
+    src: "/images/gallery/2.png",
+    caption: "Gallery Photo 2",
+  },
+  {
+    src: "/images/gallery/3.jpg",
+    caption: "Gallery Photo 3",
+  },
+  {
+    src: "/images/gallery/4.jpg",
+    caption: "Gallery Photo 4",
+  },
+  {
+    src: "/images/gallery/5.jpg",
+    caption: "Gallery Photo 5",
+  },
+  {
+    src: "/images/gallery/6.jpg",
+    caption: "Gallery Photo 6",
+  },
 ] as const;

@@ -56,13 +56,13 @@ export default function SplashCursor({
   SIM_RESOLUTION = 128,
   DYE_RESOLUTION = 1440,
   CAPTURE_RESOLUTION = 512,
-  DENSITY_DISSIPATION = 7,   // lebih besar = cepat hilang
-  VELOCITY_DISSIPATION = 5,  // lebih besar = gerakan cepat memudar
+  DENSITY_DISSIPATION = 12,   // lebih besar = cepat hilang
+  VELOCITY_DISSIPATION = 10,  // lebih besar = gerakan cepat memudar
   PRESSURE = 0.1,
   PRESSURE_ITERATIONS = 20,
   CURL = 3,
   SPLAT_RADIUS = 0.5,        // lebih kecil = percikan lebih tipis
-  SPLAT_FORCE = 3000,        // lebih kecil = efek lebih ringan
+  SPLAT_FORCE = 2000,        // lebih kecil = efek lebih ringan
   SHADING = true,
   COLOR_UPDATE_SPEED = 15,   // lebih besar = warna menyesuaikan cepat
   BACK_COLOR = { r: 0.5, g: 0, b: 0 },

@@ -2,7 +2,7 @@
 
 # 🚀 Web Portfolio - Faliqul Ishbah
 
-Portfolio digital yang dirancang untuk menampilkan pengalaman, proyek, keahlian, dan perjalanan saya sebagai seorang **AI Engineer**, **Data Scientist**, **AI Automation Developer**, serta **Front-End Developer**.
+Portfolio digital yang dirancang untuk menampilkan pengalaman, proyek, keahlian, dan perjalanan saya sebagai seorang **AI Engineer**, **Data Scientist**, **AI Automation Developer**, serta **Web Developer**.
 
 🌐 **Live Website**  
 https://faliq-portfolio.vercel.app/
@@ -21,133 +21,64 @@ Portfolio ini dibangun dengan fokus pada **User Experience (UX)**, **performa**,
 
 # ✨ Fitur Utama
 
-<table>
-<tr>
+### 👋 Hero Section
+- Perkenalan singkat mengenai diri.
+- Informasi posisi dan bidang yang ditekuni.
+- Tombol untuk menghubungi dan mengunduh CV.
 
-<!-- Kolom Kiri -->
-<td width="38%" valign="top">
+### 👨 Tentang Saya
+- Profil singkat.
+- Latar belakang.
+- Minat dan fokus pengembangan.
 
-<table>
-<tr>
+### 💼 Pengalaman
+- Pengalaman organisasi.
+- Pengalaman magang atau pekerjaan.
+- Timeline perjalanan profesional.
 
-<td valign="top">
-
-### 👋 Hero
-
-- Perkenalan
-- Download CV
-- Contact
-
-<br>
-
-### 👨 About
-
-- Profil
-- Background
-- Interest
-
-<br>
-
-### 💼 Experience
-
-- Internship
-- Organization
-- Timeline
-
-</td>
-
-<td valign="top">
-
-### 🚀 Projects
-
-- Showcase
-- GitHub
-- Live Demo
-
-<br>
+### 🚀 Project Showcase
+- Menampilkan proyek yang pernah dikerjakan.
+- Informasi teknologi yang digunakan.
+- Deskripsi singkat setiap proyek.
+- Tautan menuju GitHub maupun Demo (jika tersedia).
 
 ### 🧠 Skills
-
-- AI
-- Data Science
-- Front-End Development
-
-<br>
+- Bahasa pemrograman.
+- Framework.
+- Database.
+- Artificial Intelligence.
+- Data Science.
+- Tools & Platform.
 
 ### 📬 Contact
+- Form kontak.
+- Integrasi email.
+- Informasi media sosial.
 
-- Email
-- Social Media
-- Contact Form
-
-</td>
-
-</tr>
-</table>
-
-</td>
-
-<!-- Kolom Kanan -->
-<td width="62%" valign="top" align="center">
-
-<img
-    src="public/images/portfolio-preview.png"
-    alt="Portfolio Preview"
-    width="100%" />
-
-<br><br>
-
-<img
-    src="public/images/portfolio-preview1.png"
-    alt="About Section"
-    width="100%" />
-
-</td>
-
-</tr>
-</table>
+### 🌙 Modern User Experience
+- Responsive Design.
+- Smooth Scrolling.
+- Framer Motion Animation.
+- Dark Theme.
+- Mobile Friendly.
 
 ---
 
-# 🛠️ Tech Stack
+# 🛠️ Teknologi yang Digunakan
 
-<table>
-<tr>
+### Frontend
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Framer Motion
 
-<td align="center" width="33%">
+### Backend
+- Next.js Server Actions
+- Resend API
 
-### 🎨 Frontend
-
-<img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind"/>
-
-Next.js • React • TypeScript • Tailwind CSS • Framer Motion
-
-</td>
-
-<td align="center" width="33%">
-
-### ⚙️ Backend
-
-<img src="https://skillicons.dev/icons?i=nextjs"/><br>
-<img src="https://cdn.simpleicons.org/resend" width="48"/>
-
-Next.js Server Actions<br>
-Resend API
-
-</td>
-
-<td align="center" width="33%">
-
-### ☁️ Deployment
-
-<img src="https://skillicons.dev/icons?i=vercel"/>
-
-Vercel
-
-</td>
-
-</tr>
-</table>
+### Deployment
+- Vercel
 
 ---
 
@@ -163,6 +94,21 @@ Portfolio ini dibuat sebagai media untuk:
 
 ---
 
+# 🚀 Pengembangan Selanjutnya
+
+Beberapa fitur yang sedang dan akan dikembangkan pada portfolio ini antara lain:
+
+- 🤖 AI Portfolio Assistant
+- 🧠 Chatbot berbasis OpenAI
+- 📄 Integrasi CV
+- 🎓 Integrasi Skripsi
+- 📜 Halaman Sertifikat
+- 📝 Blog
+- 🌍 Multi Bahasa (Indonesia & Inggris)
+- 🔍 Retrieval-Augmented Generation (RAG) sebagai knowledge base AI
+
+---
+
 # 👨‍💻 Tentang Saya
 
 Saya adalah lulusan Informatika yang memiliki ketertarikan dalam bidang:
@@ -170,8 +116,8 @@ Saya adalah lulusan Informatika yang memiliki ketertarikan dalam bidang:
 - 🤖 Artificial Intelligence
 - 📊 Data Science
 - ⚙️ AI Automation
-- 🌐 Front-End Web Development
-- 📱 Front-End Mobile Development
+- 🌐 Web Development
+- 📱 Mobile Development
 - 🌱 Internet of Things (IoT)
 
 Saya senang membangun solusi berbasis teknologi yang dapat membantu meningkatkan efisiensi serta memberikan pengalaman pengguna yang lebih baik.
