@@ -3,6 +3,9 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const Masonry = dynamic(() => import("@/components/Masonry"), { ssr: false });
 
 import SectionHeading from "./section-heading";
 import BurstBload from "./burst-bload";
@@ -319,35 +322,37 @@ function EducationTab() {
   );
 }
 
+// ─── GALLERY ITEMS ────────────────────────────────────────────────────────────
+const masonryItems = [
+  { id: "g1",  img: "/images/gallery/1.png",                        height: 520 },
+  { id: "g2",  img: "/images/gallery/2.png",                        height: 420 },
+  { id: "g3",  img: "https://picsum.photos/id/1015/600/900",        height: 500 },
+  { id: "g4",  img: "https://picsum.photos/id/1011/600/750",        height: 380 },
+  { id: "g5",  img: "https://picsum.photos/id/1074/600/800",        height: 460 },
+  { id: "g6",  img: "https://picsum.photos/id/1043/600/700",        height: 340 },
+  { id: "g7",  img: "https://picsum.photos/id/1060/600/850",        height: 480 },
+  { id: "g8",  img: "https://picsum.photos/id/1035/600/600",        height: 300 },
+  { id: "g9",  img: "https://picsum.photos/id/1047/600/780",        height: 420 },
+  { id: "g10", img: "https://picsum.photos/id/1018/600/900",        height: 560 },
+  { id: "g11", img: "https://picsum.photos/id/1039/600/700",        height: 360 },
+  { id: "g12", img: "https://picsum.photos/id/1023/600/800",        height: 440 },
+];
+
 // ─── GALLERY TAB ─────────────────────────────────────────────────────────────
-function GalleryTab({ onImageClick }: { onImageClick: (src: string) => void }) {
+function GalleryTab() {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-w-5xl 2xl:max-w-7xl mx-auto">
-      {galleryData.map((item, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3, delay: index * 0.06 }}
-          onClick={() => onImageClick(item.src)}
-          className="relative overflow-hidden rounded-2xl cursor-pointer group border border-white/10 break-inside-avoid"
-        >
-          <div
-            className="relative w-full"
-            style={{ aspectRatio: index % 3 === 1 ? "4/5" : "4/3" }}
-          >
-            <Image
-              src={item.src}
-              alt={item.caption}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-            <p className="text-white text-sm font-medium">{item.caption}</p>
-          </div>
-        </motion.div>
-      ))}
+    <div className="w-full min-h-[500px]">
+      <Masonry
+        items={masonryItems}
+        ease="power3.out"
+        duration={0.6}
+        stagger={0.04}
+        animateFrom="bottom"
+        scaleOnHover={true}
+        hoverScale={0.97}
+        blurToFocus={true}
+        colorShiftOnHover={true}
+      />
     </div>
   );
 }
@@ -406,7 +411,7 @@ export default function About() {
           >
             {activeTab === "general" && <GeneralTab onImageClick={setSelectedImage} />}
             {activeTab === "education" && <EducationTab />}
-            {activeTab === "gallery" && <GalleryTab onImageClick={setSelectedImage} />}
+            {activeTab === "gallery" && <GalleryTab />}
           </motion.div>
         </AnimatePresence>
       </motion.section>
