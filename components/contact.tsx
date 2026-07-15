@@ -66,12 +66,9 @@ export default function Contact() {
       id="contact"
       ref={ref}
       className="
-        scroll-mt-28
-        mb-20 sm:mb-28
         w-full
-        max-w-6xl
-        mx-auto
-        px-4
+        mb-28 sm:mb-32 lg:mb-40 xl:mb-48
+        scroll-mt-28
         relative
       "
       initial={{ opacity: 0 }}
@@ -80,21 +77,7 @@ export default function Contact() {
       viewport={{ once: true }}
     >
       {/* ================= BACKGROUND BLUR ================= */}
-      <div
-        className="
-          bg-[#fbe2e3]
-          absolute
-          bottom-[-6rem]
-          -z-10
-          right-[11rem]
-          h-[31.25rem]
-          w-[31.25rem]
-          rounded-full
-          blur-[10rem]
-          sm:w-[68.75rem]
-          dark:bg-[#7d5353]
-        "
-      />
+
 
       <SectionHeading>
         Get In Touch
@@ -106,14 +89,14 @@ export default function Contact() {
           mt-12
           grid
           grid-cols-1
-          md:grid-cols-2
-          gap-10
+          lg:grid-cols-2
+          gap-12 lg:gap-16
           items-start
         "
       >
         {/* ================= LEFT ================= */}
         <div className="text-center md:text-left">
-          <p className="text-gray-700 dark:text-white/80 mb-8">
+          <p className="text-gray-700 dark:text-white/80 mb-8 lg:text-lg">
             Additionally, I'm currently open for freelance or
             part-time opportunities. If you have an interesting
             project or need extra hands on deck, don't hesitate
@@ -128,7 +111,7 @@ export default function Contact() {
           <div className="flex flex-col">
             <textarea
               className="
-                h-40
+                h-40 lg:h-52
                 bg-white
                 rounded-xl
                 borderBlack
@@ -160,16 +143,18 @@ export default function Contact() {
                 onClick={sendWhatsApp}
                 className="
                   flex items-center justify-center gap-2
-                  bg-[#25D366]
-                  text-white
+                  bg-white dark:bg-white/5
+                  text-gray-700 dark:text-white/80
+                  border border-gray-200 dark:border-white/10
                   py-3 px-4
                   rounded-xl
                   font-medium
-                  hover:scale-105
-                  transition
+                  hover:-translate-y-0.5 hover:shadow-md
+                  transition-all
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:focus-visible:ring-gray-300 dark:focus-visible:ring-offset-gray-950
                 "
               >
-                <BsWhatsapp />
+                <BsWhatsapp className="text-[#25D366] text-xl" />
                 WhatsApp
               </button>
 
@@ -178,16 +163,18 @@ export default function Contact() {
                 onClick={sendTelegram}
                 className="
                   flex items-center justify-center gap-2
-                  bg-[#229ED9]
-                  text-white
+                  bg-white dark:bg-white/5
+                  text-gray-700 dark:text-white/80
+                  border border-gray-200 dark:border-white/10
                   py-3 px-4
                   rounded-xl
                   font-medium
-                  hover:scale-105
-                  transition
+                  hover:-translate-y-0.5 hover:shadow-md
+                  transition-all
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:focus-visible:ring-gray-300 dark:focus-visible:ring-offset-gray-950
                 "
               >
-                <BsTelegram />
+                <BsTelegram className="text-[#229ED9] text-xl" />
                 Telegram
               </button>
 
@@ -196,16 +183,18 @@ export default function Contact() {
                 onClick={sendEmailDirect}
                 className="
                   flex items-center justify-center gap-2
-                  bg-gray-900
-                  text-white
+                  bg-white dark:bg-white/5
+                  text-gray-700 dark:text-white/80
+                  border border-gray-200 dark:border-white/10
                   py-3 px-4
                   rounded-xl
                   font-medium
-                  hover:scale-105
-                  transition
+                  hover:-translate-y-0.5 hover:shadow-md
+                  transition-all
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:focus-visible:ring-gray-300 dark:focus-visible:ring-offset-gray-950
                 "
               >
-                <BsEnvelopeFill />
+                <BsEnvelopeFill className="text-gray-900 dark:text-white text-xl" />
                 Email
               </button>
             </div>
@@ -230,7 +219,7 @@ export default function Contact() {
           <div
             className="
               w-full
-              h-[400px]
+              h-[400px] lg:h-[500px]
               rounded-xl
               overflow-hidden
               shadow-lg

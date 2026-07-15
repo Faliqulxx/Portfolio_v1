@@ -8,16 +8,7 @@ type SectionHeadingProps = {
 export default function SectionHeading({ children }: SectionHeadingProps) {
   return (
     <div>
-      {/* <Image
-        src="/images/shape/shape-experience.svg"
-        alt="Bayu Maulana Ikhsan"
-        width="50"
-        height="192"
-        quality="95"
-        priority={true}
-        className="text-center absolute xl:w-auto md:w-56 w-48"
-      /> */}
-      <h2 className="text-4xl font-bold capitalize mb-8 text-center">
+      <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-bold capitalize tracking-tight leading-tight mb-8 text-center">
         {children}
       </h2>
     </div>

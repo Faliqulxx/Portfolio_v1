@@ -158,7 +158,7 @@ function MarqueeRow({
       onTouchMove={handlePointerMove}
       onTouchEnd={endDrag}
       onWheel={handleWheel}
-      className={`flex gap-6 overflow-x-auto scrollbar-hide select-none ${
+      className={`flex gap-6 overflow-x-auto scrollbar-hide select-none -mx-4 px-4 sm:mx-0 sm:px-0 ${
         isDragging ? "cursor-grabbing" : "cursor-grab"
       }`}
     >
@@ -171,25 +171,25 @@ function MarqueeRow({
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.9 }}
           transition={{ duration: 0.6, delay: 0.03 * (index % 10) }}
-          whileHover={{ scale: isDragging ? 1 : 1.05 }}
+          whileHover={{ scale: isDragging ? 1 : 1.03 }}
           style={{ cursor: isDragging ? "grabbing" : "pointer" }}
-          className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] bg-white dark:bg-[#232D3F] text-black border-white dark:border-[#232D3F] border-solid border-8 rounded-xl shadow-lg hover:shadow-xl overflow-hidden"
+          className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] xl:w-[480px] 2xl:w-[560px] relative overflow-hidden rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-md border border-gray-200/60 dark:border-white/10 shadow-sm transition-all"
         >
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-49 object-cover"
+            className="w-full aspect-video object-cover"
             draggable={false}
           />
           <div className="p-4">
             <h3 className="text-xl font-semibold mb-2 dark:text-white">
               {project.title}
             </h3>
-            <p className="text-gray-600 dark:text-gray-200 mb-4 text-justify">
+            <p className="text-gray-600 dark:text-gray-200 mb-4 text-left text-pretty leading-relaxed">
               {project.description}
             </p>
             <div className="flex justify-between items-end">
-              <div className="flex space-x-2">
+              <div className="flex flex-wrap gap-2">
                 {project.tech.map((tech: string, techIndex: number) => (
                   <img
                     key={techIndex}
@@ -275,9 +275,8 @@ const ProjectSection: React.FC = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
-      className="py-12 px-10 scroll-mt-28 mb-28"
+      className="w-full mb-28 sm:mb-32 lg:mb-40 xl:mb-48 scroll-mt-28"
       ref={ref}
-      style={{ padding: "0 8%" }}
     >
       <div ref={sectionRef} className="container mx-auto">
         <div className="flex justify-center mb-2">
@@ -291,10 +290,10 @@ const ProjectSection: React.FC = () => {
               key={option.key}
               type="button"
               onClick={() => setActiveCategory(option.key)}
-              className={`px-5 py-2 rounded-full text-sm font-medium border-2 border-black dark:border-white/70 transition-colors ${
+              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
                 activeCategory === option.key
-                  ? "bg-black text-white dark:bg-white dark:text-black"
-                  : "bg-transparent text-black dark:text-white hover:bg-black/10 dark:hover:bg-white/10"
+                  ? "bg-gray-900 text-white dark:bg-white dark:text-gray-900 shadow-md"
+                  : "bg-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/10"
               }`}
             >
               {option.label}
@@ -329,15 +328,15 @@ const ProjectSection: React.FC = () => {
       {selectedProject && (
         <div className="modal-overlay flex items-center justify-center">
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center"
+            className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm flex items-center justify-center z-50 p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
             {" "}
-            <div className="bg-white dark:bg-[#232D3F] p-8 max-w-[900px] w-full mx-4 my-8 rounded-xl shadow-lg relative overflow-y-scroll max-h-[80vh]">
+            <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl p-6 sm:p-8 max-w-[900px] w-full rounded-2xl shadow-2xl relative overflow-y-auto max-h-[85vh] border border-gray-200/60 dark:border-white/10">
               <button
                 onClick={handleCloseModal}
-                className="absolute top-4 right-4 text-gray-600 dark:text-gray-200 hover:text-gray-700"
+                className="absolute top-4 right-4 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors bg-gray-100 dark:bg-white/10 rounded-full w-8 h-8 flex items-center justify-center"
               >
                 <span className="text-xl">&times;</span>
               </button>
@@ -345,7 +344,7 @@ const ProjectSection: React.FC = () => {
                 {selectedProject.title}
               </h2>
               <div className=" relative overflow-y-auto">
-                <p className="modal-content text-gray-600 dark:text-gray-200 mb-4 text-justify max-h-60vh">
+                <p className="modal-content text-gray-600 dark:text-gray-200 mb-4 text-left text-pretty leading-relaxed max-h-60vh">
                   {selectedProject.description}
                 </p>
               </div>

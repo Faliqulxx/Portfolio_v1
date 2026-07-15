@@ -23,7 +23,7 @@ export default function Home() {
         relative
         flex flex-col
         items-center
-        px-4
+        w-[92vw] max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12
         min-h-screen
         overflow-x-hidden
       "

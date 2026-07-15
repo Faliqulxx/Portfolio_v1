@@ -18,10 +18,8 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref}
-      className="mb-28 max-w-[100vw] overflow-hidden scroll-mt-28 text-center sm:mb-40"
+      className="w-full mb-28 sm:mb-32 lg:mb-40 xl:mb-48 overflow-hidden scroll-mt-28 text-center"
     >
-      <div className="bg-emerald-400 absolute -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] dark:bg-[#183D3D]"></div>
-
       <div className="flex justify-center items-center mb-10 gap-2">
         <SectionHeading>Tools & Technologies</SectionHeading>
         <BurstBload2 />
@@ -47,7 +45,7 @@ export default function Skills() {
                 height="192"
                 quality={95}
                 priority={true}
-                className="md:w-16 w-6"
+                className="w-8 sm:w-12 md:w-16 lg:w-24 xl:w-28 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
               />
             </div>
           </div>

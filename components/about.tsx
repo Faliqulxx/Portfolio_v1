@@ -86,7 +86,7 @@ function BioText() {
     const parts = text.split(pattern);
     return parts.map((part, i) =>
       highlights.includes(part) ? (
-        <span key={i} className="font-semibold text-gray-900 dark:text-white">
+        <span key={i} className="font-semibold text-indigo-600 dark:text-indigo-400">
           {part}
         </span>
       ) : (
@@ -104,7 +104,7 @@ function BioText() {
   }
 
   return (
-    <div className="leading-9 text-lg text-gray-700 dark:text-white/80 space-y-6">
+    <div className="leading-9 text-lg xl:text-xl text-gray-700 dark:text-white/80 space-y-6 max-w-[80ch]">
       {chunks.map((chunk, i) => (
         <p key={i}>{renderWithBold(chunk.join(" "))}</p>
       ))}
@@ -115,7 +115,7 @@ function BioText() {
 // ─── GENERAL TAB ─────────────────────────────────────────────────────────────
 function GeneralTab({ onImageClick }: { onImageClick: (src: string) => void }) {
   return (
-    <div className="flex flex-col lg:flex-row items-start gap-16">
+    <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
       {/* BIO */}
       <div className="flex-1 text-left">
         <BioText />
@@ -126,21 +126,21 @@ function GeneralTab({ onImageClick }: { onImageClick: (src: string) => void }) {
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.4 }}
-        className="w-full lg:w-[420px]"
+        className="w-full lg:w-[500px] xl:w-[700px] 2xl:w-[800px]"
       >
         <p className="text-center text-xs font-semibold text-gray-400 dark:text-white/40 mb-4 uppercase tracking-widest">
           Certificates
         </p>
-        <div className="grid grid-cols-2 gap-4 max-h-[520px] overflow-y-auto pr-2 custom-scrollbar">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
           {certificatesData.map((cert, index) => (
             <motion.div
               key={index}
-              whileHover={{ scale: 1.04 }}
+              whileHover={{ y: -4 }}
               transition={{ duration: 0.2 }}
               onClick={() => onImageClick(cert.image)}
               className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-lg hover:shadow-2xl cursor-pointer"
             >
-              <div className="relative w-full h-[140px]">
+              <div className="relative w-full aspect-[4/3]">
                 <Image src={cert.image} alt={cert.name} fill className="object-cover" />
               </div>
               <div className="px-2 py-1.5">
@@ -154,20 +154,20 @@ function GeneralTab({ onImageClick }: { onImageClick: (src: string) => void }) {
         {/* SOCIAL MEDIA */}
         <div className="flex justify-center gap-4 text-2xl mt-8">
           <a href={contactData.linkedin} target="_blank" rel="noreferrer"
-            className="social-btn hover:bg-[#0077B5] transition-all duration-300">
-            <BsLinkedin />
+            className="social-btn group bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 p-3 text-gray-700 dark:text-white/70 hover:bg-gray-100 dark:hover:text-white rounded-full transition-all duration-300 shadow-sm hover:scale-105">
+            <BsLinkedin className="transition group-hover:text-gray-900 dark:group-hover:text-white" />
           </a>
           <a href={`mailto:${contactData.email}`} target="_blank" rel="noreferrer"
-            className="social-btn hover:bg-[#D44638] transition-all duration-300">
-            <RiMailSendLine />
+            className="social-btn group bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 p-3 text-gray-700 dark:text-white/70 hover:bg-gray-100 dark:hover:text-white rounded-full transition-all duration-300 shadow-sm hover:scale-105">
+            <RiMailSendLine className="transition group-hover:text-gray-900 dark:group-hover:text-white" />
           </a>
           <a href={contactData.github} target="_blank" rel="noreferrer"
-            className="social-btn hover:bg-black transition-all duration-300">
-            <FaGithubSquare />
+            className="social-btn group bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 p-3 text-gray-700 dark:text-white/70 hover:bg-gray-100 dark:hover:text-white rounded-full transition-all duration-300 shadow-sm hover:scale-105">
+            <FaGithubSquare className="transition group-hover:text-gray-900 dark:group-hover:text-white" />
           </a>
           <a href={contactData.instagram} target="_blank" rel="noreferrer"
-            className="social-btn hover:bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] transition-all duration-300">
-            <BsInstagram />
+            className="social-btn group bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 p-3 text-gray-700 dark:text-white/70 hover:bg-gray-100 dark:hover:text-white rounded-full transition-all duration-300 shadow-sm hover:scale-105">
+            <BsInstagram className="transition group-hover:text-gray-900 dark:group-hover:text-white" />
           </a>
         </div>
       </motion.div>
@@ -255,7 +255,7 @@ function EducationCard({
         <>
           <button
             onClick={() => setOpen((v) => !v)}
-            className="w-full flex items-center gap-1.5 px-5 pb-4 text-xs font-semibold text-indigo-500 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors"
+            className="mx-5 mb-4 inline-flex items-center gap-1.5 px-4 py-2 bg-indigo-50 dark:bg-indigo-500/10 rounded-full text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-500/20 transition-colors w-fit"
           >
             {open ? (
               <>
@@ -297,7 +297,7 @@ function EducationCard({
 // ─── EDUCATION TAB ───────────────────────────────────────────────────────────
 function EducationTab() {
   return (
-    <div className="max-w-3xl mx-auto w-full space-y-4">
+    <div className="max-w-4xl 2xl:max-w-5xl mx-auto w-full space-y-4">
       {[...educationData].reverse().map((edu, index) => (
         <EducationCard key={index} edu={edu} index={index} />
       ))}
@@ -308,7 +308,7 @@ function EducationTab() {
 // ─── GALLERY TAB ─────────────────────────────────────────────────────────────
 function GalleryTab({ onImageClick }: { onImageClick: (src: string) => void }) {
   return (
-    <div className="columns-2 md:columns-3 gap-4 space-y-4 max-w-4xl mx-auto">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-w-5xl 2xl:max-w-7xl mx-auto">
       {galleryData.map((item, index) => (
         <motion.div
           key={index}
@@ -355,7 +355,7 @@ export default function About() {
       <motion.section
         ref={ref}
         id="about"
-        className="mb-28 max-w-7xl mx-auto px-4 scroll-mt-28"
+        className="w-full mb-28 sm:mb-32 lg:mb-40 xl:mb-48 scroll-mt-28"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.175 }}

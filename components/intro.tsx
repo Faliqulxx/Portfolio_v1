@@ -17,13 +17,13 @@ export default function Intro() {
     <section
       id="home"
       ref={ref}
-      className="mb-28 max-w-[70rem] mx-auto scroll-mt-[28rem]"
+      className="w-full mb-28 sm:mb-32 lg:mb-40 xl:mb-48 scroll-mt-[28rem]"
     >
-      <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 text-center lg:text-left">
+      <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-16 text-center lg:text-left">
         {/* TEKS (KIRI) */}
-        <div className="max-w-xl">
+        <div className="max-w-2xl 2xl:max-w-3xl">
           <motion.h1
-            className="mb-3 text-2xl font-medium sm:text-4xl"
+            className="mb-3 text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-tighter leading-tight"
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
           >
@@ -31,7 +31,7 @@ export default function Intro() {
           </motion.h1>
 
           <motion.h4
-            className="mb-8 text-lg sm:text-xl leading-relaxed"
+            className="mb-8 text-lg sm:text-xl lg:text-2xl leading-relaxed"
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
           >
@@ -50,7 +50,7 @@ export default function Intro() {
           <motion.div className="flex flex-col sm:flex-row gap-3">
             <Link
               href="#contact"
-              className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full hover:scale-110 transition"
+              className="group bg-gray-900 text-white dark:bg-white dark:text-gray-900 px-7 py-3 flex items-center gap-2 rounded-full hover:-translate-y-0.5 hover:shadow-md transition-all font-medium shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:focus-visible:ring-gray-300 dark:focus-visible:ring-offset-gray-950"
             >
               Contact Me
               <BsArrowRight className="group-hover:translate-x-1 transition" />
@@ -59,7 +59,7 @@ export default function Intro() {
             <a
               href="/cv/resumev3.pdf"
               download
-              className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full hover:scale-110 transition"
+              className="group bg-white dark:bg-white/10 text-gray-900 dark:text-white/80 border border-gray-200 dark:border-white/10 px-7 py-3 flex items-center gap-2 rounded-full hover:-translate-y-0.5 hover:shadow-md transition-all font-medium shadow-sm backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:focus-visible:ring-gray-300 dark:focus-visible:ring-offset-gray-950"
             >
               Download CV
               <HiDownload className="group-hover:translate-y-1 transition" />
@@ -79,104 +79,45 @@ export default function Intro() {
             alt="Faliqul Ishbah"
             width={192}
             height={192}
-            className="h-40 w-40 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
+            className="w-32 h-32 sm:w-40 sm:h-40 lg:w-56 lg:h-56 xl:w-64 xl:h-64 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
           />
 
           {/* SOSIAL MEDIA */}
-          <div className="flex flex-row items-center justify-center gap-2 text-lg font-medium mt-5">
+          <div className="flex flex-row items-center justify-center gap-3 text-lg mt-5">
             {/* LinkedIn */}
             <a
-              className="
-      group
-      bg-white
-      p-4
-      text-gray-700
-      rounded-full
-      transition-all
-      duration-300
-      cursor-pointer
-      borderBlack
-      dark:bg-white/10
-      dark:text-white/60
-      hover:bg-[#0077B5]
-      hover:scale-110
-    "
+              className="group bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 p-4 text-gray-700 dark:text-white/70 hover:bg-gray-100 dark:hover:text-white rounded-full transition-all duration-300 shadow-sm hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:focus-visible:ring-gray-300 dark:focus-visible:ring-offset-gray-950"
               href="https://www.linkedin.com/in/faliqulishbah/"
               target="_blank"
             >
-              <BsLinkedin className="transition group-hover:text-white" />
+              <BsLinkedin className="transition group-hover:text-gray-900 dark:group-hover:text-white" />
             </a>
 
             {/* Email */}
             <a
-              className="
-      group
-      bg-white
-      p-4
-      text-gray-700
-      rounded-full
-      transition-all
-      duration-300
-      cursor-pointer
-      borderBlack
-      dark:bg-white/10
-      dark:text-white/60
-      hover:bg-[#D44638]
-      hover:scale-110
-    "
+              className="group bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 p-4 text-gray-700 dark:text-white/70 hover:bg-gray-100 dark:hover:text-white rounded-full transition-all duration-300 shadow-sm hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:focus-visible:ring-gray-300 dark:focus-visible:ring-offset-gray-950"
               href="mailto:faliqul.isback@gmail.com"
               target="_blank"
             >
-              <RiMailSendLine className="transition group-hover:text-white" />
+              <RiMailSendLine className="transition group-hover:text-gray-900 dark:group-hover:text-white" />
             </a>
 
             {/* GitHub */}
             <a
-              className="
-      group
-      bg-white
-      p-4
-      text-gray-700
-      rounded-full
-      transition-all
-      duration-300
-      cursor-pointer
-      borderBlack
-      dark:bg-white/10
-      dark:text-white/60
-      hover:bg-black
-      hover:scale-110
-    "
+              className="group bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 p-4 text-gray-700 dark:text-white/70 hover:bg-gray-100 dark:hover:text-white rounded-full transition-all duration-300 shadow-sm hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:focus-visible:ring-gray-300 dark:focus-visible:ring-offset-gray-950"
               href="https://github.com/Faliqulxx"
               target="_blank"
             >
-              <FaGithubSquare className="transition group-hover:text-white" />
+              <FaGithubSquare className="transition group-hover:text-gray-900 dark:group-hover:text-white" />
             </a>
 
             {/* Instagram */}
             <a
-              className="
-      group
-      bg-white
-      p-4
-      text-gray-700
-      rounded-full
-      transition-all
-      duration-300
-      cursor-pointer
-      borderBlack
-      dark:bg-white/10
-      dark:text-white/60
-      hover:bg-gradient-to-tr
-      from-[#F58529]
-      via-[#DD2A7B]
-      to-[#8134AF]
-      hover:scale-110
-    "
+              className="group bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 p-4 text-gray-700 dark:text-white/70 hover:bg-gray-100 dark:hover:text-white rounded-full transition-all duration-300 shadow-sm hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:focus-visible:ring-gray-300 dark:focus-visible:ring-offset-gray-950"
               href="https://www.instagram.com/Faliqulx/"
               target="_blank"
             >
-              <BsInstagram className="transition group-hover:text-white" />
+              <BsInstagram className="transition group-hover:text-gray-900 dark:group-hover:text-white" />
             </a>
           </div>
         </motion.div>

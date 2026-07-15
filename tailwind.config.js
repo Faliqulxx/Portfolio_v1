@@ -21,6 +21,10 @@ module.exports = {
       animation: {
         slide: "slide 40s linear infinite",
       },
+      boxShadow: {
+        soft: "0 8px 30px rgba(0, 0, 0, 0.04)",
+        glass: "0 4px 30px rgba(0, 0, 0, 0.1)",
+      },
     },
   },
   plugins: [],

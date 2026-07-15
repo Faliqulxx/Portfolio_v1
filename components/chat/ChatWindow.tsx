@@ -154,7 +154,7 @@ export default function ChatWindow({
           type="submit"
           disabled={isLoading || !input.trim()}
           aria-label="Kirim pesan"
-          className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-gray-900 text-white transition hover:scale-105 disabled:opacity-40 disabled:hover:scale-100 dark:bg-white dark:bg-opacity-10"
+          className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-gray-900 text-white transition-all hover:-translate-y-0.5 hover:shadow-md disabled:opacity-40 disabled:hover:-translate-y-0 disabled:hover:shadow-none dark:bg-white dark:bg-opacity-10"
         >
           <IoSend className="text-sm" />
         </button>
