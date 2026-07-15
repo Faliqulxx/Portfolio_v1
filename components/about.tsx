@@ -14,6 +14,7 @@ import { FaGithubSquare } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { FiCalendar, FiMapPin, FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { PiMedalFill } from "react-icons/pi";
+import BorderGlow from "./animations/BorderGlow";
 
 import {
   personalData,
@@ -191,9 +192,21 @@ function EducationCard({
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, delay: index * 0.1 }}
-      className="w-full bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200/60 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+      className="w-full"
       style={{ contain: "layout" }}
     >
+      <BorderGlow
+        className="w-full shadow-sm hover:shadow-md transition-shadow"
+        edgeSensitivity={30}
+        glowColor="40 80 80"
+        backgroundColor="#120F17"
+        borderRadius={44}
+        glowRadius={40}
+        glowIntensity={1}
+        coneSpread={25}
+        animated={false}
+        colors={['#c084fc', '#f472b6', '#38bdf8']}
+      >
       {/* MAIN ROW */}
       <div className="flex items-start gap-5 p-5">
         {/* LOGO */}
@@ -290,6 +303,7 @@ function EducationCard({
           </AnimatePresence>
         </>
       )}
+      </BorderGlow>
     </motion.div>
   );
 }

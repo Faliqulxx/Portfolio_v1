@@ -6,8 +6,6 @@ import Skills from "@/components/skills";
 import ProjectSection from "@/components/project-section";
 import SectionDivider from "@/components/section-divider";
 import MaintenanceMode from "../components/MaintenanceMode";
-
-import SplashCursor from "./components/SplashCursor/SplashCursor";
 import ScrollVelocity from "./components/ScrollVelocity/ScrollVelocity";
 
 export default function Home() {
@@ -28,10 +26,6 @@ export default function Home() {
         overflow-x-hidden
       "
     >
-      {/* ================= BACKGROUND SPLASH ================= */}
-      <div className="fixed inset-0 -z-10 pointer-events-none">
-        <SplashCursor />
-      </div>
 
       {/* ================= CONTENT ================= */}
       <div className="relative w-full flex flex-col items-center">
