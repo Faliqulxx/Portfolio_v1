@@ -166,7 +166,7 @@ export default function Footer() {
         <motion.div variants={itemVariants} className="flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-4 pt-8 border-t border-gray-300 dark:border-white/10 text-sm text-gray-500 dark:text-gray-400">
           <p>&copy; {currentYear} Faliqul Ishbah. All Rights Reserved.</p>
           <p>
-            Designed & Developed with <span className="text-red-500 animate-pulse inline-block">❤️</span> in Indonesia.
+            Designed with purpose. <span className="text-red-500 animate-pulse inline-block">-</span> Built with precision.
           </p>
         </motion.div>
       </motion.div>

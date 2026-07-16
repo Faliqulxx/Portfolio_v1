@@ -5,12 +5,8 @@ import { buildChatSystemPrompt } from "@/lib/chat-knowledge";
 // fetch + stream transform work — no Node-specific APIs needed.
 export const runtime = "edge";
 
-// SumoPod exposes an OpenAI-compatible endpoint (see https://ai.sumopod.com).
-const SUMOPOD_API_URL = "https://ai.sumopod.com/v1/chat/completions";
-// Pick the exact model string from your SumoPod dashboard (AI tab ->
-// Models). This is just a sensible default — override with SUMOPOD_MODEL
-// in your env if you want a different one.
-const DEFAULT_MODEL = "gpt-4o-mini";
+// Gemini API uses the generative language endpoint.
+const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:streamGenerateContent?alt=sse";
 const MAX_TOKENS = 500;
 const MAX_HISTORY_MESSAGES = 12;
 
@@ -48,9 +44,9 @@ export async function POST(req: NextRequest) {
     return jsonError("Terlalu banyak permintaan. Coba lagi sebentar ya.", 429);
   }
 
-  const apiKey = process.env.SUMOPOD_API_KEY;
+  const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    console.error("SUMOPOD_API_KEY is not set.");
+    console.error("GEMINI_API_KEY is not set.");
     return jsonError("Chat assistant belum dikonfigurasi.", 500);
   }
 
@@ -70,35 +66,35 @@ export async function POST(req: NextRequest) {
   const trimmedHistory = messages
     .slice(-MAX_HISTORY_MESSAGES)
     .map(({ role, content }) => ({
-      role,
-      content: String(content).slice(0, 4000),
+      role: role === "assistant" ? "model" : "user",
+      parts: [{ text: String(content).slice(0, 4000) }],
     }));
 
-  const upstream = await fetch(SUMOPOD_API_URL, {
+  const upstream = await fetch(GEMINI_API_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
+      "x-goog-api-key": apiKey,
     },
     body: JSON.stringify({
-      model: process.env.SUMOPOD_MODEL || DEFAULT_MODEL,
-      max_tokens: MAX_TOKENS,
-      stream: true,
-      messages: [
-        { role: "system", content: buildChatSystemPrompt() },
-        ...trimmedHistory,
-      ],
+      systemInstruction: {
+        parts: [{ text: buildChatSystemPrompt() }],
+      },
+      contents: trimmedHistory,
+      generationConfig: {
+        maxOutputTokens: MAX_TOKENS,
+      },
     }),
   });
 
   if (!upstream.ok || !upstream.body) {
     const errorText = await upstream.text().catch(() => "");
-    console.error("SumoPod API error:", upstream.status, errorText);
+    console.error("Gemini API error:", upstream.status, errorText);
     return jsonError("Asisten sedang tidak tersedia, coba lagi nanti.", 502);
   }
 
   // Re-stream only the text deltas as plain text chunks, so the client
-  // doesn't need to understand the OpenAI-compatible SSE format at all —
+  // doesn't need to understand the Gemini SSE format at all —
   // it just reads a plain text stream.
   const textStream = new ReadableStream<Uint8Array>({
     async start(controller) {
@@ -118,11 +114,11 @@ export async function POST(req: NextRequest) {
         for (const line of lines) {
           if (!line.startsWith("data:")) continue;
           const payload = line.slice(5).trim();
-          if (!payload || payload === "[DONE]") continue;
+          if (!payload) continue;
 
           try {
             const event = JSON.parse(payload);
-            const delta = event.choices?.[0]?.delta?.content;
+            const delta = event.candidates?.[0]?.content?.parts?.[0]?.text;
             if (typeof delta === "string" && delta.length > 0) {
               controller.enqueue(encoder.encode(delta));
             }
