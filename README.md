@@ -95,7 +95,3 @@ If you'd like to collaborate, discuss tech, or explore potential opportunities, 
 - 🐙 **GitHub**: [@Faliqulxx](https://github.com/Faliqulxx)
 
 <br>
-
-<div align="center">
-  <i>Designed and developed with ❤️ by Faliqul Ishbah.</i>
-</div>
