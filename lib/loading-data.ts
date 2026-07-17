@@ -57,7 +57,7 @@ export const roleTitles = [
   "Artificial Intelligence",
   "Data Science",
   "AI Automation",
-  "Full Stack Development",
+  "Front-End Engineer",
 ] as const;
 
 export const bootMessages = [
