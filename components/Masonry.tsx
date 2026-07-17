@@ -8,6 +8,7 @@ interface MasonryItem {
   img: string;
   url?: string;
   height: number;
+  caption?: string;
 }
 
 interface GridItem extends MasonryItem {
@@ -246,7 +247,7 @@ const Masonry = ({
         <div
           key={item.id}
           data-key={item.id}
-          className="absolute box-content cursor-pointer"
+          className="absolute box-content cursor-pointer group"
           style={{ willChange: "transform, width, height, opacity" }}
           onClick={() =>
             item.url && window.open(item.url, "_blank", "noopener")
@@ -255,11 +256,16 @@ const Masonry = ({
           onMouseLeave={(e) => handleMouseLeave(item.id, e.currentTarget)}
         >
           <div
-            className="relative w-full h-full bg-cover bg-center rounded-[10px] shadow-[0px_10px_50px_-10px_rgba(0,0,0,0.2)] uppercase text-[10px] leading-[10px]"
+            className="relative w-full h-full bg-cover bg-center rounded-[10px] shadow-[0px_10px_50px_-10px_rgba(0,0,0,0.2)] uppercase text-[10px] leading-[10px] overflow-hidden"
             style={{ backgroundImage: `url(${item.img})` }}
           >
             {colorShiftOnHover && (
               <div className="color-overlay absolute inset-0 rounded-[10px] bg-gradient-to-tr from-pink-500/50 to-sky-500/50 opacity-0 pointer-events-none" />
+            )}
+            {item.caption && (
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-5 pt-12 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out pointer-events-none flex items-end">
+                <p className="text-white text-sm md:text-base font-semibold normal-case tracking-normal drop-shadow-md">{item.caption}</p>
+              </div>
             )}
           </div>
         </div>

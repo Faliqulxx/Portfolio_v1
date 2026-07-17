@@ -324,18 +324,18 @@ function EducationTab() {
 
 // ─── GALLERY ITEMS ────────────────────────────────────────────────────────────
 const masonryItems = [
-  { id: "g1",  img: "/images/gallery/1.png",                        height: 520 },
-  { id: "g2",  img: "/images/gallery/2.png",                        height: 420 },
-  { id: "g3",  img: "https://picsum.photos/id/1015/600/900",        height: 500 },
-  { id: "g4",  img: "https://picsum.photos/id/1011/600/750",        height: 380 },
-  { id: "g5",  img: "https://picsum.photos/id/1074/600/800",        height: 460 },
-  { id: "g6",  img: "https://picsum.photos/id/1043/600/700",        height: 340 },
-  { id: "g7",  img: "https://picsum.photos/id/1060/600/850",        height: 480 },
-  { id: "g8",  img: "https://picsum.photos/id/1035/600/600",        height: 300 },
-  { id: "g9",  img: "https://picsum.photos/id/1047/600/780",        height: 420 },
-  { id: "g10", img: "https://picsum.photos/id/1018/600/900",        height: 560 },
-  { id: "g11", img: "https://picsum.photos/id/1039/600/700",        height: 360 },
-  { id: "g12", img: "https://picsum.photos/id/1023/600/800",        height: 440 },
+  { id: "g1",  img: "/images/gallery/1.png",                        height: 520, caption: "Presenting my project" },
+  { id: "g2",  img: "/images/gallery/2.png",                        height: 420, caption: "Team meeting" },
+  { id: "g3",  img: "https://picsum.photos/id/1015/600/900",        height: 500, caption: "Nature Exploration" },
+  { id: "g4",  img: "https://picsum.photos/id/1011/600/750",        height: 380, caption: "Lake Reflection" },
+  { id: "g5",  img: "https://picsum.photos/id/1074/600/800",        height: 460, caption: "City Nightlife" },
+  { id: "g6",  img: "https://picsum.photos/id/1043/600/700",        height: 340, caption: "Desert Dunes" },
+  { id: "g7",  img: "https://picsum.photos/id/1060/600/850",        height: 480, caption: "Coffee Time" },
+  { id: "g8",  img: "https://picsum.photos/id/1035/600/600",        height: 300, caption: "Mountain Peak" },
+  { id: "g9",  img: "https://picsum.photos/id/1047/600/780",        height: 420, caption: "Urban Architecture" },
+  { id: "g10", img: "https://picsum.photos/id/1018/600/900",        height: 560, caption: "Creative Workspace" },
+  { id: "g11", img: "https://picsum.photos/id/1039/600/700",        height: 360, caption: "Forest Trail" },
+  { id: "g12", img: "https://picsum.photos/id/1023/600/800",        height: 440, caption: "Cycling Adventure" },
 ];
 
 // ─── GALLERY TAB ─────────────────────────────────────────────────────────────
