@@ -138,7 +138,7 @@ export const experiencesData = [
 export const projectsData = [
   {
     title: "Sistem Informasi Logistik CGN",
-    category: "web",
+    category: ["web"],
     description:
       "The CGN Logistics Information System is a digital platform that integrates inventory management, inventory control, delivery monitoring, and logistics performance analysis to maximize the efficiency of CGN's logistics operations. The system also provides high security and an intuitive user interface.",
     screenshots: [
@@ -167,7 +167,7 @@ export const projectsData = [
   },
   {
     title: "E-Commerce Ikan Me",
-    category: "web",
+    category: ["web"],
     description:
       "This website is an innovative platform designed to assist freshwater fishermen and fish farmers in the village of Berasan Mulya in marketing their products online. We are dedicated to supporting the local economy and the conservation of natural resources.",
     screenshots: [
@@ -196,7 +196,7 @@ export const projectsData = [
   },
   {
     title: "Match Schedule MPL Indonesia",
-    category: "web",
+    category: ["web"],
     description:
       "This website is a demonstration of a clone that imitates the appearance and features of the official MPL Indonesia website. It provides information similar to the actual MPL Indonesia website, including match schedules, team listings, and standings.",
     screenshots: [
@@ -224,7 +224,7 @@ export const projectsData = [
   },
   {
     title: "Autogate RFID",
-    category: "data",
+    category: ["data", "web"],
     description:
       "A smart autogate and parking access system based on IoT using ESP32, RFID, ultrasonic sensors, servo motor, LCD display, and web monitoring integration. This system is designed to automate vehicle entry and exit access in residential areas or parking environments using RFID card authentication.",
     screenshots: [
@@ -260,7 +260,7 @@ export const projectsData = [
   },
   {
     title: "Multi-Service AI Assistant Bot",
-    category: "data",
+    category: ["data"],
     description:
       "An intelligent, multi-purpose AI Assistant integrated with n8n workflow automation. It leverages Large Language Models (LLMs) and Vector Databases to provide contextual responses and execute actions across four core modules: Academic Information, Personal Finance Tracking, Appointment Booking, and Car Rental Management.",
     screenshots: [
@@ -288,7 +288,7 @@ export const projectsData = [
   },
   {
     title: "WhatsApp RAG AI Assistant Chatbot",
-    category: "data",
+    category: ["data"],
     description:
       "An intelligent, multi-purpose WhatsApp AI Assistant integrated with n8n workflow automation. It leverages Large Language Models (LLMs) and Vector Databases to provide contextual responses and execute actions across four core modules: Academic Information, Personal Finance Tracking, Appointment Booking, and Car Rental Management.",
     screenshots: [
@@ -316,8 +316,8 @@ export const projectsData = [
     languages: ["n8n", "Whatsapp", "OpenAI API", "Supabase (Vector)", "PostgreSQL"],
   },
   {
-    title: "Cat Breed Classification",
-    category: "data",
+    title: "Cat Breed Classification (Streamlit)",
+    category: ["data", "web"],
     description:
       "A deep learning-based web application for classifying 12 cat breeds using image recognition. This project compares CNN Scratch, MobileNetV2, and ResNet50 models, with MobileNetV2 achieving the best classification performance through transfer learning.",
     image: "images/project/cat-breed/1.png",
@@ -356,7 +356,7 @@ export const projectsData = [
   },
   {
     title: "HR-TOOLS",
-    category: "web",
+    category: ["web"],
     description:
       "This is HR TOOLS which is used to manage employee data, starting from personal data, employee performance appraisal work to the attendance system.",
     image: "images/project/hr-tools/1.png",
@@ -385,8 +385,137 @@ export const projectsData = [
     languages: ["Codeigniter 3", "Bootstrap 3", "MYSQL 5.3", "Jquery"],
   },
   {
+    title: "Cat Breed Classification (React)",
+    category: ["data", "web"],
+    description:
+      "A deep learning-based image classification system that identifies 12 different cat breeds. The project compares CNN Scratch, MobileNetV2, and ResNet50 models, with MobileNetV2 achieving the best performance at 82% accuracy. The trained model is deployed through an interactive web dashboard that allows users to upload cat images and receive breed predictions with confidence scores.",
+    image: "images/project/cat-breed-classification/1.png",
+    screenshots: [
+      "images/project/cat-breed-classification/2.png",
+      "images/project/cat-breed-classification/3.png",
+      "images/project/cat-breed-classification/4.png",
+    ],
+    tech: [
+      "/images/icon/react.svg",
+      "/images/icon/vite.svg",
+      "/images/icon/tailwindcss.svg",
+      "/images/icon/fastapi.svg",
+      "/images/icon/python.svg",
+      "/images/icon/tensorflow.svg",
+    ],
+    demoUrl: "https://cat-breed-classification.vercel.app/",
+    githubUrl: "https://github.com/Faliqulxx/Cat-Breed-Classification",
+    features: [
+      "Classifies images into 12 different cat breeds.",
+      "Compares CNN Scratch, MobileNetV2, and ResNet50 models.",
+      "Uses transfer learning with MobileNetV2 and ResNet50.",
+      "MobileNetV2 achieved the best performance with 82% accuracy.",
+      "Upload cat images directly through the interactive web dashboard.",
+      "Displays predicted cat breed with a confidence score.",
+      "Shows sorted prediction probabilities for all available classes.",
+      "Includes model evaluation using accuracy, precision, recall, and F1-score.",
+      "Provides confusion matrix and accuracy-loss visualizations.",
+      "Interactive and responsive dashboard with smooth animations.",
+      "FastAPI backend for serving machine learning predictions.",
+    ],
+    languages: [
+      "Python",
+      "TensorFlow",
+      "Keras",
+      "FastAPI",
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Framer Motion",
+    ],
+  },
+  {
+    title: "AI UI Chat",
+    category: ["web"],
+    description:
+      "A modern AI chatbot interface inspired by today's leading conversational AI platforms. Designed with a clean, responsive, and user-friendly experience featuring real-time messaging, conversation history, prompt suggestions, and an elegant dark theme.",
+    image: "images/project/ai-ui-chat/1.png",
+    screenshots: [
+      "images/project/ai-ui-chat/2.png",
+      "images/project/ai-ui-chat/3.png",
+      "images/project/ai-ui-chat/4.png",
+      "images/project/ai-ui-chat/5.png",
+      "images/project/ai-ui-chat/6.png",
+      "images/project/ai-ui-chat/7.png",
+    ],
+    tech: [
+      "/images/icon/nextjs.svg",
+      "/images/icon/react.svg",
+      "/images/icon/typescript.svg",
+      "/images/icon/tailwindcss.svg",
+      "/images/icon/shadcnui.svg",
+    ],
+    demoUrl: null,
+    githubUrl: "https://github.com/Faliqulxx/AI-uiChat",
+    features: [
+      "Modern AI chatbot interface inspired by ChatGPT and Gemini.",
+      "Real-time chat conversation with streaming message animation.",
+      "Conversation history with easy chat management.",
+      "Prompt suggestions and empty-state experience for new users.",
+      "Responsive layout optimized for desktop, tablet, and mobile.",
+      "Dark mode interface with smooth animations.",
+      "Loading, typing, and error states for a realistic AI chat experience.",
+      "Reusable and scalable component architecture.",
+      "Clean UI built with accessibility and performance in mind.",
+      "Prepared for future integration with AI APIs such as OpenAI or Gemini.",
+    ],
+    languages: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Framer Motion",
+    ],
+  },
+  {
+    title: "Coffee Cafe",
+    category: ["web"],
+    description:
+      "A modern coffee shop landing page designed to showcase coffee products, featured menus, company profile, and contact information. Built with a responsive, visually engaging interface and smooth user experience across all devices.",
+    image: "images/project/coffee-cafe/1.png",
+    screenshots: [
+      "images/project/coffee-cafe/2.png",
+      "images/project/coffee-cafe/3.png",
+      "images/project/coffee-cafe/4.png",
+      "images/project/coffee-cafe/5.png",
+      "images/project/coffee-cafe/6.png",
+    ],
+    tech: [
+      "/images/icon/html5.svg",
+      "/images/icon/css3.svg",
+      "/images/icon/javascript.svg",
+      "/images/icon/bootstrap.svg",
+    ],
+    demoUrl: null,
+    githubUrl: "https://github.com/Faliqulxx/coffe-caf",
+    features: [
+      "Modern and responsive coffee shop landing page.",
+      "Interactive hero section with engaging call-to-action.",
+      "Featured coffee menu and product showcase.",
+      "About section introducing the coffee shop and its story.",
+      "Gallery section displaying coffee products and café atmosphere.",
+      "Contact section with location and social media links.",
+      "Smooth scrolling navigation and responsive mobile menu.",
+      "Optimized layout for desktop, tablet, and mobile devices.",
+      "Clean UI with reusable components and maintainable structure.",
+      "Fast loading static website with responsive design principles.",
+    ],
+    languages: [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Bootstrap",
+    ],
+  },
+  {
     title: "POS (Point of Sale)",
-    category: "web",
+    category: ["web"],
     description:
       "A modern Point of Sale (POS) web application designed to simplify sales transactions, product management, inventory tracking, and business operations. Built with a responsive interface to provide an efficient and user-friendly experience for cashiers and store owners.",
     image: "images/project/pos/1.png",
@@ -428,7 +557,7 @@ export const projectsData = [
   },
   {
     title: "Digital Wedding Invitations",
-    category: "web",
+    category: ["web"],
     description:
       "A modern digital wedding invitation platform that allows couples to share elegant online invitations with RSVP, event information, photo gallery, love story, countdown timer, gift section, and responsive design for all devices.",
     image: "images/project/digital-wedding-invitations/1.png",
@@ -466,79 +595,6 @@ export const projectsData = [
       "TypeScript",
       "Tailwind CSS",
       "shadcn/ui",
-      "Framer Motion",
-    ],
-  },
-  {
-    title: "AI Chat Interface",
-    category: "data",
-    description:
-      "A modern and responsive chat interface designed for seamless interactions with AI models. Features a clean UI, real-time messaging, and an optimized user experience for AI-driven conversations.",
-    image: "images/project/ai-ui-chat/1.png",
-    screenshots: [
-      "images/project/ai-ui-chat/2.png",
-      "images/project/ai-ui-chat/3.png",
-      "images/project/ai-ui-chat/4.png",
-      "images/project/ai-ui-chat/5.png",
-      "images/project/ai-ui-chat/6.png",
-      "images/project/ai-ui-chat/7.png",
-    ],
-    tech: [
-      "/images/icon/next-js.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
-      "/images/icon/typescript.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
-      "/images/icon/framer-motion.svg",
-    ],
-    demoUrl: null,
-    githubUrl: null,
-    features: [
-      "Modern and responsive chat interface for AI conversations.",
-      "Real-time messaging experience with a clean UI.",
-      "Optimized layout for both desktop and mobile devices.",
-      "Smooth animations and transitions for better user engagement.",
-    ],
-    languages: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Framer Motion",
-    ],
-  },
-  {
-    title: "Coffecafe Landing Page",
-    category: "web",
-    description:
-      "A beautiful and responsive landing page for a coffee shop. Designed to attract coffee lovers with a modern UI, smooth scrolling animations, and a well-structured layout showcasing the cafe's premium products.",
-    image: "images/project/coffe-cafe/1.png",
-    screenshots: [
-      "images/project/coffe-cafe/2.png",
-      "images/project/coffe-cafe/3.png",
-      "images/project/coffe-cafe/4.png",
-      "images/project/coffe-cafe/5.png",
-      "images/project/coffe-cafe/6.png",
-    ],
-    tech: [
-      "/images/icon/next-js.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
-      "/images/icon/typescript.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
-      "/images/icon/framer-motion.svg",
-    ],
-    demoUrl: null,
-    githubUrl: null,
-    features: [
-      "Elegant and modern landing page design for a coffee brand.",
-      "Engaging animations and scroll effects.",
-      "Showcase section for coffee products and menu.",
-      "Fully responsive and mobile-friendly layout.",
-    ],
-    languages: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
       "Framer Motion",
     ],
   },

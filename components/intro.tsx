@@ -57,7 +57,7 @@ export default function Intro() {
             </Link>
 
             <a
-              href="/cv/resumev3.pdf"
+              href="/cv/Faliqul Ishbah CV.pdf"
               download
               className="group bg-white dark:bg-white/10 text-gray-900 dark:text-white/80 border border-gray-200 dark:border-white/10 px-7 py-3 flex items-center gap-2 rounded-full hover:-translate-y-0.5 hover:shadow-md transition-all font-medium shadow-sm backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:focus-visible:ring-gray-300 dark:focus-visible:ring-offset-gray-950"
             >

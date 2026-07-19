@@ -11,7 +11,7 @@ import SectionHeading from "./section-heading";
 
 interface Project {
   title: string;
-  category: "web" | "data";
+  category: string[];
   description: string;
   tech: string[];
   image: string;
@@ -263,7 +263,7 @@ const ProjectSection: React.FC = () => {
   const filteredProjects =
     activeCategory === "all"
       ? projectsData
-      : projectsData.filter((project) => project.category === activeCategory);
+      : projectsData.filter((project) => (project.category as readonly string[]).includes(activeCategory as string));
 
   const midPoint = Math.ceil(filteredProjects.length / 2);
   const rowOneProjects = filteredProjects.slice(0, midPoint);
