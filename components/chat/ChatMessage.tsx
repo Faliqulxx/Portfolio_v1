@@ -17,11 +17,10 @@ function ChatMessage({ message }: { message: ChatMessageData }) {
       className={`flex ${isUser ? "justify-end" : "justify-start"}`}
     >
       <div
-        className={`max-w-[85%] rounded-[1.25rem] px-4 py-2.5 text-sm leading-relaxed ${
-          isUser
+        className={`max-w-[85%] rounded-[1.25rem] px-4 py-2.5 text-sm leading-relaxed ${isUser
             ? "bg-gray-900 text-white dark:bg-white dark:bg-opacity-10"
             : "bg-white/90 text-gray-800 shadow-sm dark:bg-[#232D3F]/90 dark:text-gray-100"
-        }`}
+          }`}
       >
         {message.content ? renderMessageContent(message.content) : <TypingIndicator />}
       </div>

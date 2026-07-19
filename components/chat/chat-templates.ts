@@ -13,10 +13,10 @@ export const CHAT_TEMPLATES: Record<string, string> = {
 - **IoT & Business Intelligence**: Membangun sistem monitoring cerdas (ESP32, RFID, Sensor) serta merancang dashboard analitik retail (Sales Trend, RFM Analysis).
 - **DevOps & Tools**: Git/GitHub, Vercel, Railway, Figma, Notion.
 
-Fokus utamanya adalah mengombinasikan **Artificial Intelligence, Automation**, dan **Modern Web Development** untuk melahirkan produk digital cerdas yang siap pakai.`,
+Fokus utama Faliqul adalah mengombinasikan **Artificial Intelligence, Automation**, dan **Modern Web Development** untuk melahirkan produk digital cerdas yang siap pakai.`,
 
   "Apa saja proyek yang telah dibangun oleh nya":
-    `Dia telah membangun berbagai proyek menarik, antara lain:
+    `Faliqul telah membangun berbagai proyek menarik, antara lain:
 
 - **WhatsApp RAG AI Assistant**: Chatbot pintar terintegrasi n8n untuk layanan akademik berbasis RAG menggunakan LLM dan Vector Database (Supabase).
 - **Cat Breed Classification**: Sistem klasifikasi ras kucing menggunakan Deep Learning (MobileNetV2) dengan antarmuka modern (React & Streamlit).

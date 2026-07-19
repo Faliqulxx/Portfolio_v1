@@ -33,9 +33,8 @@ export default function ChatWidget() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4, delay: ENTRANCE_DELAY, ease: [0.16, 1, 0.3, 1] }}
         whileTap={{ scale: 0.96 }}
-        className={`group fixed bottom-20 right-5 z-[70] flex h-14 cursor-pointer items-center rounded-full bg-gray-900 text-white shadow-xl transition-[width,box-shadow] duration-300 ease-out hover:bg-gray-950 hover:shadow-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:bg-white dark:bg-opacity-10 dark:focus-visible:ring-offset-gray-900 ${
-          open ? "w-14" : "w-14 overflow-hidden hover:w-[220px]"
-        }`}
+        className={`group fixed bottom-20 right-5 z-[70] flex h-14 cursor-pointer items-center rounded-full bg-gray-900 text-white shadow-xl transition-[width,box-shadow] duration-300 ease-out hover:bg-gray-950 hover:shadow-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:bg-white dark:bg-opacity-10 dark:focus-visible:ring-offset-gray-900 ${open ? "w-14" : "w-14 overflow-hidden hover:w-[220px]"
+          }`}
       >
         <span className="flex h-14 w-14 flex-shrink-0 items-center justify-center transition-transform duration-300 group-hover:scale-[1.08]">
           <AnimatePresence mode="wait" initial={false}>

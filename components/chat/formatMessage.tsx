@@ -24,7 +24,7 @@ function renderInline(text: string, keyPrefix: string): ReactNode[] {
         </code>
       );
     }
-    
+
     // Markdown link: [text](url)
     const markdownLinkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
     if (markdownLinkMatch) {
