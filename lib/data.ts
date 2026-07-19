@@ -396,10 +396,10 @@ export const projectsData = [
       "images/project/cat-breed-classification/4.png",
     ],
     tech: [
-      "/images/icon/react.svg",
-      "/images/icon/vite.svg",
-      "/images/icon/tailwindcss.svg",
-      "/images/icon/fastapi.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg",
       "/images/icon/python.svg",
       "/images/icon/tensorflow.svg",
     ],
@@ -444,11 +444,11 @@ export const projectsData = [
       "images/project/ai-ui-chat/7.png",
     ],
     tech: [
-      "/images/icon/nextjs.svg",
-      "/images/icon/react.svg",
+      "/images/icon/next-js.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
       "/images/icon/typescript.svg",
-      "/images/icon/tailwindcss.svg",
-      "/images/icon/shadcnui.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+      "https://avatars.githubusercontent.com/u/139895814",
     ],
     demoUrl: null,
     githubUrl: "https://github.com/Faliqulxx/AI-uiChat",
@@ -487,8 +487,8 @@ export const projectsData = [
       "images/project/coffee-cafe/6.png",
     ],
     tech: [
-      "/images/icon/html5.svg",
-      "/images/icon/css3.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
       "/images/icon/javascript.svg",
       "/images/icon/bootstrap.svg",
     ],
@@ -620,81 +620,157 @@ export const skillsData = [
 
 export const skilss = [
   {
+    id: 1,
+    imgUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
+  },
+  {
     id: 2,
-    imgUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
+    imgUrl: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg",
   },
   {
     id: 3,
+    imgUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+  },
+  {
+    id: 4,
+    imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
+  },
+  {
+    id: 5,
+    imgUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
+  },
+  {
+    id: 6,
+    imgUrl: "/images/icon/antigravity.svg",
+  },
+  {
+    id: 7,
     imgUrl: "/images/icon/bootstrap.svg",
   },
   {
     id: 8,
-    imgUrl: "https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg",
+    imgUrl: "/images/icon/cisco.svg",
   },
-  {
-    id: 4,
-    imgUrl: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg",
-  },
-  {
-    id: 5,
-    imgUrl: "/images/icon/codeigniter.svg",
-  },
-  {
-    id: 7,
-    imgUrl: "/images/icon/mysql.svg",
-  },
-
   {
     id: 9,
-    imgUrl: "/images/icon/typescript.svg",
+    imgUrl: "/images/icon/claude.svg",
   },
   {
     id: 10,
-    imgUrl: "/images/icon/javascript.svg",
-  },
-  {
-    id: 1,
-    imgUrl: "/images/icon/jquery-vertical.svg",
-  },
-  {
-    id: 6,
-    imgUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+    imgUrl: "/images/icon/claudecode.svg",
   },
   {
     id: 11,
-    imgUrl: "/images/icon/python-svgrepo-com.svg",
+    imgUrl: "/images/icon/codeigniter.svg",
   },
   {
     id: 12,
-    imgUrl: "/images/icon/vscode.svg",
+    imgUrl: "/images/icon/colab.svg",
   },
   {
     id: 13,
-    imgUrl: "/images/icon/n8n.svg",
+    imgUrl: "/images/icon/deepseek.svg",
   },
   {
     id: 14,
-    imgUrl: "/images/icon/postgresql.svg",
+    imgUrl: "/images/icon/figma.svg",
   },
   {
     id: 15,
-    imgUrl: "/images/icon/windows.svg",
+    imgUrl: "/images/icon/framer-motion.svg",
   },
   {
     id: 16,
+    imgUrl: "/images/icon/gemini.svg",
+  },
+  {
+    id: 17,
+    imgUrl: "/images/icon/githubcopilot.svg",
+  },
+  {
+    id: 18,
+    imgUrl: "/images/icon/javascript.svg",
+  },
+  {
+    id: 19,
+    imgUrl: "/images/icon/jquery-vertical.svg",
+  },
+  {
+    id: 20,
+    imgUrl: "/images/icon/keras.svg",
+  },
+  {
+    id: 21,
+    imgUrl: "/images/icon/langchain.svg",
+  },
+  {
+    id: 22,
+    imgUrl: "/images/icon/leaflet.svg",
+  },
+  {
+    id: 23,
+    imgUrl: "/images/icon/mysql.svg",
+  },
+  {
+    id: 24,
+    imgUrl: "/images/icon/n8n.svg",
+  },
+  {
+    id: 25,
+    imgUrl: "/images/icon/next-js.svg",
+  },
+  {
+    id: 26,
+    imgUrl: "/images/icon/notion.svg",
+  },
+  {
+    id: 27,
+    imgUrl: "/images/icon/openai.svg",
+  },
+  {
+    id: 28,
+    imgUrl: "/images/icon/opencv.svg",
+  },
+  {
+    id: 29,
+    imgUrl: "/images/icon/php.svg",
+  },
+  {
+    id: 30,
+    imgUrl: "/images/icon/postgresql.svg",
+  },
+  {
+    id: 31,
+    imgUrl: "/images/icon/python.svg",
+  },
+  {
+    id: 32,
+    imgUrl: "/images/icon/Streamlit.svg",
+  },
+  {
+    id: 33,
     imgUrl: "/images/icon/supabase.svg",
   },
   {
-    id: 16,
-    imgUrl: "/images/icon/cisco.svg",
+    id: 34,
+    imgUrl: "/images/icon/tensorflow.svg",
   },
-  // {
-  //   id: 10,
-  //   imgUrl:
-  //     "https://upload.wikimedia.org/wikipedia/commons/9/98/WordPress_blue_logo.svg",
-  // },
+  {
+    id: 35,
+    imgUrl: "/images/icon/typescript.svg",
+  },
+  {
+    id: 36,
+    imgUrl: "/images/icon/vercel.svg",
+  },
+  {
+    id: 37,
+    imgUrl: "/images/icon/vscode.svg",
+  },
+  {
+    id: 38,
+    imgUrl: "/images/icon/windows.svg",
+  },
 ] as const;
 
 // ─── EDUCATION ───────────────────────────────────────────────────────────────
