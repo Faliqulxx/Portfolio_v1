@@ -61,13 +61,35 @@ export async function POST(req: NextRequest) {
     return jsonError("Pesan tidak valid.", 400);
   }
 
-  // Keep the upstream payload small and bounded.
-  const trimmedHistory = messages
+  let trimmedHistory = messages
     .slice(-MAX_HISTORY_MESSAGES)
     .map(({ role, content }) => ({
       role: role === "assistant" ? "model" : "user",
       parts: [{ text: String(content).slice(0, 4000) }],
     }));
+
+  // Ensure the history always starts with a 'user' message (Gemini API requirement)
+  while (trimmedHistory.length > 0 && trimmedHistory[0].role === "model") {
+    trimmedHistory.shift();
+  }
+
+  // Ensure strictly alternating messages (user, model, user, model...)
+  const validatedHistory: any[] = [];
+  let expectedRole = "user";
+  for (const msg of trimmedHistory) {
+    if (msg.role === expectedRole) {
+      validatedHistory.push(msg);
+      expectedRole = expectedRole === "user" ? "model" : "user";
+    }
+  }
+
+  // The very last message in the history MUST be the user's current prompt
+  if (
+    validatedHistory.length > 0 &&
+    validatedHistory[validatedHistory.length - 1].role === "model"
+  ) {
+    validatedHistory.pop();
+  }
 
   try {
     // Gunakan SDK resmi dari Google agar koneksi stream jauh lebih stabil
@@ -79,7 +101,7 @@ export async function POST(req: NextRequest) {
     });
 
     const result = await model.generateContentStream({
-      contents: trimmedHistory,
+      contents: validatedHistory,
       generationConfig: {
         maxOutputTokens: MAX_TOKENS,
       },
