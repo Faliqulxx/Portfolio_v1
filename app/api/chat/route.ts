@@ -1,12 +1,11 @@
 import { NextRequest } from "next/server";
 import { buildChatSystemPrompt } from "@/lib/chat-knowledge";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // Edge runtime: low latency for streaming, and this route only ever does
 // fetch + stream transform work — no Node-specific APIs needed.
 export const runtime = "edge";
 
-// Gemini API uses the generative language endpoint.
-const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:streamGenerateContent?alt=sse";
 const MAX_TOKENS = 500;
 const MAX_HISTORY_MESSAGES = 12;
 
@@ -70,73 +69,48 @@ export async function POST(req: NextRequest) {
       parts: [{ text: String(content).slice(0, 4000) }],
     }));
 
-  const upstream = await fetch(GEMINI_API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-goog-api-key": apiKey,
-    },
-    body: JSON.stringify({
-      systemInstruction: {
-        parts: [{ text: buildChatSystemPrompt() }],
-      },
+  try {
+    // Gunakan SDK resmi dari Google agar koneksi stream jauh lebih stabil
+    // dan tidak mudah diputus secara sepihak oleh Vercel Edge.
+    const genAI = new GoogleGenerativeAI(apiKey);
+    const model = genAI.getGenerativeModel({
+      model: "gemini-1.5-flash",
+      systemInstruction: buildChatSystemPrompt(),
+    });
+
+    const result = await model.generateContentStream({
       contents: trimmedHistory,
       generationConfig: {
         maxOutputTokens: MAX_TOKENS,
       },
-    }),
-  });
+    });
 
-  if (!upstream.ok || !upstream.body) {
-    const errorText = await upstream.text().catch(() => "");
-    console.error("Gemini API error:", upstream.status, errorText);
+    const encoder = new TextEncoder();
+    const stream = new ReadableStream<Uint8Array>({
+      async start(controller) {
+        try {
+          for await (const chunk of result.stream) {
+            const chunkText = chunk.text();
+            if (chunkText) {
+              controller.enqueue(encoder.encode(chunkText));
+            }
+          }
+        } catch (error) {
+          console.error("Gemini SDK stream error:", error);
+        } finally {
+          controller.close();
+        }
+      },
+    });
+
+    return new Response(stream, {
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": "no-cache",
+      },
+    });
+  } catch (error) {
+    console.error("Gemini API initialization error:", error);
     return jsonError("Asisten sedang tidak tersedia, coba lagi nanti.", 502);
   }
-
-  // Re-stream only the text deltas as plain text chunks, so the client
-  // doesn't need to understand the Gemini SSE format at all —
-  // it just reads a plain text stream.
-  const textStream = new ReadableStream<Uint8Array>({
-    async start(controller) {
-      const reader = upstream.body!.getReader();
-      const decoder = new TextDecoder();
-      const encoder = new TextEncoder();
-      let buffer = "";
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        buffer += decoder.decode(value, { stream: true });
-
-        const lines = buffer.split("\n");
-        buffer = lines.pop() ?? "";
-
-        for (const line of lines) {
-          if (!line.startsWith("data:")) continue;
-          const payload = line.slice(5).trim();
-          if (!payload) continue;
-
-          try {
-            const event = JSON.parse(payload);
-            const delta = event.candidates?.[0]?.content?.parts?.[0]?.text;
-            if (typeof delta === "string" && delta.length > 0) {
-              controller.enqueue(encoder.encode(delta));
-            }
-          } catch {
-            // Ignore partial/malformed SSE fragments; the next chunk
-            // will complete the buffered line.
-          }
-        }
-      }
-      controller.close();
-    },
-  });
-
-  return new Response(textStream, {
-    headers: {
-      "Content-Type": "text/plain; charset=utf-8",
-      "Cache-Control": "no-cache",
-    },
-  });
 }
-
