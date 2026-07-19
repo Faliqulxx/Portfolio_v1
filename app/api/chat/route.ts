@@ -6,7 +6,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 // fetch + stream transform work — no Node-specific APIs needed.
 export const runtime = "edge";
 
-const MAX_TOKENS = 500;
+const MAX_TOKENS = 2048;
 const MAX_HISTORY_MESSAGES = 12;
 
 // Naive in-memory rate limit. This resets whenever the edge function cold
@@ -96,7 +96,7 @@ export async function POST(req: NextRequest) {
     // dan tidak mudah diputus secara sepihak oleh Vercel Edge.
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash",
+      model: "gemini-3.5-flash",
       systemInstruction: buildChatSystemPrompt(),
     });
 

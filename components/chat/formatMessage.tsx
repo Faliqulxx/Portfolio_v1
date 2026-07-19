@@ -1,8 +1,14 @@
 import type { ReactNode } from "react";
 
-// Handles **bold** and `inline code` within a plain-text segment.
+// Handles **bold**, `inline code`, [links](url), raw URLs, and emails.
 function renderInline(text: string, keyPrefix: string): ReactNode[] {
-  const parts = text.split(/(\*\*[^*]+\*\*|`[^`]+`)/g).filter(Boolean);
+  // Regex matches:
+  // 1. **bold**
+  // 2. `code`
+  // 3. [text](url)
+  // 4. http(s):// raw url (ignoring trailing punctuation)
+  // 5. email address
+  const parts = text.split(/(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\([^)]+\)|https?:\/\/[^\s]+?(?=[.,!?;:]*(?:\s|$))|[\w.-]+@[\w.-]+\.\w+)/g).filter(Boolean);
 
   return parts.map((part, i) => {
     if (part.startsWith("**") && part.endsWith("**")) {
@@ -18,6 +24,54 @@ function renderInline(text: string, keyPrefix: string): ReactNode[] {
         </code>
       );
     }
+    
+    // Markdown link: [text](url)
+    const markdownLinkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (markdownLinkMatch) {
+      return (
+        <a
+          key={`${keyPrefix}-ml-${i}`}
+          href={markdownLinkMatch[2]}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: '#3b82f6', textDecoration: 'underline', fontWeight: 600, cursor: 'pointer' }}
+          className="hover:text-blue-700"
+        >
+          {markdownLinkMatch[1]}
+        </a>
+      );
+    }
+
+    // Raw URL: https://...
+    if (part.startsWith("http://") || part.startsWith("https://")) {
+      return (
+        <a
+          key={`${keyPrefix}-url-${i}`}
+          href={part}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: '#3b82f6', textDecoration: 'underline', fontWeight: 600, cursor: 'pointer' }}
+          className="hover:text-blue-700"
+        >
+          {part}
+        </a>
+      );
+    }
+
+    // Email
+    if (/^[\w.-]+@[\w.-]+\.\w+$/.test(part)) {
+      return (
+        <a
+          key={`${keyPrefix}-email-${i}`}
+          href={`mailto:${part}`}
+          style={{ color: '#3b82f6', textDecoration: 'underline', fontWeight: 600, cursor: 'pointer' }}
+          className="hover:text-blue-700"
+        >
+          {part}
+        </a>
+      );
+    }
+
     return <span key={`${keyPrefix}-t-${i}`}>{part}</span>;
   });
 }
