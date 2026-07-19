@@ -68,7 +68,6 @@ I am continuously improving this portfolio. Here are some features planned for f
 - [ ] 📜 **Dedicated Certificates Page**
 - [ ] 📝 **Tech Blog Section**
 - [ ] 🌍 **Multi-language Support (ID & EN)**
-- [ ] 🔍 **RAG (Retrieval-Augmented Generation) Knowledge Base**
 
 ---
 
