@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
+import { CHAT_TEMPLATES } from "./chat-templates";
 
 export type ChatRole = "user" | "assistant";
 export interface ChatMessageData {
@@ -22,6 +23,33 @@ export function useChat() {
 
       const userMessage: ChatMessageData = { role: "user", content };
       const history = [...messages, userMessage];
+
+      if (CHAT_TEMPLATES[content]) {
+        setMessages([...history, { role: "assistant", content: "" }]);
+        setIsLoading(true);
+        setError(null);
+        
+        const templateText = CHAT_TEMPLATES[content];
+        
+        // Simulate streaming using async/await
+        (async () => {
+          let currentText = "";
+          const chunkSize = 2; // letters per frame
+          for (let i = 0; i < templateText.length; i += chunkSize) {
+            currentText += templateText.slice(i, i + chunkSize);
+            setMessages((prev) => {
+              const next = [...prev];
+              next[next.length - 1] = { role: "assistant", content: currentText };
+              return next;
+            });
+            await new Promise(r => setTimeout(r, 10)); // 10ms delay
+          }
+          setIsLoading(false);
+        })();
+        
+        return;
+      }
+
       setMessages([...history, { role: "assistant", content: "" }]);
       setIsLoading(true);
       setError(null);

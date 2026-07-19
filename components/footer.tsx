@@ -145,6 +145,22 @@ export default function Footer() {
                 </a>
               ))}
             </div>
+
+            {/* MAP */}
+            <div className="w-full mt-2">
+              <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                📍 Tegal sari, Pangkahkulon – Gresik, Jawa Timur
+              </p>
+              <div className="w-full h-[180px] rounded-xl overflow-hidden shadow-md">
+                <iframe
+                  title="Google Maps Location"
+                  src="https://www.google.com/maps?q=-6.913708,112.543351&z=16&output=embed"
+                  className="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </div>
           </motion.div>
 
         </div>

@@ -8,7 +8,6 @@ import ChatMessage from "./ChatMessage";
 import ChatSuggestions from "./ChatSuggestions";
 import ChatEmptyState from "./ChatEmptyState";
 import ClearChatDialog from "./ClearChatDialog";
-import FollowUpSuggestions from "./FollowUpSuggestions";
 import type { useChat } from "./useChat";
 
 type ChatState = ReturnType<typeof useChat>;
@@ -26,11 +25,6 @@ export default function ChatWindow({
   const scrollRef = useRef<HTMLDivElement>(null);
   const isEmpty = messages.length === 0;
   const lastMessage = messages[messages.length - 1];
-  // Only offer follow-ups once the latest assistant reply has actually
-  // finished streaming — not mid-stream, and not while it's the user's
-  // own message waiting for a reply.
-  const showFollowUps =
-    !isLoading && lastMessage?.role === "assistant" && lastMessage.content.length > 0;
 
   useEffect(() => {
     scrollRef.current?.scrollTo({
@@ -119,12 +113,7 @@ export default function ChatWindow({
               {messages.map((message, i) => (
                 <ChatMessage key={i} message={message} />
               ))}
-              {showFollowUps && (
-                <FollowUpSuggestions
-                  lastMessage={lastMessage!.content}
-                  onSelect={(text) => sendMessage(text)}
-                />
-              )}
+              {/* Follow-up suggestions removed per user request */}
               {error && <p className="text-xs text-red-500">{error}</p>}
             </motion.div>
           )}

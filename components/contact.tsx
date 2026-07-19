@@ -87,15 +87,14 @@ export default function Contact() {
       <div
         className="
           mt-12
-          grid
-          grid-cols-1
-          lg:grid-cols-2
-          gap-12 lg:gap-16
-          items-start
+          max-w-2xl w-full mx-auto
+          flex flex-col
+          gap-8 lg:gap-12
+          items-center
         "
       >
-        {/* ================= LEFT ================= */}
-        <div className="text-center md:text-left">
+        {/* ================= CENTERED INFO ================= */}
+        <div className="text-center w-full">
           <p className="text-gray-700 dark:text-white/80 mb-8 lg:text-lg">
             Additionally, I'm currently open for freelance or
             part-time opportunities. If you have an interesting
@@ -108,7 +107,7 @@ export default function Contact() {
           </p>
 
           {/* ================= MESSAGE BOX ================= */}
-          <div className="flex flex-col">
+          <div className="flex flex-col w-full text-left">
             <textarea
               className="
                 h-40 lg:h-52
@@ -198,40 +197,6 @@ export default function Contact() {
                 Email
               </button>
             </div>
-          </div>
-        </div>
-
-        {/* ================= RIGHT - MAP ================= */}
-        <div className="w-full">
-          <p
-            className="
-              mb-2
-              text-sm
-              font-medium
-              text-gray-700
-              dark:text-white/80
-            "
-          >
-            📍 Tegal sari, Pangkahkulon – Gresik,
-            Jawa Timur
-          </p>
-
-          <div
-            className="
-              w-full
-              h-[400px] lg:h-[500px]
-              rounded-xl
-              overflow-hidden
-              shadow-lg
-            "
-          >
-            <iframe
-              title="Google Maps Location"
-              src="https://www.google.com/maps?q=-6.913708,112.543351&z=16&output=embed"
-              className="w-full h-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
           </div>
         </div>
       </div>

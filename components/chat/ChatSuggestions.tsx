@@ -3,11 +3,11 @@
 import SuggestionChips from "./SuggestionChips";
 
 const STARTER_PROMPTS = [
-  "Ceritakan tentang diri Anda",
-  "Apa saja proyek yang sudah Anda bangun?",
-  "Jelaskan pengalaman Anda di bidang Machine Learning",
-  "Bahasa pemrograman apa saja yang Anda kuasai?",
-  "Tunjukkan proyek terbaik Anda",
+  "Ceritakan tentang Faliqul Ishbah dan keahlian yang dimilikinya",
+  "Apa saja proyek yang telah dibangun oleh Faliqul Ishbah?",
+  "Jelaskan pengalaman Faliqul Ishbah di bidang Artificial Intelligence, Data Science, dan Machine Learning",
+  "Teknologi dan bahasa pemrograman apa saja yang dikuasai oleh Faliqul Ishbah?",
+  "Tunjukkan dan jelaskan proyek terbaik yang pernah dibangun oleh Faliqul Ishbah",
 ];
 export default function ChatSuggestions({
   onSelect,

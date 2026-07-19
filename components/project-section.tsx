@@ -308,6 +308,7 @@ const ProjectSection: React.FC = () => {
             projects={rowOneProjects}
             keyPrefix="row1"
             direction={-1}
+            speed={activeCategory === "all" ? 0.6 : 0}
             inView={inView}
             onProjectClick={handleProjectClick}
           />
@@ -318,6 +319,7 @@ const ProjectSection: React.FC = () => {
             projects={rowTwoProjects}
             keyPrefix="row2"
             direction={1}
+            speed={activeCategory === "all" ? 0.6 : 0}
             inView={inView}
             onProjectClick={handleProjectClick}
           />
