@@ -95,17 +95,38 @@ export async function POST(req: NextRequest) {
     // Gunakan SDK resmi dari Google agar koneksi stream jauh lebih stabil
     // dan tidak mudah diputus secara sepihak oleh Vercel Edge.
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({
-      model: "gemini-3.5-flash",
-      systemInstruction: buildChatSystemPrompt(),
-    });
+    const systemInstruction = buildChatSystemPrompt();
+    
+    // Model fallback sequence to ensure reliability even if a model hits rate limit / 503
+    const modelsToTry = ["gemini-1.5-flash", "gemini-2.0-flash", "gemini-1.5-pro"];
+    let result = null;
+    let lastError = null;
 
-    const result = await model.generateContentStream({
-      contents: validatedHistory,
-      generationConfig: {
-        maxOutputTokens: MAX_TOKENS,
-      },
-    });
+    for (const modelName of modelsToTry) {
+      try {
+        const model = genAI.getGenerativeModel({
+          model: modelName,
+          systemInstruction,
+        });
+
+        result = await model.generateContentStream({
+          contents: validatedHistory,
+          generationConfig: {
+            maxOutputTokens: MAX_TOKENS,
+          },
+        });
+        
+        // If successfully initialized stream, break out of retry loop
+        if (result) break;
+      } catch (err) {
+        console.warn(`Model ${modelName} failed, trying fallback model...`, err);
+        lastError = err;
+      }
+    }
+
+    if (!result) {
+      throw lastError || new Error("All Gemini models unavailable");
+    }
 
     const encoder = new TextEncoder();
     const stream = new ReadableStream<Uint8Array>({
