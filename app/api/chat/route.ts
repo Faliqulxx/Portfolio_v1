@@ -97,8 +97,14 @@ export async function POST(req: NextRequest) {
     const genAI = new GoogleGenerativeAI(apiKey);
     const systemInstruction = buildChatSystemPrompt();
     
-    // Model fallback sequence to ensure reliability even if a model hits rate limit / 404 / 503
-    const modelsToTry = ["gemini-3.5-flash", "gemini-1.5-flash", "gemini-2.0-flash", "gemini-1.5-pro"];
+    // Official Gemini API model names supported by Google Generative AI SDK
+    const modelsToTry = [
+      "gemini-2.5-flash",
+      "gemini-2.0-flash",
+      "gemini-1.5-flash-latest",
+      "gemini-2.0-flash-exp",
+      "gemini-1.5-pro-latest",
+    ];
     let result = null;
     let lastError = null;
 
@@ -152,8 +158,12 @@ export async function POST(req: NextRequest) {
         "Cache-Control": "no-cache",
       },
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Gemini API initialization error:", error);
-    return jsonError("Asisten sedang tidak tersedia, coba lagi nanti.", 502);
+    const isRateLimit = error?.status === 429 || String(error?.message).includes("429");
+    const userMsg = isRateLimit
+      ? "Layanan AI sedang ramai pemakaian (kuota gratis tercapai). Silakan coba lagi dalam 20-30 detik ya! 😊"
+      : "Asisten sedang tidak tersedia, coba lagi nanti.";
+    return jsonError(userMsg, isRateLimit ? 429 : 502);
   }
 }
