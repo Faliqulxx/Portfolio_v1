@@ -9,6 +9,7 @@ import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
 import { RiMailSendLine } from "react-icons/ri";
 import { useSectionInView } from "@/lib/hooks";
+import CircularText from "./circular-text";
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
@@ -74,13 +75,27 @@ export default function Intro() {
           transition={{ type: "tween", duration: 0.2 }}
           className="flex flex-col items-center gap-4 flex-shrink-0"
         >
-          <Image
-            src="/images/profile.png"
-            alt="Faliqul Ishbah"
-            width={192}
-            height={192}
-            className="w-32 h-32 sm:w-40 sm:h-40 lg:w-56 lg:h-56 xl:w-64 xl:h-64 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
-          />
+          {/* Photo + CircularText ring */}
+          <div className="relative flex items-center justify-center w-44 h-44 sm:w-56 sm:h-56 lg:w-72 lg:h-72 xl:w-80 xl:h-80">
+            {/* Absolute wrapper fills the container — CircularText uses its own relative + ResizeObserver */}
+            <div className="absolute inset-0 pointer-events-none z-0">
+              <CircularText
+                text="Available for Work * Available for Collaboration * "
+                spinDuration={18}
+                onHover="goBonkers"
+                className="w-full h-full text-[0.52rem] sm:text-[0.58rem] lg:text-[0.68rem] xl:text-[0.72rem] text-gray-400 dark:text-gray-400"
+              />
+            </div>
+
+            {/* Profile photo — on top */}
+            <Image
+              src="/images/profile.png"
+              alt="Faliqul Ishbah"
+              width={256}
+              height={256}
+              className="w-32 h-32 sm:w-40 sm:h-40 lg:w-56 lg:h-56 xl:w-64 xl:h-64 rounded-full object-cover border-[0.35rem] border-white shadow-xl z-10 relative"
+            />
+          </div>
 
           {/* SOSIAL MEDIA */}
           <div className="flex flex-row items-center justify-center gap-3 text-lg mt-5">

@@ -113,7 +113,7 @@ export const educationData = [
     institution: "University of Muhammadiyah Malang",
     field: "Informatics Engineering",
     location: "Malang, Jawa Timur, Indonesia",
-    year: "2021 – 2026",
+    year: "2022 – 2026",
     gpa: "3.85",
     gpaMax: "4.00",
     logo: "/images/education/logoumm.png",
@@ -861,7 +861,7 @@ export const experiencesData = [
     image: autogateImg,
   },
   {
-    title: "Data Scientist (Kampus Merdeka)",
+    title: "Data Scientist (Cooursework)",
     location: "PT Time Excelindo",
     description:
       "Worked as a Data Scientist through the Kampus Merdeka program, focusing on data analysis and data-driven feature development for HR tools. Performed data processing, analysis, and visualization related to employee attendance, shift patterns, leave and overtime records, and employee performance assessments to support operational and decision-making processes.",
