@@ -97,8 +97,8 @@ export async function POST(req: NextRequest) {
     const genAI = new GoogleGenerativeAI(apiKey);
     const systemInstruction = buildChatSystemPrompt();
     
-    // Model fallback sequence to ensure reliability even if a model hits rate limit / 503
-    const modelsToTry = ["gemini-1.5-flash", "gemini-2.0-flash", "gemini-1.5-pro"];
+    // Model fallback sequence to ensure reliability even if a model hits rate limit / 404 / 503
+    const modelsToTry = ["gemini-3.5-flash", "gemini-1.5-flash", "gemini-2.0-flash", "gemini-1.5-pro"];
     let result = null;
     let lastError = null;
 
