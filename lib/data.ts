@@ -2,12 +2,40 @@ import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
-import wartafenoImg from "@/public/images/project/wartefeno/1.png";
+import chatbotAiImg from "@/public/images/project/chatbot_ai/1.png";
 import autogateImg from "@/public/images/project/autogate/1.png";
-import amikomImg from "@/public/images/project/amikom/1.png";
+import automationAiImg from "@/public/images/project/automation-ai/1.png";
 import hrtoolsImg from "@/public/images/project/hr-tools/1.png";
 
-// ─── PERSONAL / PROFILE ──────────────────────────────────────────────────────
+// ─── NAVBAR LINKS ────────────────────────────────────────────────────────────
+export const links = [
+  {
+    name: "Home",
+    hash: "#home",
+  },
+  {
+    name: "About",
+    hash: "#about",
+  },
+  {
+    name: "Projects",
+    hash: "#projects",
+  },
+  {
+    name: "Skills",
+    hash: "#skills",
+  },
+  {
+    name: "Experience",
+    hash: "#experience",
+  },
+  {
+    name: "Contact",
+    hash: "#contact",
+  },
+] as const;
+
+// ─── HOME & ABOUT ──────────────────────────────────────────────────────────
 export const personalData = {
   name: "Faliqul Ishbah",
   nickname: "Faliq",
@@ -27,15 +55,77 @@ export const personalData = {
   tools: ["React", "n8n", "Python", "SQL"],
 } as const;
 
-// ─── SOCIAL / CONTACT ────────────────────────────────────────────────────────
-export const contactData = {
-  email: "faliqul.isback@gmail.com",
-  linkedin: "https://www.linkedin.com/in/faliqulishbah/",
-  github: "https://github.com/Faliqulxx",
-  instagram: "https://www.instagram.com/Faliqulx/",
-} as const;
+// Field keterangan:
+//   level       : jenjang pendidikan (SD / SMP / SMA / S1 / dll.)
+//   degree      : nama gelar / program (tampil sebagai judul besar & bold)
+//   institution : nama sekolah / universitas
+//   field       : jurusan / bidang studi (opsional, kosongkan "" jika tidak ada)
+//   location    : kota, provinsi, negara
+//   year        : periode tahun (misal "2021 – Sekarang")
+//   gpa         : nilai IPK / rata-rata (opsional, kosongkan "" jika tidak ingin ditampilkan)
+//   gpaMax      : skala maksimal GPA (default "4.00")
+//   logo        : path ke logo sekolah di folder /public
+//   description : deskripsi singkat (dipakai oleh AI assistant)
+//   details     : list poin tambahan yang muncul saat "Show Details" diklik (opsional)
+export const educationData = [
+  {
+    level: "SD",
+    degree: "Primary school",
+    institution: "MI Islamiyah",
+    field: "Natural Sciences",
+    location: "Gresik, Jawa Timur, Indonesia",
+    year: "2009 – 2014",
+    gpa: "90.5",
+    gpaMax: "100",
+    logo: "/images/education/islamiyah.png",
+    description: "Pendidikan dasar di MI islamiyah.",
+    details: [],
+  },
+  {
+    level: "SMP",
+    degree: "Junior High School",
+    institution: "MTS Isalamiyah",
+    field: "Natural Sciences",
+    location: "Gresik, Jawa Timur, Indonesia",
+    year: "2014 – 2017",
+    gpa: "80",
+    gpaMax: "100",
+    logo: "/images/education/islamiyah.png",
+    description: "Pendidikan menengah pertama di MTS Isalamiyah.",
+    details: [],
+  },
+  {
+    level: "SMA",
+    degree: "High School",
+    institution: "Modern Islamic Boarding School Darussalam Gontor",
+    field: "Natural Sciences",
+    location: "Ponorogo, Jawa Timur, Indonesia",
+    year: "2017 – 2021",
+    gpa: "8.80",
+    gpaMax: "10",
+    logo: "/images/education/virtuous.png",
+    description: "Pendidikan menengah atas di Modern Islamic Boarding School Darussalam Gontor.",
+    details: ["Focused on foundational science and basic statistics at PMDG (Pondok Moderen Darussalam Gontor), I balanced my studies with comprehensive Islamic religious education. This combination helped me develop analytical, disciplined, and structured problem-solving skills, alongside a strong ethical foundation ready to be applied in a professional environment."],
+  },
+  {
+    level: "S1",
+    degree: "Bachelor of Computer Science",
+    institution: "University of Muhammadiyah Malang",
+    field: "Informatics Engineering",
+    location: "Malang, Jawa Timur, Indonesia",
+    year: "2021 – 2026",
+    gpa: "3.85",
+    gpaMax: "4.00",
+    logo: "/images/education/logoumm.png",
+    description:
+      "Menempuh pendidikan S1 Teknik Informatika di Universitas Muhammadiyah Gresik dengan IPK 3.65/4.00. Fokus pada Kecerdasan Buatan, Data Science, dan Pengembangan Perangkat Lunak.",
+    details: [
+      "Focused on business intelligence, statistics, and machine learning, I specialized in Data Science within the Informatics Engineering program at the University of Muhammadiyah Malang. This rigorous academic path enabled me to develop strong competencies in end-to-end data handling, advanced analytics, and predictive modeling, culminating in graduating with a perfect 3.65/4.00 GPA"
+    ],
+  },
 
-// ─── CERTIFICATES ────────────────────────────────────────────────────────────
+] as const;
+
 export const certificatesData = [
   {
     name: "Cisco Packet Tracer / Networking",
@@ -74,67 +164,34 @@ export const certificatesData = [
   },
 ] as const;
 
-export const links = [
+export const galleryData = [
   {
-    name: "Home",
-    hash: "#home",
+    src: "/images/gallery/1.png",
+    caption: "Gallery Photo 1",
   },
   {
-    name: "About",
-    hash: "#about",
+    src: "/images/gallery/2.png",
+    caption: "Gallery Photo 2",
   },
   {
-    name: "Projects",
-    hash: "#projects",
+    src: "/images/gallery/3.jpg",
+    caption: "Gallery Photo 3",
   },
   {
-    name: "Skills",
-    hash: "#skills",
+    src: "/images/gallery/4.jpg",
+    caption: "Gallery Photo 4",
   },
   {
-    name: "Experience",
-    hash: "#experience",
+    src: "/images/gallery/5.jpg",
+    caption: "Gallery Photo 5",
   },
   {
-    name: "Contact",
-    hash: "#contact",
-  },
-] as const;
-export const experiencesData = [
-  {
-    title: "AI Automation  (Freelance)",
-    location: "Gresik",
-    description:
-      "Worked as an AI Automation Intern focusing on the development of an AI-based chatbot for the Informatics Study Program. Designed and implemented automated workflows, integrated APIs, and supported chatbot functionality to provide academic information and improve user interaction efficiency.",
-    icon: React.createElement(CgWorkAlt),
-    date: "Jul 2025 - Present",
-  },
-  {
-    title: "Web Programmer",
-    location: "DISPARTA Kab. Pasuruan",
-    description:
-      "Maintained and improved official websites for DISPARTA and OnTrip, including bug fixing, feature enhancements, performance optimization, and resolving user-reported issues. Collaborated with stakeholders to ensure system reliability, usability, and alignment with organizational requirements.",
-    icon: React.createElement(CgWorkAlt),
-    date: "Jul 2025 - Aug 2025",
-  },
-  {
-    title: "Software Engineer (Freelance)",
-    location: "Gresik",
-    description:
-      "Worked as a freelance web developer supporting UMKM and small online businesses by developing, customizing, and maintaining websites and online stores. Handled feature implementation, bug fixing, UI improvements, and basic system optimization to ensure usability, reliability, and alignment with client requirements.",
-    icon: React.createElement(CgWorkAlt),
-    date: "Mar 2022 - Dec 2022",
-  },
-  {
-    title: "Data Scientist (Kampus Merdeka)",
-    location: "PT Time Excelindo",
-    description:
-      "Worked as a Data Scientist through the Kampus Merdeka program, focusing on data analysis and data-driven feature development for HR tools. Performed data processing, analysis, and visualization related to employee attendance, shift patterns, leave and overtime records, and employee performance assessments to support operational and decision-making processes.",
-    icon: React.createElement(CgWorkAlt),
-    date: "Aug 2021 - Feb 2022",
+    src: "/images/gallery/6.jpg",
+    caption: "Gallery Photo 6",
   },
 ] as const;
 
+// ─── PROJECTS ──────────────────────────────────────────────────────────────
 export const projectsData = [
   {
     title: "Sistem Informasi Logistik CGN",
@@ -600,6 +657,7 @@ export const projectsData = [
   },
 ] as const;
 
+// ─── SKILLS ────────────────────────────────────────────────────────────────
 export const skillsData = [
   "HTML",
   "CSS",
@@ -773,102 +831,51 @@ export const skilss = [
   },
 ] as const;
 
-// ─── EDUCATION ───────────────────────────────────────────────────────────────
-// Field keterangan:
-//   level       : jenjang pendidikan (SD / SMP / SMA / S1 / dll.)
-//   degree      : nama gelar / program (tampil sebagai judul besar & bold)
-//   institution : nama sekolah / universitas
-//   field       : jurusan / bidang studi (opsional, kosongkan "" jika tidak ada)
-//   location    : kota, provinsi, negara
-//   year        : periode tahun (misal "2021 – Sekarang")
-//   gpa         : nilai IPK / rata-rata (opsional, kosongkan "" jika tidak ingin ditampilkan)
-//   gpaMax      : skala maksimal GPA (default "4.00")
-//   logo        : path ke logo sekolah di folder /public
-//   description : deskripsi singkat (dipakai oleh AI assistant)
-//   details     : list poin tambahan yang muncul saat "Show Details" diklik (opsional)
-export const educationData = [
+// ─── EXPERIENCE ────────────────────────────────────────────────────────────
+export const experiencesData = [
   {
-    level: "SD",
-    degree: "Primary school",
-    institution: "MI Islamiyah",
-    field: "Natural Sciences",
-    location: "Gresik, Jawa Timur, Indonesia",
-    year: "2009 – 2014",
-    gpa: "90.5",
-    gpaMax: "100",
-    logo: "/images/education/islamiyah.png",
-    description: "Pendidikan dasar di MI islamiyah.",
-    details: [],
-  },
-  {
-    level: "SMP",
-    degree: "Junior High School",
-    institution: "MTS Isalamiyah",
-    field: "Natural Sciences",
-    location: "Gresik, Jawa Timur, Indonesia",
-    year: "2014 – 2017",
-    gpa: "80",
-    gpaMax: "100",
-    logo: "/images/education/islamiyah.png",
-    description: "Pendidikan menengah pertama di MTS Isalamiyah.",
-    details: [],
-  },
-  {
-    level: "SMA",
-    degree: "High School",
-    institution: "Modern Islamic Boarding School Darussalam Gontor",
-    field: "Natural Sciences",
-    location: "Ponorogo, Jawa Timur, Indonesia",
-    year: "2017 – 2021",
-    gpa: "8.80",
-    gpaMax: "10",
-    logo: "/images/education/virtuous.png",
-    description: "Pendidikan menengah atas di Modern Islamic Boarding School Darussalam Gontor.",
-    details: ["Focused on foundational science and basic statistics at PMDG (Pondok Moderen Darussalam Gontor), I balanced my studies with comprehensive Islamic religious education. This combination helped me develop analytical, disciplined, and structured problem-solving skills, alongside a strong ethical foundation ready to be applied in a professional environment."],
-  },
-  {
-    level: "S1",
-    degree: "Bachelor of Computer Science",
-    institution: "University of Muhammadiyah Malang",
-    field: "Informatics Engineering",
-    location: "Malang, Jawa Timur, Indonesia",
-    year: "2021 – 2026",
-    gpa: "3.85",
-    gpaMax: "4.00",
-    logo: "/images/education/logoumm.png",
+    title: "AI Automation  (Freelance)",
+    location: "Gresik",
     description:
-      "Menempuh pendidikan S1 Teknik Informatika di Universitas Muhammadiyah Gresik dengan IPK 3.65/4.00. Fokus pada Kecerdasan Buatan, Data Science, dan Pengembangan Perangkat Lunak.",
-    details: [
-      "Focused on business intelligence, statistics, and machine learning, I specialized in Data Science within the Informatics Engineering program at the University of Muhammadiyah Malang. This rigorous academic path enabled me to develop strong competencies in end-to-end data handling, advanced analytics, and predictive modeling, culminating in graduating with a perfect 3.65/4.00 GPA"
-    ],
+      "Worked as an AI Automation Intern focusing on the development of an AI-based chatbot for the Informatics Study Program. Designed and implemented automated workflows, integrated APIs, and supported chatbot functionality to provide academic information and improve user interaction efficiency.",
+    icon: React.createElement(CgWorkAlt),
+    date: "Jul 2025 - Present",
+    image: automationAiImg,
   },
-
+  {
+    title: "Web Programmer (Intern)",
+    location: "DISPARTA Kab. Pasuruan",
+    description:
+      "Maintained and improved official websites for DISPARTA and OnTrip, including bug fixing, feature enhancements, performance optimization, and resolving user-reported issues. Collaborated with stakeholders to ensure system reliability, usability, and alignment with organizational requirements.",
+    icon: React.createElement(CgWorkAlt),
+    date: "Jul 2025 - Aug 2025",
+    image: chatbotAiImg,
+  },
+  {
+    title: "Software Engineer (Freelance)",
+    location: "Gresik",
+    description:
+      "Worked as a freelance web developer supporting UMKM and small online businesses by developing, customizing, and maintaining websites and online stores. Handled feature implementation, bug fixing, UI improvements, and basic system optimization to ensure usability, reliability, and alignment with client requirements.",
+    icon: React.createElement(CgWorkAlt),
+    date: "Mar 2022 - Dec 2022",
+    image: autogateImg,
+  },
+  {
+    title: "Data Scientist (Kampus Merdeka)",
+    location: "PT Time Excelindo",
+    description:
+      "Worked as a Data Scientist through the Kampus Merdeka program, focusing on data analysis and data-driven feature development for HR tools. Performed data processing, analysis, and visualization related to employee attendance, shift patterns, leave and overtime records, and employee performance assessments to support operational and decision-making processes.",
+    icon: React.createElement(CgWorkAlt),
+    date: "Aug 2021 - Feb 2022",
+    image: hrtoolsImg,
+  },
 ] as const;
 
-// ─── GALLERY ─────────────────────────────────────────────────────────────────
-export const galleryData = [
-  {
-    src: "/images/gallery/1.png",
-    caption: "Gallery Photo 1",
-  },
-  {
-    src: "/images/gallery/2.png",
-    caption: "Gallery Photo 2",
-  },
-  {
-    src: "/images/gallery/3.jpg",
-    caption: "Gallery Photo 3",
-  },
-  {
-    src: "/images/gallery/4.jpg",
-    caption: "Gallery Photo 4",
-  },
-  {
-    src: "/images/gallery/5.jpg",
-    caption: "Gallery Photo 5",
-  },
-  {
-    src: "/images/gallery/6.jpg",
-    caption: "Gallery Photo 6",
-  },
-] as const;
+// ─── CONTACT ───────────────────────────────────────────────────────────────
+export const contactData = {
+  email: "faliqul.isback@gmail.com",
+  linkedin: "https://www.linkedin.com/in/faliqulishbah/",
+  github: "https://github.com/Faliqulxx",
+  instagram: "https://www.instagram.com/Faliqulx/",
+} as const;
+
