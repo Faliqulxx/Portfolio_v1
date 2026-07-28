@@ -6,7 +6,6 @@ import { contactData, personalData, links } from "@/lib/data";
 import { FiMail, FiGithub, FiLinkedin, FiInstagram, FiFileText, FiArrowUp } from "react-icons/fi";
 import Link from "next/link";
 import { useActiveSectionContext } from "@/context/active-section-context";
-import { usePathname } from "next/navigation";
 
 const socialLinks = [
   { name: "Email", icon: <FiMail />, url: `mailto:${contactData.email}` },
@@ -28,9 +27,6 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   const [showBackToTop, setShowBackToTop] = useState(false);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
-  const pathname = usePathname();
-
-  if (pathname === "/ai-assistant") return null;
 
   useEffect(() => {
     const handleScroll = () => {

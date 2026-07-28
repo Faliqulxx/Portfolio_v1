@@ -76,13 +76,13 @@ export default function AIAssistantPage() {
   const isEmpty = messages.length === 0;
 
   return (
-    <div className="-mt-10 md:-mt-36 h-screen max-h-screen pt-20 md:pt-24 pb-4 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto flex flex-col items-center overflow-hidden box-border">
+    <div className="fixed inset-0 top-[4.5rem] sm:top-[5.5rem] pb-4 px-4 sm:px-6 lg:px-8 flex flex-col items-center overflow-hidden z-10">
       {/* DYNAMIC FIT CHAT CONTAINER */}
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="w-full flex-1 min-h-0 flex flex-col rounded-2xl sm:rounded-3xl border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-gray-900/60 backdrop-blur-xl shadow-2xl overflow-hidden"
+        className="w-full h-full max-w-5xl flex flex-col rounded-2xl sm:rounded-3xl border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-gray-900/60 backdrop-blur-xl shadow-2xl overflow-hidden"
       >
         {/* TOP BAR */}
         <div className="px-4 sm:px-6 py-3 border-b border-gray-100 dark:border-white/10 bg-white/50 dark:bg-gray-900/50 flex items-center justify-between backdrop-blur-md flex-shrink-0">
