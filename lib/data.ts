@@ -54,19 +54,6 @@ export const personalData = {
   ],
   tools: ["React", "n8n", "Python", "SQL"],
 } as const;
-
-// Field keterangan:
-//   level       : jenjang pendidikan (SD / SMP / SMA / S1 / dll.)
-//   degree      : nama gelar / program (tampil sebagai judul besar & bold)
-//   institution : nama sekolah / universitas
-//   field       : jurusan / bidang studi (opsional, kosongkan "" jika tidak ada)
-//   location    : kota, provinsi, negara
-//   year        : periode tahun (misal "2021 – Sekarang")
-//   gpa         : nilai IPK / rata-rata (opsional, kosongkan "" jika tidak ingin ditampilkan)
-//   gpaMax      : skala maksimal GPA (default "4.00")
-//   logo        : path ke logo sekolah di folder /public
-//   description : deskripsi singkat (dipakai oleh AI assistant)
-//   details     : list poin tambahan yang muncul saat "Show Details" diklik (opsional)
 export const educationData = [
   {
     level: "SD",
@@ -114,7 +101,7 @@ export const educationData = [
     field: "Informatics Engineering",
     location: "Malang, Jawa Timur, Indonesia",
     year: "2022 – 2026",
-    gpa: "3.85",
+    gpa: "3.59",
     gpaMax: "4.00",
     logo: "/images/education/logoumm.png",
     description:
