@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { HiOutlineSparkles } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
+import { usePathname } from "next/navigation";
 import ChatWindow from "./ChatWindow";
 import { useChat } from "./useChat";
 
@@ -15,6 +16,9 @@ const ENTRANCE_DELAY = 3.9;
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const chat = useChat();
+  const pathname = usePathname();
+
+  if (pathname === "/ai-assistant") return null;
 
   return (
     <>

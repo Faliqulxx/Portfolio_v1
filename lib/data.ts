@@ -33,6 +33,10 @@ export const links = [
     name: "Contact",
     hash: "#contact",
   },
+  {
+    name: "AI Assistant",
+    hash: "/ai-assistant",
+  },
 ] as const;
 
 // ─── HOME & ABOUT ──────────────────────────────────────────────────────────

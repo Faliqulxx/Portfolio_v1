@@ -6,6 +6,9 @@ import type { ChatMessageData } from "./useChat";
 import TypingIndicator from "./TypingIndicator";
 import { renderMessageContent } from "./formatMessage";
 
+import { IoSparkles } from "react-icons/io5";
+import { FaUser } from "react-icons/fa";
+
 function ChatMessage({ message }: { message: ChatMessageData }) {
   const isUser = message.role === "user";
 
@@ -14,13 +17,24 @@ function ChatMessage({ message }: { message: ChatMessageData }) {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.25, ease: "easeOut" }}
-      className={`flex ${isUser ? "justify-end" : "justify-start"}`}
+      className={`flex items-start gap-2.5 ${isUser ? "flex-row-reverse" : "flex-row"}`}
     >
       <div
-        className={`max-w-[85%] rounded-[1.25rem] px-4 py-2.5 text-sm leading-relaxed ${isUser
-            ? "bg-gray-900 text-white dark:bg-white dark:bg-opacity-10"
-            : "bg-white/90 text-gray-800 shadow-sm dark:bg-[#232D3F]/90 dark:text-gray-100"
-          }`}
+        className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-xs shadow-sm mt-0.5 ${
+          isUser
+            ? "bg-gray-800 text-white dark:bg-white/20"
+            : "bg-indigo-600 text-white dark:bg-indigo-500"
+        }`}
+      >
+        {isUser ? <FaUser className="text-[10px]" /> : <IoSparkles className="text-[11px]" />}
+      </div>
+
+      <div
+        className={`max-w-[85%] sm:max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
+          isUser
+            ? "bg-gray-900 text-white dark:bg-indigo-600 dark:text-white rounded-tr-xs"
+            : "bg-white text-gray-800 shadow-md dark:bg-gray-800 dark:text-gray-100 border border-gray-100 dark:border-white/10 rounded-tl-xs"
+        }`}
       >
         {message.content ? renderMessageContent(message.content) : <TypingIndicator />}
       </div>
