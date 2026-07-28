@@ -8,8 +8,6 @@ import { useChat } from "@/components/chat/useChat";
 import ChatMessage from "@/components/chat/ChatMessage";
 import ClearChatDialog from "@/components/chat/ClearChatDialog";
 import { useActiveSectionContext } from "@/context/active-section-context";
-import SectionHeading from "@/components/section-heading";
-import BurstBload from "@/components/burst-bload";
 
 const QUICK_PROMPTS = [
   {
@@ -78,35 +76,13 @@ export default function AIAssistantPage() {
   const isEmpty = messages.length === 0;
 
   return (
-    <div className="h-screen max-h-screen pt-20 sm:pt-24 pb-4 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto flex flex-col items-center overflow-hidden box-border">
-      {/* COMPACT HEADING SECTION */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        className="text-center mb-3 sm:mb-4 relative w-full flex flex-col items-center flex-shrink-0"
-      >
-        <div className="flex justify-center mb-1 relative">
-          <SectionHeading>AI Assistant</SectionHeading>
-          <BurstBload />
-        </div>
-        <p className="text-gray-600 dark:text-white/70 max-w-xl text-center text-xs sm:text-sm leading-tight">
-          Tanyakan apa saja tentang pengalaman, proyek, dan keahlian <strong className="text-indigo-600 dark:text-indigo-400 font-semibold">Faliqul Ishbah</strong> secara langsung.
-        </p>
-
-        {/* Status Badge */}
-        <div className="mt-1.5 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 text-[11px] font-medium text-emerald-600 dark:text-emerald-400">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          Powered by Custom RAG & AI Intelligence
-        </div>
-      </motion.div>
-
+    <div className="h-screen max-h-screen pt-24 sm:pt-28 pb-4 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto flex flex-col items-center overflow-hidden box-border">
       {/* DYNAMIC FIT CHAT CONTAINER */}
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.1 }}
-        className="w-full flex-1 min-h-0 max-w-4xl flex flex-col rounded-2xl sm:rounded-3xl border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-gray-900/60 backdrop-blur-xl shadow-2xl overflow-hidden"
+        transition={{ duration: 0.4 }}
+        className="w-full flex-1 min-h-0 flex flex-col rounded-2xl sm:rounded-3xl border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-gray-900/60 backdrop-blur-xl shadow-2xl overflow-hidden"
       >
         {/* TOP BAR */}
         <div className="px-4 sm:px-6 py-3 border-b border-gray-100 dark:border-white/10 bg-white/50 dark:bg-gray-900/50 flex items-center justify-between backdrop-blur-md flex-shrink-0">
