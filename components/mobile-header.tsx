@@ -11,7 +11,7 @@ export default function MobileHeader() {
     closed: { opacity: 0, x: "-100%" },
   };
   return (
-    <div className="md:hidden flex fixed top-[0.25rem] right-1 h-12 -translate-x-1/2 py-2">
+    <div className="md:hidden flex fixed top-[0.25rem] right-1 h-12 -translate-x-1/2 py-2 z-[999]">
       <button
         onClick={() => setOpen((open) => !open)}
         type="button"
@@ -23,7 +23,7 @@ export default function MobileHeader() {
       <motion.div
         className={`${
           open ? "block" : "hidden"
-        } bg-white border-none overflow-hidden top-2 mr-5 ml-2 w-56 right-12 absolute rounded-lg`}
+        } bg-white border-none overflow-hidden top-2 mr-5 ml-2 w-56 right-12 absolute rounded-lg z-[999] shadow-xl`}
         animate={open ? "open" : "closed"}
         variants={variants}
       >

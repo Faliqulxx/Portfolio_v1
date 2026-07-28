@@ -13,7 +13,7 @@ export default function Header() {
     useActiveSectionContext();
 
   return (
-    <header className="z-[1] md:z-[999] relative">
+    <header className="z-[999] relative">
       <div className="">
         <MobileHeader />
       </div>

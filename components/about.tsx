@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
+import { useTheme } from "@/context/theme-context";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
@@ -116,8 +117,127 @@ function BioText() {
   );
 }
 
+// ─── CERT MARQUEE ROW ─────────────────────────────────────────────────────────
+function CertMarqueeRow({
+  certs,
+  reverse = false,
+  onImageClick,
+}: {
+  certs: typeof certificatesData;
+  reverse?: boolean;
+  onImageClick: (src: string) => void;
+}) {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const animRef = useRef<number | null>(null);
+  const posRef = useRef(0);
+  const isDragging = useRef(false);
+  const dragStartX = useRef(0);
+  const dragStartPos = useRef(0);
+  const isPaused = useRef(false);
+  const REPEAT = 6;
+  const speed = reverse ? -0.5 : 0.5;
+
+  // repeat 6x so even small rows have no gap
+  const repeated = Array.from({ length: REPEAT }, () => certs).flat();
+
+  const getSingleWidth = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return 0;
+    return track.scrollWidth / REPEAT;
+  }, []);
+
+  useEffect(() => {
+    const animate = () => {
+      if (!isPaused.current && !isDragging.current) {
+        const single = getSingleWidth();
+        posRef.current -= speed;
+        if (single > 0) {
+          if (posRef.current <= -single) posRef.current += single;
+          if (posRef.current > 0) posRef.current -= single;
+        }
+        if (trackRef.current) {
+          trackRef.current.style.transform = `translateX(${posRef.current}px)`;
+        }
+      }
+      animRef.current = requestAnimationFrame(animate);
+    };
+    animRef.current = requestAnimationFrame(animate);
+    return () => { if (animRef.current) cancelAnimationFrame(animRef.current); };
+  }, [speed, getSingleWidth]);
+
+  // Mouse drag
+  const onMouseDown = (e: React.MouseEvent) => {
+    isDragging.current = true;
+    dragStartX.current = e.clientX;
+    dragStartPos.current = posRef.current;
+  };
+  const onMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging.current) return;
+    const delta = e.clientX - dragStartX.current;
+    posRef.current = dragStartPos.current + delta;
+    if (trackRef.current) trackRef.current.style.transform = `translateX(${posRef.current}px)`;
+  };
+  const onMouseUp = () => { isDragging.current = false; };
+
+  // Touch drag
+  const onTouchStart = (e: React.TouchEvent) => {
+    isDragging.current = true;
+    dragStartX.current = e.touches[0].clientX;
+    dragStartPos.current = posRef.current;
+  };
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging.current) return;
+    const delta = e.touches[0].clientX - dragStartX.current;
+    posRef.current = dragStartPos.current + delta;
+    if (trackRef.current) trackRef.current.style.transform = `translateX(${posRef.current}px)`;
+  };
+  const onTouchEnd = () => { isDragging.current = false; };
+
+  return (
+    <div
+      className="overflow-hidden cursor-grab active:cursor-grabbing select-none"
+      style={{
+        maskImage: "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
+        WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
+      }}
+      onMouseDown={onMouseDown}
+      onMouseMove={onMouseMove}
+      onMouseUp={onMouseUp}
+      onMouseLeave={onMouseUp}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+      onMouseEnter={() => { isPaused.current = true; }}
+      onMouseOut={() => { if (!isDragging.current) isPaused.current = false; }}
+    >
+      <div ref={trackRef} className="flex gap-3 will-change-transform" style={{ width: "max-content" }}>
+        {repeated.map((cert, i) => (
+          <div
+            key={i}
+            onClick={() => onImageClick(cert.image)}
+            className="relative flex-shrink-0 w-[160px] overflow-hidden rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 shadow-sm hover:shadow-lg dark:shadow-md dark:hover:shadow-xl transition-all hover:-translate-y-1 duration-200 cursor-pointer"
+          >
+            <div className="relative w-full aspect-[4/3]">
+              <Image src={cert.image} alt={cert.name} fill className="object-cover" />
+            </div>
+            <div className="px-2 py-1.5 bg-white dark:bg-transparent">
+              <p className="text-[11px] text-gray-700 dark:text-white/60 truncate font-medium">{cert.name}</p>
+              <p className="text-[9px] text-gray-400 dark:text-white/30">{cert.issuer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // ─── GENERAL TAB ─────────────────────────────────────────────────────────────
 function GeneralTab({ onImageClick }: { onImageClick: (src: string) => void }) {
+  // Split certs into 2 rows
+  const mid = Math.ceil(certificatesData.length / 2);
+  const row1 = certificatesData.slice(0, mid);
+  const row2 = certificatesData.slice(mid);
+
   return (
     <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
       {/* BIO */}
@@ -135,24 +255,11 @@ function GeneralTab({ onImageClick }: { onImageClick: (src: string) => void }) {
         <p className="text-center text-xs font-semibold text-gray-400 dark:text-white/40 mb-4 uppercase tracking-widest">
           Certificates
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
-          {certificatesData.map((cert, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.2 }}
-              onClick={() => onImageClick(cert.image)}
-              className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-lg hover:shadow-2xl cursor-pointer"
-            >
-              <div className="relative w-full aspect-[4/3]">
-                <Image src={cert.image} alt={cert.name} fill className="object-cover" />
-              </div>
-              <div className="px-2 py-1.5">
-                <p className="text-xs text-gray-600 dark:text-white/60 truncate">{cert.name}</p>
-                <p className="text-[10px] text-gray-400 dark:text-white/30">{cert.issuer}</p>
-              </div>
-            </motion.div>
-          ))}
+
+        {/* 2-row marquee */}
+        <div className="space-y-3">
+          <CertMarqueeRow certs={row1} reverse={false} onImageClick={onImageClick} />
+          <CertMarqueeRow certs={row2} reverse={true} onImageClick={onImageClick} />
         </div>
 
         {/* SOCIAL MEDIA */}
@@ -189,6 +296,8 @@ function EducationCard({
 }) {
   const [open, setOpen] = useState(false);
   const hasDetails = edu.details && edu.details.length > 0;
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
   return (
     <motion.div
@@ -201,14 +310,14 @@ function EducationCard({
       <BorderGlow
         className="w-full shadow-sm hover:shadow-md transition-shadow"
         edgeSensitivity={30}
-        glowColor="40 80 80"
-        backgroundColor="#120F17"
+        glowColor={isDark ? "40 80 80" : "120 80 220"}
+        backgroundColor={isDark ? "#120F17" : "#ffffff"}
         borderRadius={44}
         glowRadius={40}
-        glowIntensity={1}
+        glowIntensity={isDark ? 1 : 0.6}
         coneSpread={25}
         animated={false}
-        colors={['#c084fc', '#f472b6', '#38bdf8']}
+        colors={isDark ? ['#c084fc', '#f472b6', '#38bdf8'] : ['#818cf8', '#c084fc', '#38bdf8']}
       >
       {/* MAIN ROW */}
       <div className="flex items-start gap-5 p-5">
@@ -242,13 +351,13 @@ function EducationCard({
           </div>
 
           {/* ROW 2: Institution */}
-          <p className="text-sm font-medium text-gray-600 dark:text-white/70 mt-1.5">
+          <p className="text-sm font-medium text-gray-700 dark:text-white/70 mt-1.5">
             {edu.institution}
           </p>
 
           {/* ROW 3: Field */}
           {edu.field && (
-            <p className="text-xs text-gray-400 dark:text-white/40 mt-0.5">
+            <p className="text-xs text-gray-500 dark:text-white/40 mt-0.5">
               Field: {edu.field}
             </p>
           )}

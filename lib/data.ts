@@ -228,7 +228,7 @@ export const projectsData = [
       "/images/icon/pandas.svg",
       "/images/icon/numpy.svg",
       "/images/icon/scikit-learn.svg",
-      "/images/icon/streamlit.svg",
+      "/images/icon/Streamlit.svg",
     ],
     demoUrl: null,
     githubUrl:
