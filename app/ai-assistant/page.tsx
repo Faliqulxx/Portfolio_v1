@@ -76,7 +76,7 @@ export default function AIAssistantPage() {
   const isEmpty = messages.length === 0;
 
   return (
-    <div className="fixed inset-0 top-[4.5rem] sm:top-[5.5rem] pb-4 px-4 sm:px-6 lg:px-8 flex flex-col items-center overflow-hidden z-[100] bg-gray-50 dark:bg-gray-950">
+    <div className="fixed inset-0 top-0 sm:top-[5.5rem] pt-16 sm:pt-4 pb-4 px-4 sm:px-6 lg:px-8 flex flex-col items-center overflow-hidden z-[100] bg-gray-50 dark:bg-gray-950">
       {/* DYNAMIC FIT CHAT CONTAINER */}
       <motion.div
         initial={{ opacity: 0, y: 15 }}
