@@ -54,6 +54,7 @@ export const personalData = {
   ],
   tools: ["React", "n8n", "Python", "SQL"],
 } as const;
+
 export const educationData = [
   {
     level: "SD",
@@ -208,6 +209,51 @@ export const projectsData = [
       "Performance Analysis: Utilizes powerful analytics to gain insights, identify improvements, and enhance operational efficiency.",
     ],
     languages: ["Laravel 10", "Bootstrap 5", "MYSQL 8.0", "Jquery"],
+  },
+  {
+    title: "Shopee App Review Intelligence Dashboard",
+    category: ["data", "web"],
+    description:
+      "An interactive data analytics dashboard for analyzing Shopee app reviews using Natural Language Processing and sentiment analysis. The project transforms raw user reviews into actionable insights by analyzing sentiment, rating distribution, review trends, and common topics to better understand customer opinions and user experience.",
+    image: "images/project/shopee-review-intelligence/1.png",
+    screenshots: [
+      "images/project/shopee-review-intelligence/2.png",
+      "images/project/shopee-review-intelligence/3.png",
+      "images/project/shopee-review-intelligence/4.png",
+      "images/project/shopee-review-intelligence/5.png",
+      "images/project/shopee-review-intelligence/6.png",
+    ],
+    tech: [
+      "/images/icon/python.svg",
+      "/images/icon/pandas.svg",
+      "/images/icon/numpy.svg",
+      "/images/icon/scikit-learn.svg",
+      "/images/icon/streamlit.svg",
+    ],
+    demoUrl: null,
+    githubUrl:
+      "https://github.com/Faliqulxx/Shopee-App-Review-Intelligence-Dashboard",
+    features: [
+      "Interactive dashboard for analyzing Shopee app user reviews.",
+      "Sentiment analysis to classify reviews into positive, neutral, and negative sentiments.",
+      "Analysis of user ratings and overall review distribution.",
+      "Visualization of review trends and customer feedback patterns.",
+      "Identification of common topics and frequently discussed issues.",
+      "Natural Language Processing pipeline for Indonesian user reviews.",
+      "Text preprocessing including cleaning, normalization, and tokenization.",
+      "Interactive data visualizations to support business insights.",
+      "Dashboard designed to transform raw customer feedback into actionable insights.",
+      "Helps identify common complaints, positive experiences, and areas for product improvement.",
+    ],
+    languages: [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Scikit-learn",
+      "Natural Language Processing",
+      "Sentiment Analysis",
+      "Streamlit",
+    ],
   },
   {
     title: "E-Commerce Ikan Me",
