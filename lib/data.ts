@@ -881,7 +881,7 @@ export const experiencesData = [
     location: "DISPARTA Kab. Pasuruan",
     description:
       "Maintained and improved official websites for DISPARTA and OnTrip, including bug fixing, feature enhancements, performance optimization, and resolving user-reported issues. Collaborated with stakeholders to ensure system reliability, usability, and alignment with organizational requirements.",
-    icon: React.createElement(CgWorkAlt),
+    icon: "CgWorkAlt",
     date: "Jul 2025 - Aug 2025",
     image: chatbotAiImg,
   },
@@ -890,7 +890,7 @@ export const experiencesData = [
     location: "Gresik",
     description:
       "Worked as a freelance web developer supporting UMKM and small online businesses by developing, customizing, and maintaining websites and online stores. Handled feature implementation, bug fixing, UI improvements, and basic system optimization to ensure usability, reliability, and alignment with client requirements.",
-    icon: React.createElement(CgWorkAlt),
+    icon: "CgWorkAlt",
     date: "Mar 2022 - Dec 2022",
     image: autogateImg,
   },
@@ -899,7 +899,7 @@ export const experiencesData = [
     location: "PT Time Excelindo",
     description:
       "Worked as a Data Scientist through the Kampus Merdeka program, focusing on data analysis and data-driven feature development for HR tools. Performed data processing, analysis, and visualization related to employee attendance, shift patterns, leave and overtime records, and employee performance assessments to support operational and decision-making processes.",
-    icon: React.createElement(CgWorkAlt),
+    icon: "CgWorkAlt",
     date: "Aug 2021 - Feb 2022",
     image: hrtoolsImg,
   },
