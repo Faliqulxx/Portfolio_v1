@@ -1,7 +1,4 @@
-import React from "react";
-import { CgWorkAlt } from "react-icons/cg";
-import { FaReact } from "react-icons/fa";
-import { LuGraduationCap } from "react-icons/lu";
+// Icons will be mapped in components/experience.tsx
 import chatbotAiImg from "@/public/images/project/chatbot_ai/1.png";
 import autogateImg from "@/public/images/project/autogate/1.png";
 import automationAiImg from "@/public/images/project/automation-ai/1.png";
@@ -875,7 +872,7 @@ export const experiencesData = [
     location: "Gresik",
     description:
       "Worked as an AI Automation Intern focusing on the development of an AI-based chatbot for the Informatics Study Program. Designed and implemented automated workflows, integrated APIs, and supported chatbot functionality to provide academic information and improve user interaction efficiency.",
-    icon: React.createElement(CgWorkAlt),
+    icon: "CgWorkAlt",
     date: "Jul 2025 - Present",
     image: automationAiImg,
   },

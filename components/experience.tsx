@@ -6,6 +6,15 @@ import ScrollStack, { ScrollStackItem } from "./scroll-stack";
 import { experiencesData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
 import Image from "next/image";
+import { CgWorkAlt } from "react-icons/cg";
+import { FaReact } from "react-icons/fa";
+import { LuGraduationCap } from "react-icons/lu";
+
+const iconMap: Record<string, React.ReactNode> = {
+  CgWorkAlt: React.createElement(CgWorkAlt),
+  FaReact: React.createElement(FaReact),
+  LuGraduationCap: React.createElement(LuGraduationCap),
+};
 
 export default function Experience() {
   const { ref } = useSectionInView("Experience");
@@ -65,7 +74,7 @@ export default function Experience() {
                       </p>
                     </div>
                     <div className="bg-brand-violet/10 p-2 rounded-full text-base flex items-center justify-center border border-brand-violet/20 shrink-0">
-                      {item.icon}
+                      {iconMap[item.icon as string] || item.icon}
                     </div>
                   </div>
                   <p className="text-xs leading-relaxed text-black dark:text-white/70">
@@ -90,7 +99,7 @@ export default function Experience() {
                       </p>
                     </div>
                     <div className="bg-brand-violet/10 p-3 rounded-full text-xl flex items-center justify-center border border-brand-violet/20 shrink-0">
-                      {item.icon}
+                      {iconMap[item.icon as string] || item.icon}
                     </div>
                   </div>
                   <p className="leading-relaxed text-black dark:text-white/70 text-xs lg:text-sm line-clamp-5">
