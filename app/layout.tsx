@@ -9,6 +9,8 @@ import ToasterProvider from "@/components/ToasterProvider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import LoadingScreen from "@/components/loading/LoadingScreen";
+import { CVPreviewProvider } from "@/context/cv-preview-context";
+import CVPreviewModal from "@/components/cv/CVPreviewModal";
 
 const inter = Inter({ subsets: ["latin"] });
 const baseUrlMeta = `${new URL("https://faliqulisback.my.id/")}`;
@@ -99,14 +101,17 @@ export default function RootLayout({
         <LoadingScreen />
 
         <ThemeContextProvider>
-          <ActiveSectionContextProvider>
-            <Header />
-            {children}
-            <Footer />
+          <CVPreviewProvider>
+            <ActiveSectionContextProvider>
+              <Header />
+              {children}
+              <Footer />
+              <CVPreviewModal />
 
-            <ToasterProvider />
-            <ThemeSwitch />
-          </ActiveSectionContextProvider>
+              <ToasterProvider />
+              <ThemeSwitch />
+            </ActiveSectionContextProvider>
+          </CVPreviewProvider>
         </ThemeContextProvider>
         <Analytics />
         <SpeedInsights />

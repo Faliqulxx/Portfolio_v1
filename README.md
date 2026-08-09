@@ -63,7 +63,7 @@ This project is built using modern web development technologies:
 I am continuously improving this portfolio. Here are some features planned for future releases:
 
 - [x] 🤖 **AI Portfolio Assistant** (Integrated with Google Gemini)
-- [ ] 📄 **Interactive CV Integration**
+- [x] 📄 **Interactive CV Integration**
 - [ ] 🎓 **Thesis / Academic Papers Showcase**
 - [ ] 📜 **Dedicated Certificates Page**
 - [ ] 📝 **Tech Blog Section**

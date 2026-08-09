@@ -9,10 +9,13 @@ import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
 import { RiMailSendLine } from "react-icons/ri";
 import { useSectionInView } from "@/lib/hooks";
+import { personalData } from "@/lib/data";
+import { useCVPreview } from "@/context/cv-preview-context";
 import CircularText from "./circular-text";
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
+  const { openPreview } = useCVPreview();
 
   return (
     <section
@@ -57,14 +60,19 @@ export default function Intro() {
               <BsArrowRight className="group-hover:translate-x-1 transition" />
             </Link>
 
-            <a
-              href="/cv/Faliqul Ishbah CV.pdf"
-              download
+            <button
+              onClick={() =>
+                openPreview(
+                  "/cv/Faliqul Ishbah CV.pdf",
+                  "/cv/Faliqul Ishbah CV.pdf",
+                  "Faliqul Ishbah — CV"
+                )
+              }
               className="group bg-gray-100 dark:bg-white/5 border border-brand-violet/30 text-black dark:text-white/80 px-7 py-3 flex items-center gap-2 rounded-full hover:-translate-y-0.5 hover:border-brand-violet hover:shadow-glow-card transition-all font-medium backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet focus-visible:ring-offset-2"
             >
               Download CV
               <HiDownload className="group-hover:translate-y-1 transition" />
-            </a>
+            </button>
           </motion.div>
         </div>
 

@@ -6,14 +6,16 @@ import { contactData, personalData, links } from "@/lib/data";
 import { FiMail, FiGithub, FiLinkedin, FiInstagram, FiFileText, FiArrowUp } from "react-icons/fi";
 import Link from "next/link";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import { useCVPreview } from "@/context/cv-preview-context";
 
 const socialLinks = [
-  { name: "Email", icon: <FiMail />, url: `mailto:${contactData.email}` },
-  { name: "GitHub", icon: <FiGithub />, url: contactData.github },
-  { name: "LinkedIn", icon: <FiLinkedin />, url: contactData.linkedin },
-  { name: "Instagram", icon: <FiInstagram />, url: contactData.instagram },
-  { name: "Resume", icon: <FiFileText />, url: personalData.cvUrl },
+  { name: "Email", icon: <FiMail />, url: `mailto:${contactData.email}`, isResume: false },
+  { name: "GitHub", icon: <FiGithub />, url: contactData.github, isResume: false },
+  { name: "LinkedIn", icon: <FiLinkedin />, url: contactData.linkedin, isResume: false },
+  { name: "Instagram", icon: <FiInstagram />, url: contactData.instagram, isResume: false },
+  { name: "Resume", icon: <FiFileText />, url: "/cv/resumev.pdf", isResume: true },
 ];
+
 
 const techStack = [
   "Next.js",
@@ -27,6 +29,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   const [showBackToTop, setShowBackToTop] = useState(false);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+  const { openPreview } = useCVPreview();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -126,24 +129,45 @@ export default function Footer() {
           <motion.div variants={itemVariants} className="flex flex-col gap-6 items-center md:items-start text-center md:text-left">
             <h3 className="text-xl font-bold text-black dark:text-white">Connect</h3>
             <div className="flex flex-wrap justify-center md:justify-start gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.name}
-                  title={social.name}
-                  className="group relative flex items-center justify-center w-12 h-12 bg-gray-100 dark:bg-white/5 border border-brand-violet/20 text-black dark:text-white/50 rounded-full hover:bg-brand-violet/10 hover:text-black dark:hover:text-white hover:border-brand-violet/50 hover:shadow-glow-violet transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-brand-violet"
-                >
-                  <span className="text-xl">{social.icon}</span>
-                  {/* Tooltip */}
-                  <span className="absolute -top-10 scale-0 group-hover:scale-100 transition-transform duration-200 bg-brand-violet text-white text-xs py-1 px-2 rounded font-medium shadow-lg pointer-events-none origin-bottom whitespace-nowrap z-10">
-                    {social.name}
-                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 border-[4px] border-transparent border-t-brand-violet" />
-                  </span>
-                </a>
-              ))}
+              {socialLinks.map((social) =>
+                social.isResume ? (
+                  <button
+                    key={social.name}
+                    onClick={() =>
+                      openPreview(
+                        "/cv/resumev.pdf",
+                        "/cv/resumev.pdf",
+                        "Faliqul Ishbah — Resume"
+                      )
+                    }
+                    aria-label={social.name}
+                    title={social.name}
+                    className="group relative flex items-center justify-center w-12 h-12 bg-gray-100 dark:bg-white/5 border border-brand-violet/20 text-black dark:text-white/50 rounded-full hover:bg-brand-violet/10 hover:text-black dark:hover:text-white hover:border-brand-violet/50 hover:shadow-glow-violet transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-brand-violet"
+                  >
+                    <span className="text-xl">{social.icon}</span>
+                    <span className="absolute -top-10 scale-0 group-hover:scale-100 transition-transform duration-200 bg-brand-violet text-white text-xs py-1 px-2 rounded font-medium shadow-lg pointer-events-none origin-bottom whitespace-nowrap z-10">
+                      {social.name}
+                      <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 border-[4px] border-transparent border-t-brand-violet" />
+                    </span>
+                  </button>
+                ) : (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.name}
+                    title={social.name}
+                    className="group relative flex items-center justify-center w-12 h-12 bg-gray-100 dark:bg-white/5 border border-brand-violet/20 text-black dark:text-white/50 rounded-full hover:bg-brand-violet/10 hover:text-black dark:hover:text-white hover:border-brand-violet/50 hover:shadow-glow-violet transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-brand-violet"
+                  >
+                    <span className="text-xl">{social.icon}</span>
+                    <span className="absolute -top-10 scale-0 group-hover:scale-100 transition-transform duration-200 bg-brand-violet text-white text-xs py-1 px-2 rounded font-medium shadow-lg pointer-events-none origin-bottom whitespace-nowrap z-10">
+                      {social.name}
+                      <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 border-[4px] border-transparent border-t-brand-violet" />
+                    </span>
+                  </a>
+                )
+              )}
             </div>
 
             {/* MAP */}
