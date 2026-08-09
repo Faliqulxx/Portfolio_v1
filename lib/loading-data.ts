@@ -54,10 +54,10 @@ export const networkEdges: NetworkEdge[] = [
 export const networkCenter = { x: 400, y: 200 };
 
 export const roleTitles = [
-  "Artificial Intelligence",
   "Data Science",
+  "Data Analys",
   "AI Automation",
-  "Front-End Engineer",
+  "Frontend dev",
 ] as const;
 
 export const bootMessages = [

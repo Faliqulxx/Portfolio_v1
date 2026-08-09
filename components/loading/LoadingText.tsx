@@ -27,11 +27,11 @@ export default function LoadingText({
       index += 1;
       if (index < roleTitles.length) {
         setRoleIndex(index);
-        timer = setTimeout(advance, 420);
+        timer = setTimeout(advance, 600);
       }
     };
 
-    timer = setTimeout(advance, 420);
+    timer = setTimeout(advance, 600);
     return () => {
       cancelled = true;
       clearTimeout(timer);

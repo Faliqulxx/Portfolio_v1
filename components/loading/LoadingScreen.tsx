@@ -14,11 +14,11 @@ export type LoadingStage = "particles" | "connect" | "reveal" | "exit";
 // the actual per-frame animation work, not us.
 const STAGE_TIMELINE: { stage: LoadingStage; at: number }[] = [
   { stage: "particles", at: 0 },
-  { stage: "connect", at: 550 },
-  { stage: "reveal", at: 1300 },
-  { stage: "exit", at: 3100 },
+  { stage: "connect", at: 500 },
+  { stage: "reveal", at: 1200 },
+  { stage: "exit", at: 3800 },
 ];
-const UNMOUNT_AFTER = 3700; // includes the exit transition itself
+const UNMOUNT_AFTER = 4400; // includes the exit transition itself
 
 export default function LoadingScreen() {
   const prefersReducedMotion = !!useReducedMotion();
@@ -75,8 +75,6 @@ export default function LoadingScreen() {
           }}
         >
           <LoadingBackground stage={stage} reducedMotion={prefersReducedMotion} />
-
-          {!prefersReducedMotion && <LoadingNetwork stage={stage} />}
 
           <div className="relative z-10 flex flex-col items-center px-6 text-center">
             <LoadingText stage={stage} reducedMotion={prefersReducedMotion} />

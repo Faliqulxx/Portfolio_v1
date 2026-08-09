@@ -20,7 +20,7 @@ export default function ThemeSwitch() {
     <button
       onClick={toggleTheme}
       className="
-        fixed top-[0.85rem] left-4 sm:top-6 sm:left-auto sm:right-8 z-[9999]
+        fixed top-[0.85rem] left-4 sm:top-6 sm:left-auto sm:right-8 z-[999]
         p-3 sm:p-0 sm:w-[3rem] sm:h-[3rem]
         rounded-full
         bg-white/90 dark:bg-black/80
