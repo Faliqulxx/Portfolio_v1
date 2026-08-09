@@ -88,8 +88,14 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <body
-        className={`${inter.className} bg-gray-50 text-gray-950 relative pt-10 md:pt-36 dark:bg-gray-950 dark:text-gray-50 dark:text-opacity-90 transition-colors duration-300 overflow-x-hidden`}
+        className={`${inter.className} bg-white dark:bg-black text-gray-900 dark:text-white relative pt-10 md:pt-36 transition-colors duration-300 overflow-x-hidden`}
       >
+        {/* Ambient background glow orbs — dark mode only */}
+        <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden hidden dark:block">
+          <div className="glow-orb-violet absolute -top-40 -left-40 w-[600px] h-[600px] opacity-30" />
+          <div className="glow-orb-electric absolute -bottom-40 -right-40 w-[500px] h-[500px] opacity-20" />
+        </div>
+
         <LoadingScreen />
 
         <ThemeContextProvider>

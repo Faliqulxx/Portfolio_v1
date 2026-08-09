@@ -28,30 +28,30 @@ export default function Intro() {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <span className="font-bold">Faliqul Ishbah.</span>
+            <span className="font-bold text-gradient">Faliqul Ishbah.</span>
           </motion.h1>
 
           <motion.h4
-            className="mb-8 text-lg sm:text-xl lg:text-2xl leading-relaxed"
+            className="mb-8 text-lg sm:text-xl lg:text-2xl leading-relaxed text-black dark:text-white/75"
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
           >
             I have hands-on experience in{" "}
-            <span className="font-bold">
+            <span className="font-bold text-black dark:text-white">
               Data Science, Data Analysis, AI Automation, IoT Development, and
               Frontend Development
             </span>
-            , with expertise in <span className="font-bold">React</span>,{" "}
-            <span className="font-bold">n8n</span>,{" "}
-            <span className="font-bold">Python</span>, and{" "}
-            <span className="font-bold">SQL</span>.
+            , with expertise in <span className="font-bold text-black dark:text-white">React</span>,{" "}
+            <span className="font-bold text-black dark:text-white">n8n</span>,{" "}
+            <span className="font-bold text-black dark:text-white">Python</span>, and{" "}
+            <span className="font-bold text-black dark:text-white">SQL</span>.
           </motion.h4>
 
           {/* BUTTON */}
           <motion.div className="flex flex-col sm:flex-row gap-3">
             <Link
               href="#contact"
-              className="group bg-gray-900 text-white dark:bg-white dark:text-gray-900 px-7 py-3 flex items-center gap-2 rounded-full hover:-translate-y-0.5 hover:shadow-md transition-all font-medium shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:focus-visible:ring-gray-300 dark:focus-visible:ring-offset-gray-950"
+              className="btn-brand px-7 py-3 flex items-center gap-2 rounded-full font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
             >
               Contact Me
               <BsArrowRight className="group-hover:translate-x-1 transition" />
@@ -60,7 +60,7 @@ export default function Intro() {
             <a
               href="/cv/Faliqul Ishbah CV.pdf"
               download
-              className="group bg-white dark:bg-white/10 text-gray-900 dark:text-white/80 border border-gray-200 dark:border-white/10 px-7 py-3 flex items-center gap-2 rounded-full hover:-translate-y-0.5 hover:shadow-md transition-all font-medium shadow-sm backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:focus-visible:ring-gray-300 dark:focus-visible:ring-offset-gray-950"
+              className="group bg-gray-100 dark:bg-white/5 border border-brand-violet/30 text-black dark:text-white/80 px-7 py-3 flex items-center gap-2 rounded-full hover:-translate-y-0.5 hover:border-brand-violet hover:shadow-glow-card transition-all font-medium backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet focus-visible:ring-offset-2"
             >
               Download CV
               <HiDownload className="group-hover:translate-y-1 transition" />
@@ -83,7 +83,7 @@ export default function Intro() {
                 text="Available for Work * Available for Collaboration * "
                 spinDuration={18}
                 onHover="goBonkers"
-                className="w-full h-full text-[0.52rem] sm:text-[0.58rem] lg:text-[0.68rem] xl:text-[0.72rem] text-gray-400 dark:text-gray-400"
+                className="w-full h-full text-[0.52rem] sm:text-[0.58rem] lg:text-[0.68rem] xl:text-[0.72rem] text-black dark:text-white/60"
               />
             </div>
 
@@ -93,7 +93,7 @@ export default function Intro() {
               alt="Faliqul Ishbah"
               width={256}
               height={256}
-              className="w-32 h-32 sm:w-40 sm:h-40 lg:w-56 lg:h-56 xl:w-64 xl:h-64 rounded-full object-cover border-[0.35rem] border-white shadow-xl z-10 relative"
+              className="w-32 h-32 sm:w-40 sm:h-40 lg:w-56 lg:h-56 xl:w-64 xl:h-64 rounded-full object-cover border-[0.35rem] border-white shadow-lg dark:border-white/10 dark:shadow-none z-10 relative"
             />
           </div>
 
@@ -101,38 +101,38 @@ export default function Intro() {
           <div className="flex flex-row items-center justify-center gap-3 text-lg mt-5">
             {/* LinkedIn */}
             <a
-              className="group bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 p-4 text-gray-700 dark:text-white/70 hover:bg-gray-100 dark:hover:text-white rounded-full transition-all duration-300 shadow-sm hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:focus-visible:ring-gray-300 dark:focus-visible:ring-offset-gray-950"
+              className="group bg-gray-100 dark:bg-white/5 border border-brand-violet/20 p-4 text-black dark:text-white/60 hover:text-black dark:hover:text-white hover:border-brand-violet/50 hover:bg-brand-violet/10 rounded-full transition-all duration-300 shadow-sm hover:-translate-y-0.5 hover:shadow-glow-violet focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet focus-visible:ring-offset-2"
               href="https://www.linkedin.com/in/faliqulishbah/"
               target="_blank"
             >
-              <BsLinkedin className="transition group-hover:text-gray-900 dark:group-hover:text-white" />
+              <BsLinkedin className="transition" />
             </a>
 
             {/* Email */}
             <a
-              className="group bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 p-4 text-gray-700 dark:text-white/70 hover:bg-gray-100 dark:hover:text-white rounded-full transition-all duration-300 shadow-sm hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:focus-visible:ring-gray-300 dark:focus-visible:ring-offset-gray-950"
+              className="group bg-gray-100 dark:bg-white/5 border border-brand-violet/20 p-4 text-black dark:text-white/60 hover:text-black dark:hover:text-white hover:border-brand-violet/50 hover:bg-brand-violet/10 rounded-full transition-all duration-300 shadow-sm hover:-translate-y-0.5 hover:shadow-glow-violet focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet focus-visible:ring-offset-2"
               href="mailto:faliqul.isback@gmail.com"
               target="_blank"
             >
-              <RiMailSendLine className="transition group-hover:text-gray-900 dark:group-hover:text-white" />
+              <RiMailSendLine className="transition" />
             </a>
 
             {/* GitHub */}
             <a
-              className="group bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 p-4 text-gray-700 dark:text-white/70 hover:bg-gray-100 dark:hover:text-white rounded-full transition-all duration-300 shadow-sm hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:focus-visible:ring-gray-300 dark:focus-visible:ring-offset-gray-950"
+              className="group bg-gray-100 dark:bg-white/5 border border-brand-violet/20 p-4 text-black dark:text-white/60 hover:text-black dark:hover:text-white hover:border-brand-violet/50 hover:bg-brand-violet/10 rounded-full transition-all duration-300 shadow-sm hover:-translate-y-0.5 hover:shadow-glow-violet focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet focus-visible:ring-offset-2"
               href="https://github.com/Faliqulxx"
               target="_blank"
             >
-              <FaGithubSquare className="transition group-hover:text-gray-900 dark:group-hover:text-white" />
+              <FaGithubSquare className="transition" />
             </a>
 
             {/* Instagram */}
             <a
-              className="group bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 p-4 text-gray-700 dark:text-white/70 hover:bg-gray-100 dark:hover:text-white rounded-full transition-all duration-300 shadow-sm hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:focus-visible:ring-gray-300 dark:focus-visible:ring-offset-gray-950"
+              className="group bg-gray-100 dark:bg-white/5 border border-brand-violet/20 p-4 text-black dark:text-white/60 hover:text-black dark:hover:text-white hover:border-brand-violet/50 hover:bg-brand-violet/10 rounded-full transition-all duration-300 shadow-sm hover:-translate-y-0.5 hover:shadow-glow-violet focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet focus-visible:ring-offset-2"
               href="https://www.instagram.com/Faliqulx/"
               target="_blank"
             >
-              <BsInstagram className="transition group-hover:text-gray-900 dark:group-hover:text-white" />
+              <BsInstagram className="transition" />
             </a>
           </div>
         </motion.div>

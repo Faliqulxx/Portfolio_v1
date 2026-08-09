@@ -112,7 +112,7 @@ export const educationData = [
     description:
       "Menempuh pendidikan S1 Teknik Informatika di Universitas Muhammadiyah Gresik dengan IPK 3.65/4.00. Fokus pada Kecerdasan Buatan, Data Science, dan Pengembangan Perangkat Lunak.",
     details: [
-      "Focused on business intelligence, statistics, and machine learning, I specialized in Data Science within the Informatics Engineering program at the University of Muhammadiyah Malang. This rigorous academic path enabled me to develop strong competencies in end-to-end data handling, advanced analytics, and predictive modeling, culminating in graduating with a perfect 3.65/4.00 GPA"
+      "Focused on business intelligence, statistics, and machine learning, I specialized in Data Science within the Informatics Engineering program at the University of Muhammadiyah Malang. This rigorous academic path enabled me to develop strong competencies in end-to-end data handling, advanced analytics, and predictive modeling, culminating in graduating with a perfect 3.59/4.00 GPA"
     ],
   },
 

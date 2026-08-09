@@ -66,7 +66,7 @@ export default function LoadingText({
           {nameRevealed && (
             <motion.p
               key={roleTitles[roleIndex]}
-              className="text-sm font-medium tracking-wide text-sky-300/90 sm:text-base"
+              className="text-sm font-medium tracking-widest text-black dark:text-white sm:text-base uppercase"
               initial={{ opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}

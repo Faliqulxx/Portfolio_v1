@@ -61,7 +61,7 @@ export default function ChatWindow({
           </span>
           <div>
             <p className="text-sm font-semibold dark:text-white">AI Assistant</p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">
+            <p className="text-xs text-black dark:text-gray-400">
               Ask about Faliqul
             </p>
           </div>
@@ -73,7 +73,7 @@ export default function ChatWindow({
               type="button"
               onClick={() => setConfirmingClear(true)}
               aria-label="Clear chat"
-              className="flex items-center gap-1 rounded-full px-2 py-1.5 text-xs font-medium text-gray-500 transition hover:bg-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 dark:text-gray-300 dark:hover:bg-white/10 dark:focus-visible:ring-white/40"
+              className="flex items-center gap-1 rounded-full px-2 py-1.5 text-xs font-medium text-black transition hover:bg-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 dark:text-gray-300 dark:hover:bg-white/10 dark:focus-visible:ring-white/40"
             >
               <HiOutlineTrash className="text-base" />
               <span className="hidden sm:inline">Clear Chat</span>
@@ -82,7 +82,7 @@ export default function ChatWindow({
           <button
             onClick={onClose}
             aria-label="Tutup chat"
-            className="rounded-full p-1.5 text-gray-500 transition hover:bg-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 dark:text-gray-300 dark:hover:bg-white/10 dark:focus-visible:ring-white/40"
+            className="rounded-full p-1.5 text-black transition hover:bg-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 dark:text-gray-300 dark:hover:bg-white/10 dark:focus-visible:ring-white/40"
           >
             <IoClose className="text-lg" />
           </button>

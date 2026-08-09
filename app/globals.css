@@ -2,13 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  --line-color: #e5e7eb;
+/* ==================== BRAND PALETTE TOKENS ==================== */
+:root {
+  --brand-lavender: #F2E6EE;
+  --brand-blush:    #FFECF2;
+  --brand-violet:   #977DFF;
+  --brand-electric: #0033FF;
+  --brand-deep:     #0600AB;
+  --brand-navy:     #00033D;
+
+  --line-color: rgba(151, 125, 255, 0.15);
 }
 
 html.dark {
-  --line-color: rgba(255, 255, 255, 0.2);
+  --line-color: rgba(151, 125, 255, 0.2);
 }
+
+/* ==================== UTILITY CLASSES ==================== */
+
+/* In light mode, just use black text. In dark mode, use gradient */
+.text-gradient {
+  color: #000000;
+  font-weight: bold;
+}
+
+.dark .text-gradient {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Soft gradient text — lavender → violet → electric */
+.text-gradient-soft {
+  color: #000000;
+  font-weight: bold;
+}
+
+.dark .text-gradient-soft {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Brand primary button */
+.btn-brand {
+  background: linear-gradient(135deg, #977DFF 0%, #0033FF 100%);
+  color: #fff;
+  transition: box-shadow 0.25s ease, transform 0.15s ease;
+}
+.btn-brand:hover {
+  box-shadow: 0 0 28px rgba(151, 125, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Brand glass card */
+.card-brand {
+  background: rgba(151, 125, 255, 0.05);
+  border: 1px solid rgba(151, 125, 255, 0.15);
+  backdrop-filter: blur(8px);
+}
+.card-brand:hover {
+  border-color: rgba(151, 125, 255, 0.35);
+  box-shadow: 0 4px 32px rgba(151, 125, 255, 0.12);
+}
+
+/* Brand border */
+.border-brand {
+  border: 1px solid rgba(151, 125, 255, 0.2);
+}
+
+/* Glow orb background decoration */
+.glow-orb-violet {
+  background: radial-gradient(ellipse, rgba(151, 125, 255, 0.25), transparent 65%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+.glow-orb-electric {
+  background: radial-gradient(ellipse, rgba(0, 51, 255, 0.2), transparent 65%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
 
 .borderBlack {
   @apply border border-black/10;

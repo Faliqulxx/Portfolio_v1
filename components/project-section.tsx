@@ -173,7 +173,7 @@ function MarqueeRow({
           transition={{ duration: 0.6, delay: 0.03 * (index % 10) }}
           whileHover={{ scale: isDragging ? 1 : 1.03 }}
           style={{ cursor: isDragging ? "grabbing" : "pointer" }}
-          className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] xl:w-[480px] 2xl:w-[560px] relative overflow-hidden rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-md border border-gray-200/60 dark:border-white/10 shadow-sm transition-all"
+          className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] xl:w-[480px] 2xl:w-[560px] relative overflow-hidden rounded-2xl bg-white dark:bg-white/5 backdrop-blur-md border border-brand-violet/15 shadow-sm hover:border-brand-violet/35 hover:shadow-glow-card transition-all"
         >
           <img
             src={project.image}
@@ -182,10 +182,10 @@ function MarqueeRow({
             draggable={false}
           />
           <div className="p-4">
-            <h3 className="text-xl font-semibold mb-2 dark:text-white">
+            <h3 className="text-xl font-semibold mb-2 text-black dark:text-white">
               {project.title}
             </h3>
-            <p className="text-gray-600 dark:text-gray-200 mb-4 text-left text-pretty leading-relaxed">
+            <p className="text-black dark:text-white/60 mb-4 text-left text-pretty leading-relaxed">
               {project.description}
             </p>
             <div className="flex justify-between items-end">
@@ -207,7 +207,7 @@ function MarqueeRow({
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="text-gray-600 dark:text-gray-200 hover:underline text-xl"
+                    className="text-black dark:text-white/50 hover:text-black dark:hover:text-white transition-colors text-xl"
                   >
                     <BiLinkExternal />
                   </a>
@@ -218,7 +218,7 @@ function MarqueeRow({
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="text-gray-600 dark:text-gray-200 dark:hover:text-gray-100 hover:text-gray-700 text-xl"
+                    className="text-black dark:text-white/50 hover:text-black dark:hover:text-white transition-colors text-xl"
                   >
                     <FaGithub />
                   </a>
@@ -292,8 +292,8 @@ const ProjectSection: React.FC = () => {
               onClick={() => setActiveCategory(option.key)}
               className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
                 activeCategory === option.key
-                  ? "bg-gray-900 text-white dark:bg-white dark:text-gray-900 shadow-md"
-                  : "bg-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/10"
+                  ? "bg-brand-gradient text-white shadow-glow-violet"
+                  : "bg-transparent text-black dark:text-white/50 hover:bg-brand-violet/10 hover:text-black dark:hover:text-white border border-brand-violet/20"
               }`}
             >
               {option.label}
@@ -335,18 +335,18 @@ const ProjectSection: React.FC = () => {
             animate={{ opacity: 1 }}
           >
             {" "}
-            <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl p-6 sm:p-8 max-w-[900px] w-full rounded-2xl shadow-2xl relative overflow-y-auto max-h-[85vh] border border-gray-200/60 dark:border-white/10">
+            <div className="bg-white dark:bg-gray-900 backdrop-blur-xl p-6 sm:p-8 max-w-[900px] w-full rounded-2xl shadow-2xl relative overflow-y-auto max-h-[85vh] border border-brand-violet/20">
               <button
                 onClick={handleCloseModal}
-                className="absolute top-4 right-4 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors bg-gray-100 dark:bg-white/10 rounded-full w-8 h-8 flex items-center justify-center"
+                className="absolute top-4 right-4 text-black dark:text-white/50 hover:text-black dark:hover:text-white transition-colors bg-gray-100 dark:bg-brand-violet/10 hover:bg-brand-violet/20 border border-brand-violet/20 rounded-full w-8 h-8 flex items-center justify-center"
               >
                 <span className="text-xl">&times;</span>
               </button>
-              <h2 className="text-xl font-semibold mb-2 dark:text-white">
+              <h2 className="text-xl font-semibold mb-2 text-black dark:text-white">
                 {selectedProject.title}
               </h2>
               <div className=" relative overflow-y-auto">
-                <p className="modal-content text-gray-600 dark:text-gray-200 mb-4 text-left text-pretty leading-relaxed max-h-60vh">
+                <p className="modal-content text-black dark:text-white/70 mb-4 text-left text-pretty leading-relaxed max-h-60vh">
                   {selectedProject.description}
                 </p>
               </div>
@@ -358,7 +358,7 @@ const ProjectSection: React.FC = () => {
                   {selectedProject.features.map((feature, index) => (
                     <li
                       key={index}
-                      className="text-gray-600 dark:text-gray-200"
+                      className="text-black dark:text-gray-200"
                     >
                       {feature}
                     </li>
@@ -387,7 +387,7 @@ const ProjectSection: React.FC = () => {
                   {selectedProject.languages.map((language, index) => (
                     <span
                       key={index}
-                      className="px-2 py-1 bg-gray-200 text-gray-800 rounded-full text-sm"
+                      className="px-2 py-1 bg-gray-200 text-black rounded-full text-sm"
                     >
                       {language}
                     </span>
@@ -408,7 +408,7 @@ const ProjectSection: React.FC = () => {
             <div className="bg-white dark:bg-[#192D3E] p-8 max-w-[1000px] w-full mx-4 my-8 rounded-xl shadow-lg relative">
               <button
                 onClick={handleCloseZoomedImage}
-                className="absolute top-4 right-4 text-gray-600 dark:text-gray-200 hover:text-gray-700"
+                className="absolute top-4 right-4 text-black dark:text-gray-200 hover:text-black"
               >
                 <span className="text-xl">&times;</span>
               </button>

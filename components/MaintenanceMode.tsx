@@ -4,15 +4,15 @@ const MaintenanceMode: React.FC = () => {
   return (
     <div className="w-full h-screen flex flex-col items-center justify-between">
       <div className="xl:w-1/2 flex-1 flex flex-col items-center justify-center text-center px-4 lg:px-0">
-        <p className="text-4xl font-bold text-gray-700 dark:text-white capitalize tracking-wide mt-8">
+        <p className="text-4xl font-bold text-black dark:text-white capitalize tracking-wide mt-8">
           Website under maintenance!
         </p>
-        <p className="text-xl text-gray-700 dark:text-white uppercase mt-4">
+        <p className="text-xl text-black dark:text-white uppercase mt-4">
           We'll be back soon
         </p>
       </div>
       <div className="w-full py-4 border-t border-gray-300">
-        <div className="container mx-auto flex flex-col md:flex-row items-center justify-center text-gray-600 text-sm md:space-x-8 space-y-1 md:space-y-0">
+        <div className="container mx-auto flex flex-col md:flex-row items-center justify-center text-black text-sm md:space-x-8 space-y-1 md:space-y-0">
           <span className="font-bold dark:text-white">You can contact us:</span>
 
           <a

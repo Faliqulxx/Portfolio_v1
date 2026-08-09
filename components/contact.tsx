@@ -95,7 +95,7 @@ export default function Contact() {
       >
         {/* ================= CENTERED INFO ================= */}
         <div className="text-center w-full">
-          <p className="text-gray-700 dark:text-white/80 mb-8 lg:text-lg">
+          <p className="text-black dark:text-white/75 mb-8 lg:text-lg">
             Additionally, I'm currently open for freelance or
             part-time opportunities. If you have an interesting
             project or need extra hands on deck, don't hesitate
@@ -111,16 +111,15 @@ export default function Contact() {
             <textarea
               className="
                 h-40 lg:h-52
-                bg-white
+                bg-gray-100 dark:bg-white/5
                 rounded-xl
-                borderBlack
+                border border-brand-violet/20
+                focus:border-brand-violet focus:outline-none
                 p-4
-                dark:bg-white
-                dark:bg-opacity-80
-                dark:focus:bg-opacity-100
+                text-black dark:text-white
+                placeholder:text-gray-400 dark:placeholder:text-white/30
                 transition-all
-                dark:outline-none
-                dark:text-black
+                resize-none
               "
               placeholder="Write your message..."
               value={message}
@@ -142,15 +141,15 @@ export default function Contact() {
                 onClick={sendWhatsApp}
                 className="
                   flex items-center justify-center gap-2
-                  bg-white dark:bg-white/5
-                  text-gray-700 dark:text-white/80
-                  border border-gray-200 dark:border-white/10
+                  bg-gray-100 dark:bg-white/5
+                  text-black dark:text-white/80
+                  border border-brand-violet/20
                   py-3 px-4
                   rounded-xl
                   font-medium
-                  hover:-translate-y-0.5 hover:shadow-md
+                  hover:-translate-y-0.5 hover:border-brand-violet/50 hover:shadow-glow-card
                   transition-all
-                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:focus-visible:ring-gray-300 dark:focus-visible:ring-offset-gray-950
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet
                 "
               >
                 <BsWhatsapp className="text-[#25D366] text-xl" />
@@ -162,15 +161,15 @@ export default function Contact() {
                 onClick={sendTelegram}
                 className="
                   flex items-center justify-center gap-2
-                  bg-white dark:bg-white/5
-                  text-gray-700 dark:text-white/80
-                  border border-gray-200 dark:border-white/10
+                  bg-gray-100 dark:bg-white/5
+                  text-black dark:text-white/80
+                  border border-brand-violet/20
                   py-3 px-4
                   rounded-xl
                   font-medium
-                  hover:-translate-y-0.5 hover:shadow-md
+                  hover:-translate-y-0.5 hover:border-brand-violet/50 hover:shadow-glow-card
                   transition-all
-                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:focus-visible:ring-gray-300 dark:focus-visible:ring-offset-gray-950
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet
                 "
               >
                 <BsTelegram className="text-[#229ED9] text-xl" />
@@ -182,18 +181,18 @@ export default function Contact() {
                 onClick={sendEmailDirect}
                 className="
                   flex items-center justify-center gap-2
-                  bg-white dark:bg-white/5
-                  text-gray-700 dark:text-white/80
-                  border border-gray-200 dark:border-white/10
+                  bg-gray-100 dark:bg-white/5
+                  text-black dark:text-white/80
+                  border border-brand-violet/20
                   py-3 px-4
                   rounded-xl
                   font-medium
-                  hover:-translate-y-0.5 hover:shadow-md
+                  hover:-translate-y-0.5 hover:border-brand-violet/50 hover:shadow-glow-card
                   transition-all
-                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 dark:focus-visible:ring-gray-300 dark:focus-visible:ring-offset-gray-950
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet
                 "
               >
-                <BsEnvelopeFill className="text-gray-900 dark:text-white text-xl" />
+                <BsEnvelopeFill className="text-black dark:text-white text-xl" />
                 Email
               </button>
             </div>

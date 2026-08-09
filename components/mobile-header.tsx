@@ -25,7 +25,7 @@ export default function MobileHeader() {
         onClick={() => setOpen((prev) => !prev)}
         type="button"
         aria-label="Toggle Navigation Menu"
-        className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border border-gray-200 dark:border-white/10 p-3 text-gray-700 dark:text-white/70 flex items-center gap-2 text-[1.35rem] rounded-full shadow-sm hover:scale-105 transition-all cursor-pointer"
+        className="bg-white/80 dark:bg-black/80 backdrop-blur-md border border-brand-violet/25 p-3 text-black dark:text-white/70 flex items-center gap-2 text-[1.35rem] rounded-full shadow-sm hover:scale-105 hover:border-brand-violet/50 transition-all cursor-pointer"
       >
         {open ? <CgClose /> : <CgMenuRightAlt />}
       </button>
@@ -33,7 +33,7 @@ export default function MobileHeader() {
       <motion.div
         className={`${
           open ? "block" : "hidden"
-        } bg-white dark:bg-gray-900 border border-gray-200 dark:border-white/10 overflow-hidden top-2 mr-5 ml-2 w-56 right-12 absolute rounded-xl z-[999] shadow-2xl backdrop-blur-lg`}
+        } bg-white dark:bg-black border border-brand-violet/20 overflow-hidden top-2 mr-5 ml-2 w-56 right-12 absolute rounded-xl z-[999] shadow-2xl backdrop-blur-lg`}
         animate={open ? "open" : "closed"}
         variants={variants}
       >
@@ -53,13 +53,13 @@ export default function MobileHeader() {
                 }}
                 className={`px-4 py-2.5 text-base font-medium flex items-center justify-between transition-colors ${
                   isActive
-                    ? "bg-gray-100 dark:bg-white/10 text-gray-950 dark:text-white font-semibold"
-                    : "text-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-800/60 hover:text-black dark:hover:text-white"
+                    ? "bg-brand-violet/15 text-black dark:text-white font-bold border-l-2 border-brand-violet"
+                    : "text-black dark:text-white/60 hover:bg-brand-violet/10 hover:text-black dark:hover:text-white"
                 }`}
               >
                 <span>{link.name}</span>
                 {link.name === "AI Assistant" && (
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-600 dark:bg-indigo-500/20 dark:text-indigo-300 font-bold uppercase tracking-wider">
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-brand-violet/20 text-black dark:text-white font-bold uppercase tracking-wider">
                     AI
                   </span>
                 )}

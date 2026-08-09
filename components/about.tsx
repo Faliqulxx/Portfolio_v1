@@ -49,8 +49,8 @@ function TabButton({
         transition-all duration-300
         ${
           active
-            ? "bg-gray-900 text-white dark:bg-white dark:text-gray-900 shadow-md"
-            : "text-gray-500 dark:text-white/50 hover:text-gray-900 dark:hover:text-white"
+            ? "bg-brand-gradient text-white shadow-glow-violet"
+            : "text-black dark:text-white/50 hover:text-black dark:hover:text-white border border-brand-violet/20 hover:border-brand-violet/40"
         }
       `}
     >
@@ -91,7 +91,7 @@ function BioText() {
     const parts = text.split(pattern);
     return parts.map((part, i) =>
       highlights.includes(part) ? (
-        <span key={i} className="font-semibold text-indigo-600 dark:text-indigo-400">
+        <span key={i} className="font-bold text-black dark:text-white">
           {part}
         </span>
       ) : (
@@ -109,7 +109,7 @@ function BioText() {
   }
 
   return (
-    <div className="leading-9 text-lg xl:text-xl text-gray-700 dark:text-white/80 space-y-6 max-w-[80ch]">
+    <div className="leading-9 text-lg xl:text-xl text-black dark:text-white/80 space-y-6 max-w-[80ch]">
       {chunks.map((chunk, i) => (
         <p key={i}>{renderWithBold(chunk.join(" "))}</p>
       ))}
@@ -215,14 +215,14 @@ function CertMarqueeRow({
           <div
             key={i}
             onClick={() => onImageClick(cert.image)}
-            className="relative flex-shrink-0 w-[160px] overflow-hidden rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 shadow-sm hover:shadow-lg dark:shadow-md dark:hover:shadow-xl transition-all hover:-translate-y-1 duration-200 cursor-pointer"
+            className="relative flex-shrink-0 w-[160px] overflow-hidden rounded-xl border border-brand-violet/15 bg-white dark:bg-white/5 hover:border-brand-violet/35 hover:shadow-glow-card transition-all hover:-translate-y-1 duration-200 cursor-pointer"
           >
             <div className="relative w-full aspect-[4/3]">
               <Image src={cert.image} alt={cert.name} fill className="object-cover" />
             </div>
             <div className="px-2 py-1.5 bg-white dark:bg-transparent">
-              <p className="text-[11px] text-gray-700 dark:text-white/60 truncate font-medium">{cert.name}</p>
-              <p className="text-[9px] text-gray-400 dark:text-white/30">{cert.issuer}</p>
+              <p className="text-[11px] text-black dark:text-white/70 truncate font-medium">{cert.name}</p>
+              <p className="text-[9px] text-black dark:text-white/70 dark:text-white/60">{cert.issuer}</p>
             </div>
           </div>
         ))}
@@ -252,7 +252,7 @@ function GeneralTab({ onImageClick }: { onImageClick: (src: string) => void }) {
         transition={{ duration: 0.4 }}
         className="w-full lg:w-[500px] xl:w-[700px] 2xl:w-[800px]"
       >
-        <p className="text-center text-xs font-semibold text-gray-400 dark:text-white/40 mb-4 uppercase tracking-widest">
+        <p className="text-center text-xs font-bold text-black dark:text-white/50 mb-4 uppercase tracking-widest">
           Certificates
         </p>
 
@@ -265,20 +265,20 @@ function GeneralTab({ onImageClick }: { onImageClick: (src: string) => void }) {
         {/* SOCIAL MEDIA */}
         <div className="flex justify-center gap-4 text-2xl mt-8">
           <a href={contactData.linkedin} target="_blank" rel="noreferrer"
-            className="social-btn group bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 p-3 text-gray-700 dark:text-white/70 hover:bg-gray-100 dark:hover:text-white rounded-full transition-all duration-300 shadow-sm hover:scale-105">
-            <BsLinkedin className="transition group-hover:text-gray-900 dark:group-hover:text-white" />
+            className="social-btn group bg-gray-100 dark:bg-white/5 border border-brand-violet/20 p-3 text-black dark:text-white/60 hover:text-black dark:hover:text-white hover:border-brand-violet/50 hover:bg-brand-violet/10 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-glow-violet">
+            <BsLinkedin />
           </a>
           <a href={`mailto:${contactData.email}`} target="_blank" rel="noreferrer"
-            className="social-btn group bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 p-3 text-gray-700 dark:text-white/70 hover:bg-gray-100 dark:hover:text-white rounded-full transition-all duration-300 shadow-sm hover:scale-105">
-            <RiMailSendLine className="transition group-hover:text-gray-900 dark:group-hover:text-white" />
+            className="social-btn group bg-gray-100 dark:bg-white/5 border border-brand-violet/20 p-3 text-black dark:text-white/60 hover:text-black dark:hover:text-white hover:border-brand-violet/50 hover:bg-brand-violet/10 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-glow-violet">
+            <RiMailSendLine />
           </a>
           <a href={contactData.github} target="_blank" rel="noreferrer"
-            className="social-btn group bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 p-3 text-gray-700 dark:text-white/70 hover:bg-gray-100 dark:hover:text-white rounded-full transition-all duration-300 shadow-sm hover:scale-105">
-            <FaGithubSquare className="transition group-hover:text-gray-900 dark:group-hover:text-white" />
+            className="social-btn group bg-gray-100 dark:bg-white/5 border border-brand-violet/20 p-3 text-black dark:text-white/60 hover:text-black dark:hover:text-white hover:border-brand-violet/50 hover:bg-brand-violet/10 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-glow-violet">
+            <FaGithubSquare />
           </a>
           <a href={contactData.instagram} target="_blank" rel="noreferrer"
-            className="social-btn group bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 p-3 text-gray-700 dark:text-white/70 hover:bg-gray-100 dark:hover:text-white rounded-full transition-all duration-300 shadow-sm hover:scale-105">
-            <BsInstagram className="transition group-hover:text-gray-900 dark:group-hover:text-white" />
+            className="social-btn group bg-gray-100 dark:bg-white/5 border border-brand-violet/20 p-3 text-black dark:text-white/60 hover:text-black dark:hover:text-white hover:border-brand-violet/50 hover:bg-brand-violet/10 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-glow-violet">
+            <BsInstagram />
           </a>
         </div>
       </motion.div>
@@ -337,27 +337,27 @@ function EducationCard({
 
           {/* ROW 1: Degree (flex-1) | Tahun | Lokasi — semua dalam satu baris */}
           <div className="flex items-center gap-4 flex-wrap">
-            <h3 className="text-base font-bold text-gray-900 dark:text-white leading-tight mr-auto">
+            <h3 className="text-base font-bold text-black dark:text-white leading-tight mr-auto">
               🎓 {edu.degree}
             </h3>
-            <span className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-white/50 whitespace-nowrap flex-shrink-0">
+            <span className="flex items-center gap-1.5 text-xs text-black dark:text-white/50 whitespace-nowrap flex-shrink-0">
               <FiCalendar className="text-gray-400 dark:text-white/30" />
               {edu.year}
             </span>
-            <span className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-white/50 whitespace-nowrap flex-shrink-0">
+            <span className="flex items-center gap-1.5 text-xs text-black dark:text-white/50 whitespace-nowrap flex-shrink-0">
               <FiMapPin className="text-gray-400 dark:text-white/30" />
               {edu.location}
             </span>
           </div>
 
           {/* ROW 2: Institution */}
-          <p className="text-sm font-medium text-gray-700 dark:text-white/70 mt-1.5">
+          <p className="text-sm font-medium text-black dark:text-white/70 mt-1.5">
             {edu.institution}
           </p>
 
           {/* ROW 3: Field */}
           {edu.field && (
-            <p className="text-xs text-gray-500 dark:text-white/40 mt-0.5">
+            <p className="text-xs text-black dark:text-white/40 mt-0.5">
               Field: {edu.field}
             </p>
           )}
@@ -404,7 +404,7 @@ function EducationCard({
               >
                 <ul className="px-5 pb-5 space-y-2 border-t border-gray-100 dark:border-white/5 pt-4">
                   {edu.details.map((detail, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-white/60">
+                    <li key={i} className="flex items-start gap-2 text-sm text-black dark:text-white/60">
                       <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0" />
                       {detail}
                     </li>

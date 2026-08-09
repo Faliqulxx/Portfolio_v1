@@ -33,7 +33,7 @@ export default function ClearChatDialog({
         </p>
         <p
           id="clear-chat-description"
-          className="mt-1 text-xs text-gray-500 dark:text-gray-400"
+          className="mt-1 text-xs text-black dark:text-gray-400"
         >
           This action cannot be undone.
         </p>
@@ -42,7 +42,7 @@ export default function ClearChatDialog({
             type="button"
             onClick={onCancel}
             autoFocus
-            className="flex-1 rounded-full border border-black/10 py-2 text-xs font-medium text-gray-700 transition hover:bg-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 dark:border-white/10 dark:text-gray-200 dark:hover:bg-white/10"
+            className="flex-1 rounded-full border border-black/10 py-2 text-xs font-medium text-black transition hover:bg-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 dark:border-white/10 dark:text-gray-200 dark:hover:bg-white/10"
           >
             Cancel
           </button>

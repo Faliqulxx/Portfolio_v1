@@ -33,7 +33,7 @@ function ChatMessage({ message }: { message: ChatMessageData }) {
         className={`max-w-[85%] sm:max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
           isUser
             ? "bg-gray-900 text-white dark:bg-indigo-600 dark:text-white rounded-tr-xs"
-            : "bg-white text-gray-800 shadow-md dark:bg-gray-800 dark:text-gray-100 border border-gray-100 dark:border-white/10 rounded-tl-xs"
+            : "bg-white text-black shadow-md dark:bg-gray-800 dark:text-gray-100 border border-gray-100 dark:border-white/10 rounded-tl-xs"
         }`}
       >
         {message.content ? renderMessageContent(message.content) : <TypingIndicator />}
