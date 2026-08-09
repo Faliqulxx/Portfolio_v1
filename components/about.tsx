@@ -123,7 +123,7 @@ function CertMarqueeRow({
   reverse = false,
   onImageClick,
 }: {
-  certs: typeof certificatesData;
+  certs: ReadonlyArray<typeof certificatesData[number]>;
   reverse?: boolean;
   onImageClick: (src: string) => void;
 }) {

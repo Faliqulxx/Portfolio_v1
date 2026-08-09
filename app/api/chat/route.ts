@@ -105,8 +105,8 @@ export async function POST(req: NextRequest) {
       "gemini-2.0-flash-exp",
       "gemini-1.5-pro-latest",
     ];
-    let result = null;
-    let lastError = null;
+    let result: any = null;
+    let lastError: any = null;
 
     for (const modelName of modelsToTry) {
       try {
