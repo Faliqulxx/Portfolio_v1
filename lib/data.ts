@@ -188,13 +188,13 @@ export const projectsData = [
     description:
       "The CGN Logistics Information System is a digital platform that integrates inventory management, inventory control, delivery monitoring, and logistics performance analysis to maximize the efficiency of CGN's logistics operations. The system also provides high security and an intuitive user interface.",
     screenshots: [
-      "images/project/cekresi/1.png",
-      "images/project/cekresi/3.png",
-      "images/project/cekresi/4.png",
-      "images/project/cekresi/2.png",
-      "images/project/cekresi/6.png",
+      "/images/project/cekresi/1.png",
+      "/images/project/cekresi/3.png",
+      "/images/project/cekresi/4.png",
+      "/images/project/cekresi/2.png",
+      "/images/project/cekresi/6.png",
     ],
-    image: "images/project/cekresi/1.png",
+    image: "/images/project/cekresi/1.png",
     tech: [
       "/images/icon/bootstrap.svg",
       "https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg",
@@ -216,13 +216,13 @@ export const projectsData = [
     category: ["data", "web"],
     description:
       "An interactive data analytics dashboard for analyzing Shopee app reviews using Natural Language Processing and sentiment analysis. The project transforms raw user reviews into actionable insights by analyzing sentiment, rating distribution, review trends, and common topics to better understand customer opinions and user experience.",
-    image: "images/project/shopee-review-intelligence/1.png",
+    image: "/images/project/shopee-review-intelligence/1.png",
     screenshots: [
-      "images/project/shopee-review-intelligence/2.png",
-      "images/project/shopee-review-intelligence/3.png",
-      "images/project/shopee-review-intelligence/4.png",
-      "images/project/shopee-review-intelligence/5.png",
-      "images/project/shopee-review-intelligence/6.png",
+      "/images/project/shopee-review-intelligence/2.png",
+      "/images/project/shopee-review-intelligence/3.png",
+      "/images/project/shopee-review-intelligence/4.png",
+      "/images/project/shopee-review-intelligence/5.png",
+      "/images/project/shopee-review-intelligence/6.png",
     ],
     tech: [
       "/images/icon/python.svg",
@@ -262,14 +262,14 @@ export const projectsData = [
     description:
       "This website is an innovative platform designed to assist freshwater fishermen and fish farmers in the village of Berasan Mulya in marketing their products online. We are dedicated to supporting the local economy and the conservation of natural resources.",
     screenshots: [
-      "images/project/ikanme/1.png",
-      "images/project/ikanme/2.png",
-      "images/project/ikanme/3.png",
-      "images/project/ikanme/4.png",
-      // "images/project/ikanme/5.png",
-      "images/project/ikanme/6.png",
+      "/images/project/ikanme/1.png",
+      "/images/project/ikanme/2.png",
+      "/images/project/ikanme/3.png",
+      "/images/project/ikanme/4.png",
+      // "/images/project/ikanme/5.png",
+      "/images/project/ikanme/6.png",
     ],
-    image: "images/project/ikanme/1.png",
+    image: "/images/project/ikanme/1.png",
     tech: [
       "/images/icon/bootstrap.svg",
       "https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg",
@@ -291,12 +291,12 @@ export const projectsData = [
     description:
       "This website is a demonstration of a clone that imitates the appearance and features of the official MPL Indonesia website. It provides information similar to the actual MPL Indonesia website, including match schedules, team listings, and standings.",
     screenshots: [
-      "images/project/mpl/2.png",
-      "images/project/mpl/3.png",
-      "images/project/mpl/4.png",
-      "images/project/mpl/5.png",
+      "/images/project/mpl/2.png",
+      "/images/project/mpl/3.png",
+      "/images/project/mpl/4.png",
+      "/images/project/mpl/5.png",
     ],
-    image: "images/project/mpl/1.png",
+    image: "/images/project/mpl/1.png",
     tech: [
       "/images/icon/next-js.svg",
       "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
@@ -319,14 +319,14 @@ export const projectsData = [
     description:
       "A smart autogate and parking access system based on IoT using ESP32, RFID, ultrasonic sensors, servo motor, LCD display, and web monitoring integration. This system is designed to automate vehicle entry and exit access in residential areas or parking environments using RFID card authentication.",
     screenshots: [
-      "images/project/autogate/1.png",
-      "images/project/autogate/2.png",
-      "images/project/autogate/3.png",
-      "images/project/autogate/ur.png",
-      "images/project/autogate/5.png",
-      "images/project/autogate/7.png",
+      "/images/project/autogate/1.png",
+      "/images/project/autogate/2.png",
+      "/images/project/autogate/3.png",
+      "/images/project/autogate/ur.png",
+      "/images/project/autogate/5.png",
+      "/images/project/autogate/7.png",
     ],
-    image: "images/project/autogate/1.png",
+    image: "/images/project/autogate/1.png",
     tech: [
       "/images/icon/next-js.svg",
       "/images/icon/typescript.svg",
@@ -355,12 +355,12 @@ export const projectsData = [
     description:
       "An intelligent, multi-purpose AI Assistant integrated with n8n workflow automation. It leverages Large Language Models (LLMs) and Vector Databases to provide contextual responses and execute actions across four core modules: Academic Information, Personal Finance Tracking, Appointment Booking, and Car Rental Management.",
     screenshots: [
-      "images/project/automation-ai/1.png",
-      "images/project/automation-ai/2.png",
-      "images/project/automation-ai/3.png",
-      "images/project/automation-ai/4.png",
+      "/images/project/automation-ai/1.png",
+      "/images/project/automation-ai/2.png",
+      "/images/project/automation-ai/3.png",
+      "/images/project/automation-ai/4.png",
     ],
-    image: "images/project/automation-ai/1.png",
+    image: "/images/project/automation-ai/1.png",
     tech: [
       "/images/icon/n8n.svg",
       "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
@@ -383,13 +383,13 @@ export const projectsData = [
     description:
       "An intelligent, multi-purpose WhatsApp AI Assistant integrated with n8n workflow automation. It leverages Large Language Models (LLMs) and Vector Databases to provide contextual responses and execute actions across four core modules: Academic Information, Personal Finance Tracking, Appointment Booking, and Car Rental Management.",
     screenshots: [
-      "images/project/chatbot_ai/1.png",
-      "images/project/chatbot_ai/2.png",
-      "images/project/chatbot_ai/3.png",
-      "images/project/chatbot_ai/4.png",
-      "images/project/chatbot_ai/5.png",
+      "/images/project/chatbot_ai/1.png",
+      "/images/project/chatbot_ai/2.png",
+      "/images/project/chatbot_ai/3.png",
+      "/images/project/chatbot_ai/4.png",
+      "/images/project/chatbot_ai/5.png",
     ],
-    image: "images/project/chatbot_ai/1.png",
+    image: "/images/project/chatbot_ai/1.png",
     tech: [
       "/images/icon/n8n.svg",
       "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
@@ -411,14 +411,14 @@ export const projectsData = [
     category: ["data", "web"],
     description:
       "A deep learning-based web application for classifying 12 cat breeds using image recognition. This project compares CNN Scratch, MobileNetV2, and ResNet50 models, with MobileNetV2 achieving the best classification performance through transfer learning.",
-    image: "images/project/cat-breed/1.png",
+    image: "/images/project/cat-breed/1.png",
     screenshots: [
-      "images/project/cat-breed/2.png",
-      "images/project/cat-breed/3.png",
-      "images/project/cat-breed/4.png",
-      "images/project/cat-breed/5.png",
-      "images/project/cat-breed/6.png",
-      "images/project/cat-breed/7.png",
+      "/images/project/cat-breed/2.png",
+      "/images/project/cat-breed/3.png",
+      "/images/project/cat-breed/4.png",
+      "/images/project/cat-breed/5.png",
+      "/images/project/cat-breed/6.png",
+      "/images/project/cat-breed/7.png",
     ],
     tech: [
       "/images/icon/python.svg",
@@ -450,13 +450,13 @@ export const projectsData = [
     category: ["web"],
     description:
       "This is HR TOOLS which is used to manage employee data, starting from personal data, employee performance appraisal work to the attendance system.",
-    image: "images/project/hr-tools/1.png",
+    image: "/images/project/hr-tools/1.png",
     screenshots: [
-      "images/project/hr-tools/2.png",
-      "images/project/hr-tools/3.png",
-      "images/project/hr-tools/4.png",
-      "images/project/hr-tools/5.png",
-      "images/project/hr-tools/6.png",
+      "/images/project/hr-tools/2.png",
+      "/images/project/hr-tools/3.png",
+      "/images/project/hr-tools/4.png",
+      "/images/project/hr-tools/5.png",
+      "/images/project/hr-tools/6.png",
     ],
     tech: [
       "/images/icon/bootstrap.svg",
@@ -480,11 +480,11 @@ export const projectsData = [
     category: ["data", "web"],
     description:
       "A deep learning-based image classification system that identifies 12 different cat breeds. The project compares CNN Scratch, MobileNetV2, and ResNet50 models, with MobileNetV2 achieving the best performance at 82% accuracy. The trained model is deployed through an interactive web dashboard that allows users to upload cat images and receive breed predictions with confidence scores.",
-    image: "images/project/cat-breed-classification/1.png",
+    image: "/images/project/cat-breed-classification/1.png",
     screenshots: [
-      "images/project/cat-breed-classification/2.png",
-      "images/project/cat-breed-classification/3.png",
-      "images/project/cat-breed-classification/4.png",
+      "/images/project/cat-breed-classification/2.png",
+      "/images/project/cat-breed-classification/3.png",
+      "/images/project/cat-breed-classification/4.png",
     ],
     tech: [
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
@@ -525,14 +525,14 @@ export const projectsData = [
     category: ["web"],
     description:
       "A modern AI chatbot interface inspired by today's leading conversational AI platforms. Designed with a clean, responsive, and user-friendly experience featuring real-time messaging, conversation history, prompt suggestions, and an elegant dark theme.",
-    image: "images/project/ai-ui-chat/1.png",
+    image: "/images/project/ai-ui-chat/1.png",
     screenshots: [
-      "images/project/ai-ui-chat/2.png",
-      "images/project/ai-ui-chat/3.png",
-      "images/project/ai-ui-chat/4.png",
-      "images/project/ai-ui-chat/5.png",
-      "images/project/ai-ui-chat/6.png",
-      "images/project/ai-ui-chat/7.png",
+      "/images/project/ai-ui-chat/2.png",
+      "/images/project/ai-ui-chat/3.png",
+      "/images/project/ai-ui-chat/4.png",
+      "/images/project/ai-ui-chat/5.png",
+      "/images/project/ai-ui-chat/6.png",
+      "/images/project/ai-ui-chat/7.png",
     ],
     tech: [
       "/images/icon/next-js.svg",
@@ -569,13 +569,13 @@ export const projectsData = [
     category: ["web"],
     description:
       "A modern coffee shop landing page designed to showcase coffee products, featured menus, company profile, and contact information. Built with a responsive, visually engaging interface and smooth user experience across all devices.",
-    image: "images/project/coffee-cafe/1.png",
+    image: "/images/project/coffee-cafe/1.png",
     screenshots: [
-      "images/project/coffee-cafe/2.png",
-      "images/project/coffee-cafe/3.png",
-      "images/project/coffee-cafe/4.png",
-      "images/project/coffee-cafe/5.png",
-      "images/project/coffee-cafe/6.png",
+      "/images/project/coffee-cafe/2.png",
+      "/images/project/coffee-cafe/3.png",
+      "/images/project/coffee-cafe/4.png",
+      "/images/project/coffee-cafe/5.png",
+      "/images/project/coffee-cafe/6.png",
     ],
     tech: [
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
@@ -609,12 +609,12 @@ export const projectsData = [
     category: ["web"],
     description:
       "A modern Point of Sale (POS) web application designed to simplify sales transactions, product management, inventory tracking, and business operations. Built with a responsive interface to provide an efficient and user-friendly experience for cashiers and store owners.",
-    image: "images/project/pos/1.png",
+    image: "/images/project/pos/1.png",
     screenshots: [
-      "images/project/pos/2.png",
-      "images/project/pos/3.png",
-      "images/project/pos/4.png",
-      "images/project/pos/5.png",
+      "/images/project/pos/2.png",
+      "/images/project/pos/3.png",
+      "/images/project/pos/4.png",
+      "/images/project/pos/5.png",
     ],
     tech: [
       "/images/icon/next-js.svg",
@@ -651,13 +651,13 @@ export const projectsData = [
     category: ["web"],
     description:
       "A modern digital wedding invitation platform that allows couples to share elegant online invitations with RSVP, event information, photo gallery, love story, countdown timer, gift section, and responsive design for all devices.",
-    image: "images/project/digital-wedding-invitations/1.png",
+    image: "/images/project/digital-wedding-invitations/1.png",
     screenshots: [
-      "images/project/digital-wedding-invitations/2.png",
-      "images/project/digital-wedding-invitations/3.png",
-      "images/project/digital-wedding-invitations/4.png",
-      "images/project/digital-wedding-invitations/5.png",
-      "images/project/digital-wedding-invitations/6.png",
+      "/images/project/digital-wedding-invitations/2.png",
+      "/images/project/digital-wedding-invitations/3.png",
+      "/images/project/digital-wedding-invitations/4.png",
+      "/images/project/digital-wedding-invitations/5.png",
+      "/images/project/digital-wedding-invitations/6.png",
     ],
     tech: [
       "/images/icon/next-js.svg",
