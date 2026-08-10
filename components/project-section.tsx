@@ -158,9 +158,8 @@ function MarqueeRow({
       onTouchMove={handlePointerMove}
       onTouchEnd={endDrag}
       onWheel={handleWheel}
-      className={`flex gap-6 overflow-x-auto scrollbar-hide select-none -mx-4 px-4 sm:mx-0 sm:px-0 ${
-        isDragging ? "cursor-grabbing" : "cursor-grab"
-      }`}
+      className={`flex gap-6 overflow-x-auto scrollbar-hide select-none -mx-4 px-4 sm:mx-0 sm:px-0 ${isDragging ? "cursor-grabbing" : "cursor-grab"
+        }`}
     >
       {items.map((project, index) => (
         <motion.div
@@ -290,11 +289,10 @@ const ProjectSection: React.FC = () => {
               key={option.key}
               type="button"
               onClick={() => setActiveCategory(option.key)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
-                activeCategory === option.key
+              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${activeCategory === option.key
                   ? "bg-brand-gradient text-white shadow-glow-violet"
                   : "bg-transparent text-black dark:text-white/50 hover:bg-brand-violet/10 hover:text-black dark:hover:text-white border border-brand-violet/20"
-              }`}
+                }`}
             >
               {option.label}
             </button>
@@ -333,9 +331,13 @@ const ProjectSection: React.FC = () => {
             className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm flex items-center justify-center z-50 p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            onClick={handleCloseModal}
           >
             {" "}
-            <div className="bg-white dark:bg-gray-900 backdrop-blur-xl p-6 sm:p-8 max-w-[900px] w-full rounded-2xl shadow-2xl relative overflow-y-auto max-h-[85vh] border border-brand-violet/20">
+            <div
+              className="bg-white dark:bg-gray-900 backdrop-blur-xl p-6 sm:p-8 max-w-[900px] w-full rounded-2xl shadow-2xl relative overflow-y-auto max-h-[85vh] border border-brand-violet/20"
+              onClick={(e) => e.stopPropagation()}
+            >
               <button
                 onClick={handleCloseModal}
                 className="absolute top-4 right-4 text-black dark:text-white/50 hover:text-black dark:hover:text-white transition-colors bg-gray-100 dark:bg-brand-violet/10 hover:bg-brand-violet/20 border border-brand-violet/20 rounded-full w-8 h-8 flex items-center justify-center"
@@ -401,11 +403,15 @@ const ProjectSection: React.FC = () => {
       {zoomedImage && (
         <div className="image-modal-overlay flex items-center justify-center">
           <motion.div
-            className="fixed inset-0 flex items-center justify-center z-50"
+            className="fixed inset-0 flex items-center justify-center z-50 bg-black/60"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            onClick={handleCloseZoomedImage}
           >
-            <div className="bg-white dark:bg-[#192D3E] p-8 max-w-[1000px] w-full mx-4 my-8 rounded-xl shadow-lg relative">
+            <div
+              className="bg-white dark:bg-[#192D3E] p-8 max-w-[1000px] w-full mx-4 my-8 rounded-xl shadow-lg relative"
+              onClick={(e) => e.stopPropagation()}
+            >
               <button
                 onClick={handleCloseZoomedImage}
                 className="absolute top-4 right-4 text-black dark:text-gray-200 hover:text-black"
