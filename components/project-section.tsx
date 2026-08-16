@@ -150,10 +150,14 @@ function MarqueeRow({
   return (
     <div
       ref={containerRef}
+      onMouseEnter={() => {
+        pausedRef.current = true;
+        if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+      }}
+      onMouseLeave={endDrag}
       onMouseDown={handlePointerDown}
       onMouseMove={handlePointerMove}
       onMouseUp={endDrag}
-      onMouseLeave={endDrag}
       onTouchStart={handlePointerDown}
       onTouchMove={handlePointerMove}
       onTouchEnd={endDrag}
@@ -181,12 +185,9 @@ function MarqueeRow({
             draggable={false}
           />
           <div className="p-4">
-            <h3 className="text-xl font-semibold mb-2 text-black dark:text-white">
+            <h3 className="text-xl font-semibold mb-4 text-black dark:text-white">
               {project.title}
             </h3>
-            <p className="text-black dark:text-white/60 mb-4 text-left text-pretty leading-relaxed">
-              {project.description}
-            </p>
             <div className="flex justify-between items-end">
               <div className="flex flex-wrap gap-2">
                 {project.tech.map((tech: string, techIndex: number) => (
@@ -237,7 +238,7 @@ const ProjectSection: React.FC = () => {
     triggerOnce: true,
   });
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [zoomedImage, setZoomedImage] = useState<string | null>(null);
+  const [activeSlide, setActiveSlide] = useState<number>(0);
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>("all");
 
   const handleProjectClick = (project: any) => {
@@ -248,15 +249,9 @@ const ProjectSection: React.FC = () => {
   const handleCloseModal = () => {
     setSelectedProject(null);
     document.body.style.overflow = "auto";
+    setActiveSlide(0);
   };
 
-  const handleScreenshotClick = (screenshot: string) => {
-    setZoomedImage(screenshot);
-  };
-
-  const handleCloseZoomedImage = () => {
-    setZoomedImage(null);
-  };
 
   // Filter by the selected category, then split into two roughly-even rows
   const filteredProjects =
@@ -324,110 +319,151 @@ const ProjectSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Modal for detailed description */}
+      {/* ─── PROJECT DETAIL MODAL ─────────────────────────────── */}
       {selectedProject && (
-        <div className="modal-overlay flex items-center justify-center">
+        <motion.div
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={handleCloseModal}
+        >
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm flex items-center justify-center z-50 p-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            onClick={handleCloseModal}
+            className="bg-white dark:bg-gray-950 w-full max-w-5xl max-h-[90vh] rounded-2xl shadow-2xl border border-brand-violet/20 overflow-hidden flex flex-col lg:flex-row"
+            initial={{ scale: 0.92, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.92, opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={(e) => e.stopPropagation()}
           >
-            {" "}
-            <div
-              className="bg-white dark:bg-gray-900 backdrop-blur-xl p-6 sm:p-8 max-w-[900px] w-full rounded-2xl shadow-2xl relative overflow-y-auto max-h-[85vh] border border-brand-violet/20"
-              onClick={(e) => e.stopPropagation()}
-            >
+            {/* ── LEFT: Image Slider ── */}
+            <div className="lg:w-1/2 flex flex-col bg-black/5 dark:bg-black/30">
+              {/* Main slide image */}
+              <div className="relative w-full aspect-video overflow-hidden">
+                <motion.img
+                  key={activeSlide}
+                  src={[
+                    selectedProject.image,
+                    ...selectedProject.screenshots,
+                  ][activeSlide]}
+                  alt={`slide-${activeSlide}`}
+                  className="w-full h-full object-cover"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.25 }}
+                />
+                {/* Prev / Next arrows */}
+                {[selectedProject.image, ...selectedProject.screenshots].length > 1 && (
+                  <>
+                    <button
+                      onClick={() => setActiveSlide((p) => (p === 0 ? [selectedProject.image, ...selectedProject.screenshots].length - 1 : p - 1))}
+                      className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white rounded-full w-8 h-8 flex items-center justify-center transition"
+                    >
+                      &#8249;
+                    </button>
+                    <button
+                      onClick={() => setActiveSlide((p) => (p === [selectedProject.image, ...selectedProject.screenshots].length - 1 ? 0 : p + 1))}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white rounded-full w-8 h-8 flex items-center justify-center transition"
+                    >
+                      &#8250;
+                    </button>
+                  </>
+                )}
+                {/* Slide counter */}
+                <div className="absolute bottom-2 right-3 bg-black/50 text-white text-xs px-2 py-0.5 rounded-full">
+                  {activeSlide + 1} / {[selectedProject.image, ...selectedProject.screenshots].length}
+                </div>
+              </div>
+              {/* Thumbnail strip */}
+              <div className="flex gap-2 p-3 overflow-x-auto scrollbar-hide">
+                {[selectedProject.image, ...selectedProject.screenshots].map((src, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveSlide(i)}
+                    className={`flex-shrink-0 w-16 h-10 rounded-md overflow-hidden border-2 transition ${
+                      i === activeSlide
+                        ? "border-brand-violet"
+                        : "border-transparent opacity-60 hover:opacity-100"
+                    }`}
+                  >
+                    <img src={src} alt={`thumb-${i}`} className="w-full h-full object-cover" />
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* ── RIGHT: Project Details ── */}
+            <div className="lg:w-1/2 overflow-y-auto p-6 flex flex-col gap-4">
+              {/* Close button */}
               <button
                 onClick={handleCloseModal}
-                className="absolute top-4 right-4 text-black dark:text-white/50 hover:text-black dark:hover:text-white transition-colors bg-gray-100 dark:bg-brand-violet/10 hover:bg-brand-violet/20 border border-brand-violet/20 rounded-full w-8 h-8 flex items-center justify-center"
+                className="absolute top-4 right-4 z-10 text-black dark:text-white/50 hover:text-black dark:hover:text-white bg-gray-100 dark:bg-white/10 hover:bg-brand-violet/20 border border-brand-violet/20 rounded-full w-8 h-8 flex items-center justify-center transition"
               >
                 <span className="text-xl">&times;</span>
               </button>
-              <h2 className="text-xl font-semibold mb-2 text-black dark:text-white">
-                {selectedProject.title}
-              </h2>
-              <div className=" relative overflow-y-auto">
-                <p className="modal-content text-black dark:text-white/70 mb-4 text-left text-pretty leading-relaxed max-h-60vh">
-                  {selectedProject.description}
-                </p>
-              </div>
-              <div className="mb-4">
-                <h3 className="text-lg font-semibold mb-2 dark:text-white">
-                  Features I Worked On:
-                </h3>
-                <ul className="list-disc list-inside">
-                  {selectedProject.features.map((feature, index) => (
-                    <li
-                      key={index}
-                      className="text-black dark:text-gray-200"
+
+              {/* Title + action links */}
+              <div>
+                <h2 className="text-2xl font-bold text-black dark:text-white mb-2">{selectedProject.title}</h2>
+                <div className="flex gap-2 flex-wrap">
+                  {selectedProject.demoUrl && (
+                    <a
+                      href={selectedProject.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-brand-violet text-white text-sm font-medium hover:opacity-80 transition"
                     >
+                      <BiLinkExternal className="text-base" /> Live Demo
+                    </a>
+                  )}
+                  {selectedProject.githubUrl && (
+                    <a
+                      href={selectedProject.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-brand-violet/40 text-black dark:text-white text-sm font-medium hover:bg-brand-violet/10 transition"
+                    >
+                      <FaGithub className="text-base" /> GitHub
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              {/* Description */}
+              <div>
+                <p className="text-black dark:text-white/70 leading-relaxed text-sm">{selectedProject.description}</p>
+              </div>
+
+              {/* Features */}
+              <div>
+                <h3 className="text-sm font-semibold uppercase tracking-widest text-black dark:text-white/50 mb-2">Features</h3>
+                <ul className="space-y-1.5">
+                  {selectedProject.features.map((feature, index) => (
+                    <li key={index} className="flex items-start gap-2 text-sm text-black dark:text-white/70">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-violet flex-shrink-0" />
                       {feature}
                     </li>
                   ))}
                 </ul>
               </div>
-              <h4 className="text-lg font-semibold mb-2 dark:text-white">
-                Click the image to enlarge
-              </h4>
-              <div className="flex space-x-4 flex-wrap mb-4">
-                {selectedProject.screenshots.map((screenshot, index) => (
-                  <img
-                    key={index}
-                    src={screenshot}
-                    alt={`Screenshot ${index + 1}`}
-                    className="w-32 h-32 object-cover rounded-md cursor-pointer mb-4"
-                    onClick={() => handleScreenshotClick(screenshot)}
-                  />
-                ))}
-              </div>
-              <h4 className="text-lg font-semibold mb-2 dark:text-white">
-                Language and Tools
-              </h4>
-              <div className="flex justify-between items-end">
-                <div className="flex space-x-2">
-                  {selectedProject.languages.map((language, index) => (
+
+              {/* Tech Stack */}
+              <div>
+                <h3 className="text-sm font-semibold uppercase tracking-widest text-black dark:text-white/50 mb-2">Tech Stack</h3>
+                <div className="flex flex-wrap gap-2">
+                  {selectedProject.languages.map((lang, index) => (
                     <span
                       key={index}
-                      className="px-2 py-1 bg-gray-200 text-black rounded-full text-sm"
+                      className="px-2.5 py-1 bg-brand-violet/10 border border-brand-violet/20 text-black dark:text-white/80 rounded-full text-xs font-medium"
                     >
-                      {language}
+                      {lang}
                     </span>
                   ))}
                 </div>
               </div>
             </div>
           </motion.div>
-        </div>
-      )}
-      {zoomedImage && (
-        <div className="image-modal-overlay flex items-center justify-center">
-          <motion.div
-            className="fixed inset-0 flex items-center justify-center z-50 bg-black/60"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            onClick={handleCloseZoomedImage}
-          >
-            <div
-              className="bg-white dark:bg-[#192D3E] p-8 max-w-[1000px] w-full mx-4 my-8 rounded-xl shadow-lg relative"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                onClick={handleCloseZoomedImage}
-                className="absolute top-4 right-4 text-black dark:text-gray-200 hover:text-black"
-              >
-                <span className="text-xl">&times;</span>
-              </button>
-              <div className="w-full h-[600px] mb-4 overflow-hidden">
-                <img
-                  src={zoomedImage}
-                  alt="Zoomed Screenshot"
-                  className="max-w-full max-h-full object-contain"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
+        </motion.div>
       )}
     </motion.section>
   );

@@ -43,6 +43,11 @@ const CircularText: React.FC<CircularTextProps> = ({
   // Measure the actual container so we can compute exact letter positions
   const containerRef = useRef<HTMLDivElement>(null);
   const [radius, setRadius] = useState(88); // fallback
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -110,7 +115,7 @@ const CircularText: React.FC<CircularTextProps> = ({
       onMouseEnter={handleHoverStart}
       onMouseLeave={handleHoverEnd}
     >
-      {letters.map((letter, i) => {
+      {isMounted && letters.map((letter, i) => {
         // Start from top (−π/2) and go clockwise
         const angle = (2 * Math.PI * i) / letters.length - Math.PI / 2;
         const x = radius + letterRadius * Math.cos(angle); // px from left

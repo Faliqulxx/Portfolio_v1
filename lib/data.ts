@@ -152,6 +152,21 @@ export const certificatesData = [
     image: "/images/certificate/meta.png",
     issuer: "Meta",
   },
+  {
+    name: "Asean Data Science",
+    image: "/images/certificate/Asean Data Science.png",
+    issuer: "SAP Analytics Cloud",
+  },
+  {
+    name: "Classifying Data Using IBM Granite",
+    image: "/images/certificate/Classifying Data Using IBM Granite.png",
+    issuer: "IBM SkillsBuild",
+  },
+  {
+    name: "Getting Started with Data",
+    image: "/images/certificate/Getting Started with Data.png",
+    issuer: "IBM SkillsBuild",
+  },
 ] as const;
 
 export const galleryData = [
@@ -203,7 +218,7 @@ export const projectsData = [
       "/images/icon/postgresql.svg",
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg",
     ],
-    demoUrl: null,
+    demoUrl: "https://hr-tools-pi.vercel.app/dashboard",
     githubUrl: "https://github.com/Faliqulxx/HR-TOOLS",
     features: [
       "Job management for creating and editing job vacancies with department, location, employment type, salary range, and job descriptions.",
@@ -280,7 +295,7 @@ export const projectsData = [
       "/images/icon/scikit-learn.svg",
       "/images/icon/Streamlit.svg",
     ],
-    demoUrl: null,
+    demoUrl: "https://shopee-app-review-intelligence-dash.vercel.app",
     githubUrl:
       "https://github.com/Faliqulxx/Shopee-App-Review-Intelligence-Dashboard",
     features: [
@@ -446,7 +461,7 @@ export const projectsData = [
       "/images/icon/postgresql.svg",
     ],
     demoUrl: null,
-    githubUrl: "https://github.com/faliqulxx",
+    githubUrl: "https://github.com/Faliqulxx/Chatbot-RAG-n8n",
     features: [
       "Retrieval-Augmented Generation (RAG) Implementation: Integrates academic reference documents into the LLM pipeline to provide validated, factual responses regarding campus regulations while minimizing AI hallucinations.",
       "text-embedding-3-small Vector Optimization: Leverages OpenAI's high-performance embedding model to perform precise cosine similarity searches within the vector store against user queries.",
@@ -590,7 +605,7 @@ export const projectsData = [
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
       "https://avatars.githubusercontent.com/u/139895814",
     ],
-    demoUrl: null,
+    demoUrl: "https://ai-ui-chat.vercel.app/",
     githubUrl: "https://github.com/Faliqulxx/AI-uiChat",
     features: [
       "Modern AI chatbot interface inspired by ChatGPT and Gemini.",
@@ -632,7 +647,7 @@ export const projectsData = [
       "/images/icon/javascript.svg",
       "/images/icon/bootstrap.svg",
     ],
-    demoUrl: null,
+    demoUrl: "https://coffe-caf-two.vercel.app/",
     githubUrl: "https://github.com/Faliqulxx/coffe-caf",
     features: [
       "Modern and responsive coffee shop landing page.",
@@ -672,7 +687,7 @@ export const projectsData = [
       "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
       "/images/icon/framer-motion.svg",
     ],
-    demoUrl: null,
+    demoUrl: "https://pos-point-of-sale-three.vercel.app/dashboard",
     githubUrl: "https://github.com/Faliqulxx/POS-point-of-sale",
     features: [
       "Dashboard with business overview and sales statistics.",
@@ -715,7 +730,7 @@ export const projectsData = [
       "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
       "/images/icon/framer-motion.svg",
     ],
-    demoUrl: null,
+    demoUrl: "https://digital-wedding-invitations-rho.vercel.app/",
     githubUrl: "https://github.com/Faliqulxx/digital-wedding-invitations",
     features: [
       "Beautiful and responsive landing page for digital wedding invitations.",

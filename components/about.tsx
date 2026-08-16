@@ -218,7 +218,7 @@ function CertMarqueeRow({
             className="relative flex-shrink-0 w-[160px] overflow-hidden rounded-xl border border-brand-violet/15 bg-white dark:bg-white/5 hover:border-brand-violet/35 hover:shadow-glow-card transition-all hover:-translate-y-1 duration-200 cursor-pointer"
           >
             <div className="relative w-full aspect-[4/3]">
-              <Image src={cert.image} alt={cert.name} fill className="object-cover" />
+              <Image src={cert.image} alt={cert.name} fill sizes="160px" className="object-cover" />
             </div>
             <div className="px-2 py-1.5 bg-white dark:bg-transparent">
               <p className="text-[11px] text-black dark:text-white/70 truncate font-medium">{cert.name}</p>
@@ -550,9 +550,10 @@ export default function About() {
               onClick={(e) => e.stopPropagation()}
             >
               <Image
-                src={selectedImage}
+                src={selectedImage!}
                 alt="Preview"
                 fill
+                sizes="100vw"
                 className="object-contain rounded-2xl"
               />
             </motion.div>
