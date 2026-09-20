@@ -23,7 +23,7 @@ function ChatMessage({ message }: { message: ChatMessageData }) {
         className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-xs shadow-sm mt-0.5 ${
           isUser
             ? "bg-gray-800 text-white dark:bg-white/20"
-            : "bg-indigo-600 text-white dark:bg-indigo-500"
+            : "bg-gradient-to-r from-[#06b6d4] to-[#10b981] text-white"
         }`}
       >
         {isUser ? <FaUser className="text-[10px]" /> : <IoSparkles className="text-[11px]" />}
@@ -32,7 +32,7 @@ function ChatMessage({ message }: { message: ChatMessageData }) {
       <div
         className={`max-w-[85%] sm:max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
           isUser
-            ? "bg-gray-900 text-white dark:bg-indigo-600 dark:text-white rounded-tr-xs"
+            ? "bg-gray-900 text-white dark:bg-[#06b6d4] dark:text-white rounded-tr-xs"
             : "bg-white text-black shadow-md dark:bg-gray-800 dark:text-gray-100 border border-gray-100 dark:border-white/10 rounded-tl-xs"
         }`}
       >

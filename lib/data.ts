@@ -45,7 +45,7 @@ export const personalData = {
   location: "Gresik, Indonesia",
   email: "faliqul.isback@gmail.com",
   profileImage: "/images/profile2.png",
-  cvUrl: "/cv/resumev3.pdf",
+  cvUrl: "/cv/RESUME_FALIQUL ISHBAH.pdf",
   bio: "Hello, I'm Faliq! My primary interests and expertise are in Data Science, supported by skills in Data Analysis, AI Automation, and Internet of Things (IoT). I have experience in data processing, data analysis, data visualization, and machine learning, transforming raw data into valuable insights using Python, Pandas, Scikit-learn, and SQL. In the field of AI Automation, I design and develop automated workflows using n8n, integrate RESTful APIs, and automate data pipelines to improve operational efficiency. I also have a strong interest and hands-on experience in developing IoT systems, sensor-based device monitoring, and implementing smart technologies for livestock farming and smart agriculture. My goal is to create impactful data-driven, AI-powered, and IoT-based solutions through innovative automation that delivers real-world value.",
   expertise: [
     "Data Science",

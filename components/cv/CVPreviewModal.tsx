@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useCallback, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -82,7 +82,7 @@ export default function CVPreviewModal() {
                   <a
                     href={downloadUrl}
                     download
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-violet-600 hover:bg-violet-700 text-white text-xs font-semibold transition-colors shadow-sm"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-[#06b6d4] to-[#10b981] hover:opacity-90 text-white text-xs font-semibold transition-opacity shadow-sm"
                   >
                     <FiDownload size={13} />
                     <span>Download</span>
@@ -102,7 +102,7 @@ export default function CVPreviewModal() {
                 {/* Loading skeleton */}
                 {!iframeLoaded && (
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 z-10">
-                    <div className="w-10 h-10 rounded-full border-4 border-violet-200 border-t-violet-600 animate-spin" />
+                    <div className="w-10 h-10 rounded-full border-4 border-cyan-200 border-t-[#06b6d4] animate-spin" />
                     <p className="text-sm text-gray-400 dark:text-white/40">Loading PDF...</p>
                   </div>
                 )}

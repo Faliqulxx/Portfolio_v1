@@ -19,6 +19,11 @@ export const metadata = {
   title: "Faliqul Ishbah | Portfolio",
   description:
     "Faliqul Ishbah is a web developer with 2 years of experience.",
+  icons: {
+    icon: "/favicon.svg?v=3",
+    shortcut: "/favicon.svg?v=3",
+    apple: "/favicon.svg?v=3",
+  },
   author: "Faliqul Ishbah",
   subject: "Web Development",
   copyright: "© Faliqul Ishbah",

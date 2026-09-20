@@ -50,9 +50,9 @@ function AnimatedSkillIcon({ skill }: { skill: any }) {
         draggable={false}
         className={`w-6 sm:w-8 md:w-12 lg:w-16 xl:w-20 transition-all duration-1000 ${
           isHighlighted
-            ? "grayscale-0 opacity-100 scale-110 drop-shadow-[0_0_12px_rgba(151,125,255,0.7)]"
+            ? "grayscale-0 opacity-100 scale-110 drop-shadow-[0_0_12px_rgba(6,182,212,0.7)]"
             : "grayscale opacity-40 scale-100"
-        } hover:grayscale-0 hover:opacity-100 hover:scale-110 hover:drop-shadow-[0_0_10px_rgba(151,125,255,0.5)] hover:duration-300`}
+        } hover:grayscale-0 hover:opacity-100 hover:scale-110 hover:drop-shadow-[0_0_10px_rgba(6,182,212,0.5)] hover:duration-300`}
       />
     </div>
   );

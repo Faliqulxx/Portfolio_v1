@@ -87,9 +87,9 @@ export default function AIAssistantPage() {
         {/* TOP BAR */}
         <div className="px-4 sm:px-6 py-3 border-b border-gray-100 dark:border-white/10 bg-white/50 dark:bg-gray-900/50 flex items-center justify-between backdrop-blur-md flex-shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 p-0.5 shadow-md">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-gradient-to-r from-[#06b6d4] to-[#10b981] p-0.5 shadow-md">
               <div className="w-full h-full rounded-[14px] bg-white dark:bg-gray-950 flex items-center justify-center">
-                <IoSparkles className="text-indigo-600 dark:text-indigo-400 text-base sm:text-lg" />
+                <IoSparkles className="text-[#06b6d4] text-base sm:text-lg" />
               </div>
             </div>
             <div>
@@ -128,7 +128,7 @@ export default function AIAssistantPage() {
               transition={{ duration: 0.3 }}
               className="h-full flex flex-col items-center justify-center text-center py-2"
             >
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-100 dark:border-indigo-500/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400 text-2xl mb-2 sm:mb-3 shadow-inner">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-cyan-50 dark:bg-cyan-500/10 border border-cyan-100 dark:border-cyan-500/20 flex items-center justify-center text-[#06b6d4] text-2xl mb-2 sm:mb-3 shadow-inner">
                 <HiOutlineLightBulb />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-1">
@@ -146,11 +146,11 @@ export default function AIAssistantPage() {
                     whileHover={{ y: -2, scale: 1.01 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => handlePromptSelect(item.description)}
-                    className="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-white/10 bg-white/60 dark:bg-white/5 hover:bg-indigo-50/50 dark:hover:bg-indigo-500/10 hover:border-indigo-300 dark:hover:border-indigo-500/30 text-left transition-all group shadow-sm flex flex-col justify-between"
+                    className="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-white/10 bg-white/60 dark:bg-white/5 hover:bg-cyan-50/50 dark:hover:bg-cyan-500/10 hover:border-cyan-300 dark:hover:border-cyan-500/30 text-left transition-all group shadow-sm flex flex-col justify-between"
                   >
                     <div className="flex items-center justify-between mb-1.5">
                       <span className="text-xl sm:text-2xl">{item.icon}</span>
-                      <span className="text-[11px] font-semibold text-indigo-600 dark:text-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-[11px] font-semibold text-[#06b6d4] opacity-0 group-hover:opacity-100 transition-opacity">
                         Tanyakan →
                       </span>
                     </div>
@@ -191,12 +191,12 @@ export default function AIAssistantPage() {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ketik pertanyaan Anda tentang Faliqul..."
               disabled={isLoading}
-              className="flex-1 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-white/30 outline-none transition focus:border-indigo-500 dark:focus:border-indigo-400 shadow-inner disabled:opacity-60"
+              className="flex-1 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-white/30 outline-none transition focus:border-[#06b6d4] shadow-inner disabled:opacity-60"
             />
             <button
               type="submit"
               disabled={isLoading || !input.trim()}
-              className="h-10 w-10 sm:h-11 sm:w-11 rounded-xl sm:rounded-2xl bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white flex items-center justify-center transition-all shadow-md hover:shadow-lg disabled:opacity-40 disabled:hover:bg-indigo-600 cursor-pointer flex-shrink-0"
+              className="h-10 w-10 sm:h-11 sm:w-11 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#06b6d4] to-[#10b981] hover:opacity-90 text-white flex items-center justify-center transition-all shadow-md hover:shadow-lg disabled:opacity-40 disabled:hover:opacity-40 cursor-pointer flex-shrink-0"
             >
               <IoSend className="text-sm sm:text-base" />
             </button>

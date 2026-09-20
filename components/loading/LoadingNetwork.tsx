@@ -28,7 +28,7 @@ export default function LoadingNetwork({ stage }: { stage: LoadingStage }) {
               y1={from.y}
               x2={to.x}
               y2={to.y}
-              stroke="rgba(151, 125, 255, 0.45)"
+              stroke="rgba(6, 182, 212, 0.45)"
               strokeWidth={1}
               initial={{ pathLength: 0, opacity: 0 }}
               animate={{
@@ -54,7 +54,7 @@ export default function LoadingNetwork({ stage }: { stage: LoadingStage }) {
               cx={node.x}
               cy={node.y}
               r={3.2}
-              fill="rgba(151, 125, 255, 0.9)"
+              fill="rgba(6, 182, 212, 0.9)"
               initial={{ opacity: 0, scale: 0 }}
               animate={{
                 opacity: dissolving ? 0 : 1,

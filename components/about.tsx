@@ -310,14 +310,14 @@ function EducationCard({
       <BorderGlow
         className="w-full shadow-sm hover:shadow-md transition-shadow"
         edgeSensitivity={30}
-        glowColor={isDark ? "40 80 80" : "120 80 220"}
-        backgroundColor={isDark ? "#120F17" : "#ffffff"}
+        glowColor={isDark ? "40 80 80" : "187 80 180"}
+        backgroundColor={isDark ? "#0f172a" : "#ffffff"}
         borderRadius={44}
         glowRadius={40}
         glowIntensity={isDark ? 1 : 0.6}
         coneSpread={25}
         animated={false}
-        colors={isDark ? ['#c084fc', '#f472b6', '#38bdf8'] : ['#818cf8', '#c084fc', '#38bdf8']}
+        colors={isDark ? ['#06b6d4', '#10b981', '#38bdf8'] : ['#06b6d4', '#10b981', '#38bdf8']}
       >
       {/* MAIN ROW */}
       <div className="flex items-start gap-5 p-5">
@@ -365,7 +365,7 @@ function EducationCard({
           {/* ROW 4: GPA badge — standalone kiri, bukan sejajar kanan */}
           {edu.gpa && (
             <div className="mt-3">
-              <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 px-3 py-1 rounded-full">
+              <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-500/10 border border-cyan-200 dark:border-cyan-500/20 px-3 py-1 rounded-full">
                 <PiMedalFill className="flex-shrink-0" />
                 GPA: {edu.gpa}/{edu.gpaMax}
               </span>
@@ -380,7 +380,7 @@ function EducationCard({
         <>
           <button
             onClick={() => setOpen((v) => !v)}
-            className="mx-5 mb-4 inline-flex items-center gap-1.5 px-4 py-2 bg-indigo-50 dark:bg-indigo-500/10 rounded-full text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-500/20 transition-colors w-fit"
+            className="mx-5 mb-4 inline-flex items-center gap-1.5 px-4 py-2 bg-cyan-50 dark:bg-cyan-500/10 rounded-full text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:bg-cyan-100 dark:hover:bg-cyan-500/20 transition-colors w-fit"
           >
             {open ? (
               <>
@@ -405,7 +405,7 @@ function EducationCard({
                 <ul className="px-5 pb-5 space-y-2 border-t border-gray-100 dark:border-white/5 pt-4">
                   {edu.details.map((detail, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-black dark:text-white/60">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0" />
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#06b6d4] flex-shrink-0" />
                       {detail}
                     </li>
                   ))}

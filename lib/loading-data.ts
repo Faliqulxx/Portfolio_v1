@@ -61,9 +61,5 @@ export const roleTitles = [
 ] as const;
 
 export const bootMessages = [
-  "Initializing AI...",
-  "Loading Knowledge Base...",
-  "Preparing Portfolio...",
-  "Optimizing Experience...",
-  "System Ready",
+
 ] as const;

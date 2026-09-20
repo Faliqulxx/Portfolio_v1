@@ -13,7 +13,7 @@ const socialLinks = [
   { name: "GitHub", icon: <FiGithub />, url: contactData.github, isResume: false },
   { name: "LinkedIn", icon: <FiLinkedin />, url: contactData.linkedin, isResume: false },
   { name: "Instagram", icon: <FiInstagram />, url: contactData.instagram, isResume: false },
-  { name: "Resume", icon: <FiFileText />, url: "/cv/resumev.pdf", isResume: true },
+  { name: "Resume", icon: <FiFileText />, url: "/cv/RESUME_FALIQUL ISHBAH.pdf", isResume: true },
 ];
 
 
@@ -135,8 +135,8 @@ export default function Footer() {
                     key={social.name}
                     onClick={() =>
                       openPreview(
-                        "/cv/resumev.pdf",
-                        "/cv/resumev.pdf",
+                        "/cv/RESUME_FALIQUL ISHBAH.pdf",
+                        "/cv/RESUME_FALIQUL ISHBAH.pdf",
                         "Faliqul Ishbah — Resume"
                       )
                     }

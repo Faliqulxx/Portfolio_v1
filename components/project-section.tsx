@@ -411,7 +411,7 @@ const ProjectSection: React.FC = () => {
                       href={selectedProject.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-brand-violet text-white text-sm font-medium hover:opacity-80 transition"
+                      className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-brand-gradient text-white text-sm font-medium hover:opacity-90 shadow-sm transition"
                     >
                       <BiLinkExternal className="text-base" /> Live Demo
                     </a>
