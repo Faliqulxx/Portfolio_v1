@@ -46,6 +46,38 @@ html.dark {
   font-weight: bold;
 }
 
+/* ==================== LIQUID WAVE TEXT LOADER ==================== */
+.liquid-text-loader {
+  width: fit-content;
+  font-weight: 900;
+  text-transform: uppercase;
+  /* paint-order: stroke fill → stroke digambar di BELAKANG fill,
+     mencegah garis stroke menyilang di dalam counter huruf (A, Q, B, dll) */
+  paint-order: stroke fill;
+  color: #0000;
+  -webkit-text-stroke: 1.5px #000;
+  background:
+    radial-gradient(0.71em at 50% 1em, #000 99%, #0000 101%) calc(50% - 1em) 1em / 2em 200% repeat-x text,
+    radial-gradient(0.71em at 50% -0.5em, #0000 99%, #000 101%) 50% 1.5em / 2em 200% repeat-x text;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: 
+    l10-0 0.8s linear infinite alternate,
+    l10-1 4s linear infinite;
+}
+
+@keyframes l10-0 {
+  to {
+    background-position-x: 50%, calc(50% + 1em);
+  }
+}
+
+@keyframes l10-1 {
+  to {
+    background-position-y: -0.5em, 0;
+  }
+}
+
 /* Soft gradient text — lavender → violet → electric */
 .text-gradient-soft {
   color: #000000;

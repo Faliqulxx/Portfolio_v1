@@ -12,6 +12,7 @@ import { useSectionInView } from "@/lib/hooks";
 import { personalData } from "@/lib/data";
 import { useCVPreview } from "@/context/cv-preview-context";
 import CircularText from "./circular-text";
+import ScrollVelocity from "@/app/components/ScrollVelocity/ScrollVelocity";
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
@@ -21,10 +22,14 @@ export default function Intro() {
     <section
       id="home"
       ref={ref}
-      className="w-full mb-28 sm:mb-32 lg:mb-40 xl:mb-48 scroll-mt-[28rem]"
+      className="w-full mb-28 sm:mb-32 lg:mb-40 xl:mb-48 scroll-mt-[28rem]
+        min-h-[calc(100vh-2.5rem)] md:min-h-[calc(100vh-9rem)]
+        flex flex-col justify-between"
     >
-      <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-16 text-center lg:text-left">
-        {/* TEKS (KIRI) */}
+      {/* ── HERO CONTENT ── */}
+      <div className="flex-1 flex items-center w-full px-4 sm:px-8 lg:px-12">
+        <div className="w-full max-w-[1600px] mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-16 text-center lg:text-left">
+          {/* TEKS (KIRI) */}
         <div className="max-w-2xl 2xl:max-w-3xl">
           <motion.h1
             className="mb-3 text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-tighter leading-tight"
@@ -144,6 +149,19 @@ export default function Intro() {
             </a>
           </div>
         </motion.div>
+      </div>
+      </div>
+
+      {/* ── SCROLL VELOCITY TEXT — Tembus ke kanan dan kiri (Full Bleed) ── */}
+      <div className="w-full overflow-hidden pb-4">
+        <ScrollVelocity
+          texts={[
+            "| Data Scientist | Data Analyst | AI Automation | IoT Developer | Frontend Developer",
+            "Scroll Down",
+          ]}
+          velocity={100}
+          className="custom-scroll-text"
+        />
       </div>
     </section>
   );
